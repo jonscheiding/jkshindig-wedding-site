@@ -56,3 +56,14 @@ section {
   text-align: center;
   font-size: 3rem;
 }
+
+@media only screen and (max-width : 768px) {
+  .break-md {
+    display: block;
+  }
+
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 1.7rem; }
+  h3 { font-size: 1.2rem; }
+}
+  

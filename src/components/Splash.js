@@ -41,7 +41,7 @@ export default class Splash extends Component {
           <SplashOverlay />
         </Background>
         <div className='splash-contents'>
-          <h1>Kaleigh <span className='script'>and</span> Jonathan</h1>
+          <h1>Kaleigh <span className='script break-md'>and</span> Jonathan</h1>
           <h2>March 29, 2019</h2>
           <h2 className='script'>save the date</h2>
           <Bottom>
