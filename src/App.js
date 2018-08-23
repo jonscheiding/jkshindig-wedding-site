@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styled from 'styled-components';
+import { Parallax, Background } from 'react-parallax';
 
 const BackgroundImage = styled.div`
   background-image: url('/splash-image.jpg');
@@ -10,11 +11,8 @@ const BackgroundImage = styled.div`
   height: 100vh;
   width: 100vw;
 
-  position: absolute;
-  top: 0;
-  z-index: -2;
-
   filter: blur(3px);
+  transform: scale(1.05);
 `;
 
 const BackgroundOverlay = styled.div`
@@ -60,22 +58,52 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BackgroundImage />
-        <BackgroundOverlay />
-        <Header1>
-          Kaleigh <Script>and</Script> Jonathan
-        </Header1>
-        <Header2>
-          March 29, 2019
-        </Header2>
-        <Header2 style={{position: 'absolute', bottom: '1vh', width: '100%', boxSizing: 'border-box'}}>
-          Newport Syndicate
-          <Script style={{display: 'block', fontSize: '3vh'}}>
-            <div>18 East 5th Street</div>
-            <div>Newport, Kentucky 41073</div>
-          </Script>
-        </Header2>
+        <Parallax strength={350} style={{height: '100vh'}}>
+          <Background>
+            <BackgroundImage />
+          </Background>
+          <div style={{height: '100vh'}}>
+            <Header1>
+              Kaleigh <Script>and</Script> Jonathan
+            </Header1>
+            <Header2>March 29, 2019</Header2>
+            <Header2 style={{position: 'absolute', bottom: 0, width: '100%', boxSizing: 'border-box'}}>
+              The Newport Syndicate
+              <Script style={{display: 'block', fontSize: '3vh'}}>
+                <div>18 East 5th Street</div>
+                <div>Newport, Kentucky 41073</div>
+              </Script>
+            </Header2>
+          </div>
+        </Parallax>
+        <div style={{position: 'sticky', top: 0}}>
+          <ul>
+            <li>OUR STORY</li>
+            <li>EVENT</li>
+            <li>ATTENDANTS</li>
+            <li>GIFTS</li>
+            <li>RSVP</li>
+          </ul>
+        </div>
+        <div style={{height: '1000vh'}} />
       </div>
+      // <div>
+      //   <BackgroundImage />
+      //   <BackgroundOverlay />
+      //   <Header1>
+      //     Kaleigh <Script>and</Script> Jonathan
+      //   </Header1>
+      //   <Header2>
+      //     March 29, 2019
+      //   </Header2>
+      //   <Header2 style={{position: 'absolute', bottom: '1vh', width: '100%', boxSizing: 'border-box'}}>
+      //     Newport Syndicate
+      //     <Script style={{display: 'block', fontSize: '3vh'}}>
+      //       <div>18 East 5th Street</div>
+      //       <div>Newport, Kentucky 41073</div>
+      //     </Script>
+      //   </Header2>
+      // </div>
     );
   }
 }

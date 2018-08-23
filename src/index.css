@@ -2,7 +2,21 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
 
   color: #f5edd3;
+  background-color: rgb(33, 48, 61);
+}
+
+li {
+  display: inline-block;
+  width: 20%;
+  font-size: 2vh;
+  text-align: center;
+}
+
+ul {
+  margin: 20px;
+  padding: 0;
+  position: sticky;
 }
