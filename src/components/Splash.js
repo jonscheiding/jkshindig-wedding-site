@@ -10,12 +10,6 @@ export default class Splash extends Component {
       background-image: url(${image});
       background-size: cover;
       background-position: center;
-    
-      height: 100vh;
-      width: 100vw;
-    
-      filter: blur(3px);
-      transform: scale(1.05);
     `;
 
     const Overlay = styled.div`
@@ -43,22 +37,20 @@ export default class Splash extends Component {
     return (
       <Parallax strength={350}>
         <Background>
-          <BackgroundImage />
+          <BackgroundImage className='splash-image' />
           <SplashOverlay />
         </Background>
-        <div style={{height: '100vh'}}>
-          <div style={{zIndex: '1'}}>
-            <h1>Kaleigh <span className='script'>and</span> Jonathan</h1>
-            <h2>March 29, 2019</h2>
-            <h2 className='script'>save the date</h2>
-            <Bottom>
-              <h2>Newport Syndicate</h2>
-              <h3 className='script'>
-                <div>18 East 5th Street</div>
-                <div>Newport, Kentucky 41073</div>
-              </h3>
-            </Bottom>
-          </div>
+        <div className='splash-contents'>
+          <h1>Kaleigh <span className='script'>and</span> Jonathan</h1>
+          <h2>March 29, 2019</h2>
+          <h2 className='script'>save the date</h2>
+          <Bottom>
+            <h2>Newport Syndicate</h2>
+            <h3 className='script'>
+              <div>18 East 5th Street</div>
+              <div>Newport, Kentucky 41073</div>
+            </h3>
+          </Bottom>
         </div>
       </Parallax>
     );
