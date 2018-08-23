@@ -2,21 +2,25 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-  letter-spacing: 8px;
+  letter-spacing: 5px;
 
   color: #f5edd3;
-  background-color: rgb(33, 48, 61);
+  background-color: #21303d;
 }
 
-li {
-  display: inline-block;
-  width: 20%;
-  font-size: 2vh;
+.script {
+  font-family: 'Allura', cursive;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+h1, h2, h3 {
   text-align: center;
+  text-transform: uppercase;
+  padding: 0.2em;
+  margin: 0;
 }
 
-ul {
-  margin: 20px;
-  padding: 0;
-  position: sticky;
-}
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.6rem; }
+h3 { font-size: 1.8rem; }
