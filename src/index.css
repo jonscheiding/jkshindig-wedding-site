@@ -25,6 +25,11 @@ h1 { font-size: 3.5rem; }
 h2 { font-size: 2.6rem; }
 h3 { font-size: 1.8rem; }
 
+a, a:active, a:visited, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 .splash-image {      
   filter: blur(3px);
   transform: scale(1.05);
@@ -38,4 +43,16 @@ h3 { font-size: 1.8rem; }
 .navigation {
   height: 2.5rem;
   line-height: 2.5rem;
+  background-color: #21303d
+}
+
+.navigation .current {
+  color: #cc9389;
+  font-size: 1.2em;
+}
+
+section {
+  padding-top: 2.5rem;
+  text-align: center;
+  font-size: 3rem;
 }

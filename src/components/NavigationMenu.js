@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import Scrollspy from 'react-scrollspy';
 import styled from 'styled-components';
 
 export default class NavigationMenu extends Component {
   render() {
-    const Menu = styled.ul`
+    const Menu = styled(Scrollspy)`
       > li {
         display: inline-block;
         width: 25%;
@@ -16,11 +17,15 @@ export default class NavigationMenu extends Component {
     `;
 
     return (
-      <Menu className='navigation'>
-        <li>PEOPLE</li>
-        <li>EVENT</li>
-        <li>GIFTS</li>
-        <li>RSVP</li>
+      <Menu 
+        items={['splash', 'people', 'event', 'gifts', 'rsvp']} 
+        offset={-5}
+        currentClassName='current' className='navigation'>
+        <li style={{ display: 'none' }} />
+        <li><a href='#people'>PEOPLE</a></li>
+        <li><a href='#event'>EVENT</a></li>
+        <li><a href='#gifts'>GIFTS</a></li>
+        <li><a href='#rsvp'>RSVP</a></li>
       </Menu>
     );
   }
