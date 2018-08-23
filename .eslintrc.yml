@@ -1,7 +1,0 @@
-extends: standard-react
-parserOptions:
-  ecmaVersion: 6
-  sourceType: module
-settings:
-  react:
-    version: "15.0"
