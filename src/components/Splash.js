@@ -14,7 +14,7 @@ export default class Splash extends Component {
     const location = content.location.name;
 
     return (
-      <Parallax strength={350}>
+      <Parallax strength={300}>
         <Background>
           <BackgroundImage image={image} className='splash-image' />
           <div className='splash-overlay' />

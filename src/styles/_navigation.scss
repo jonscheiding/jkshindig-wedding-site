@@ -4,6 +4,7 @@
 
   .splash-content, .splash-image {
     height: calc( 100vh - #{$navigation-height} );
+    min-height: 325px;
     width: 100vw;
   }
   
