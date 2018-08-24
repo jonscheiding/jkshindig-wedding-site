@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import { Parallax, Background } from 'react-parallax';
-import styled from 'styled-components';
 import dateFormat from 'dateformat';
 
+import BackgroundImage from './BackgroundImage';
 import image from '../assets/splash-image.jpg';
 import content from '../data/content';
 
 export default class Splash extends Component {
   render() {
-    const BackgroundImage = styled.div`
-      background-image: url(${image});
-    `;
-
-    const names = content.names.map(n => n.first);
+    const names = content.spouses.map(n => n.name.first);
     const date = dateFormat(content.date, 'mmmm d, yyyy');
     const { address, city, state, zip } = content.location;
     const location = content.location.name;
@@ -20,7 +16,7 @@ export default class Splash extends Component {
     return (
       <Parallax strength={350}>
         <Background>
-          <BackgroundImage className='splash-image' />
+          <BackgroundImage image={image} className='splash-image' />
           <div className='splash-overlay' />
         </Background>
         <div className='splash-content'>

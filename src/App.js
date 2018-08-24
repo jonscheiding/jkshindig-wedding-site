@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import flourishImage from './assets/large-flourish.png';
 import Splash from './components/Splash';
 import NavigationMenu from './components/NavigationMenu';
-import { SECTION_COMPONENTS } from './data/sections';
+import sections from './data/sections';
 
 const LargeFlourish = styled.div`
   background-image: url(${flourishImage});
@@ -23,7 +23,7 @@ class App extends Component {
         </div>
         <NavigationMenu />
         <LargeFlourish />
-        {SECTION_COMPONENTS}
+        {sections.map(s => s.component)}
       </div>
     );
   }

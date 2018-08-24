@@ -16,12 +16,7 @@ NamedSection.propTypes = {
   name: PropTypes.string.isRequired
 };
 
-const SECTIONS = {
-  people: <NamedSection name='people' />,
-  event: <NamedSection name='event' />,
-  gifts: <NamedSection name='gifts' />,
-  rsvp: <NamedSection name='rsvp' />
-};
-
-export const SECTION_IDS = Object.keys(SECTIONS);
-export const SECTION_COMPONENTS = SECTION_IDS.map(id => SECTIONS[id]);
+const ids = [ 'people', 'events', 'gifts', 'rsvp' ];
+export default ids.map(id => ({
+  id, component: <NamedSection name={id} />
+}));

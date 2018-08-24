@@ -1,7 +1,7 @@
 export default {
-  names: [
-    { first: 'Kaleigh', last: 'Dillingham' },
-    { first: 'Jonathan', last: 'Scheiding' }
+  spouses: [
+    { name: { first: 'Kaleigh', last: 'Dillingham' } },
+    { name: { first: 'Jonathan', last: 'Scheiding' } }
   ],
   date: new Date(2019, 2, 29),
   location: {
