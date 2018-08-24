@@ -1,79 +1,22 @@
+@import 'styles/_reset';
+@import 'styles/_common';
+@import 'styles/_headings';
+@import 'styles/_navigation';
+@import 'styles/_splash';
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Lato', sans-serif;
-  letter-spacing: 5px;
+  @include primary-font;
 
-  color: #f5edd3;
-  background-color: #21303d;
+  color: $primary-color;
+  background-color: $background-color;
 }
 
-.script {
-  font-family: 'Allura', cursive;
-  text-transform: none;
-  letter-spacing: 0;
+.secondary-text {
+  @include secondary-font;
 }
 
-h1, h2, h3 {
-  text-align: center;
-  text-transform: uppercase;
-  padding: 0.2em;
-  margin: 0;
-}
-
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.6rem; }
-h3 { font-size: 1.8rem; }
-
-a, a:active, a:visited, a:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-.splash-image {      
-  filter: blur(3px);
-  transform: scale(1.05);
-}
-
-.splash-contents, .splash-image {
-  height: calc( 100vh - 2.5rem );
-  width: 100vw;
-}
-
-.navigation {
-  height: 2.5rem;
-  line-height: 2.5rem;
-  background-color: #21303d
-}
-
-.navigation .current {
-  color: #cc9389;
-  font-size: 1.2em;
-}
-
-section {
-  padding-top: 2.5rem;
-  text-align: center;
-  font-size: 3rem;
-}
-
-@media only screen and (max-width : 768px) {
-  .break-md {
+@include breakpoint-md {
+  .block-md {
     display: block;
   }
-
-  h1 { font-size: 2.8rem; }
-  h2 { font-size: 1.7rem; }
-  h3 { font-size: 1.2rem; }
 }
-
-@media only screen and (max-width : 400px) {
-  .splash-contents, .splash-image {
-    height: 100vh;
-  }
-
-  .navigation {
-    display: none;
-  }
-}
-  

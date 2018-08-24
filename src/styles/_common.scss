@@ -1,0 +1,32 @@
+$background-color: #21303d;
+$primary-color: #f5edd3;
+$secondary-color: #cc9389;
+
+@mixin primary-font {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+@mixin secondary-font {
+  font-family: 'Allura', cursive;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 100;
+}
+
+@mixin overlay {
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+}
+
+@mixin breakpoint-md {
+  @media only screen and (max-width: 768px) { @content }; 
+}
+
+@mixin breakpoint-sm {
+  @media only screen and (max-width : 400px) { @content };
+}

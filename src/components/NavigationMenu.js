@@ -6,21 +6,8 @@ import { SECTION_IDS } from '../data/sections';
 
 export default class NavigationMenu extends Component {
   render() {
-    const Menu = styled(Scrollspy)`
-      > li {
-        display: inline-block;
-        width: 25%;
-        text-align: center;
-        text-transform: uppercase;
-      }
-
-      position: sticky;
-      top: 0;
-      margin: 0;
-    `;
-
     return (
-      <Menu 
+      <Scrollspy 
         items={['splash', ...SECTION_IDS]} 
         offset={-5}
         currentClassName='current' className='navigation'>
@@ -28,7 +15,7 @@ export default class NavigationMenu extends Component {
         {SECTION_IDS.map(id => (
           <li><a href={`#${id}`}>{id}</a></li>
         ))}
-      </Menu>
+      </Scrollspy>
     );
   }
 }

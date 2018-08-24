@@ -1,0 +1,27 @@
+.splash-image {
+  filter: blur(3px);
+  transform: scale(1.05);
+
+  background-size: cover;
+  background-position: center;
+}
+
+.splash-overlay {
+  @include overlay;
+
+  background: linear-gradient(
+    rgba(33, 48, 61, 1),
+    rgba(33, 48, 61, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+
+.splash-content .bottom {
+  position: absolute;
+  bottom: 1vh;
+  width: 100%;
+
+  @include breakpoint-sm {
+    bottom: 5vh;
+  }
+}
