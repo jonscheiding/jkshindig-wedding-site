@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
-import Splash from './components/Splash';
-import NavigationMenu from './components/NavigationMenu';
+import styled from 'styled-components';
 
 import flourishImage from './assets/large-flourish.png';
-import styled from 'styled-components';
+import Splash from './components/Splash';
+import NavigationMenu from './components/NavigationMenu';
+import { SECTION_COMPONENTS } from './data/sections';
 
 const LargeFlourish = styled.div`
   background-image: url(${flourishImage});
@@ -23,10 +23,7 @@ class App extends Component {
         </div>
         <NavigationMenu />
         <LargeFlourish />
-        <section id='people' style={{height: '70vh'}}>PEOPLE</section>
-        <section id='event' style={{height: '70vh'}}>EVENT</section>
-        <section id='gifts' style={{height: '70vh'}}>GIFTS</section>
-        <section id='rsvp' style={{height: '70vh'}}>RSVP</section>
+        {SECTION_COMPONENTS}
       </div>
     );
   }
