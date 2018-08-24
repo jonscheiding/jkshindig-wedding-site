@@ -46,7 +46,7 @@ export default class Splash extends Component {
           <BackgroundImage />
           <SplashOverlay />
         </Background>
-        <div style={{height: '100vh'}}>
+        <div style={{height: '100vh', minHeight: '320px'}}>
           <div style={{zIndex: '1'}}>
             <h1>Kaleigh <span className='script break-md'>and</span> Jonathan</h1>
             <h2>March 29, 2019</h2>
