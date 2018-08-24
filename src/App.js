@@ -5,6 +5,7 @@ import flourishImage from './assets/large-flourish.png';
 import Splash from './components/Splash';
 import NavigationMenu from './components/NavigationMenu';
 import sections from './data/sections';
+import content from './data/content';
 
 const LargeFlourish = styled.div`
   background-image: url(${flourishImage});
@@ -26,6 +27,11 @@ class App extends Component {
         {sections.map(s => s.component)}
       </div>
     );
+  }
+
+  componentDidMount() {
+    const names = content.spouses.map(s => s.name.first);
+    document.title = `${names[0]} and ${names[1]}`;
   }
 }
 
