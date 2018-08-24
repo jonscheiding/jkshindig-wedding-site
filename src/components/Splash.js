@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Parallax, Background } from 'react-parallax';
 import styled from 'styled-components';
+import dateFormat from 'dateformat';
 
 import image from '../assets/splash-image.jpg';
+import content from '../data/content';
 
 export default class Splash extends Component {
   render() {
@@ -34,6 +36,11 @@ export default class Splash extends Component {
       width: 100%;
     `;
 
+    const names = content.names.map(n => n.first);
+    const date = dateFormat(content.date, 'mmmm d, yyyy');
+    const { address, city, state, zip } = content.location;
+    const location = content.location.name;
+
     return (
       <Parallax strength={350}>
         <Background>
@@ -41,14 +48,14 @@ export default class Splash extends Component {
           <SplashOverlay />
         </Background>
         <div className='splash-contents'>
-          <h1>Kaleigh <span className='script break-md'>and</span> Jonathan</h1>
-          <h2>March 29, 2019</h2>
+          <h1>{names[0]} <span className='script break-md'>and</span> {names[1]}</h1>
+          <h2>{date}</h2>
           <h2 className='script'>save the date</h2>
           <Bottom>
-            <h2>Newport Syndicate</h2>
+            <h2>{location}</h2>
             <h3 className='script'>
-              <div>18 East 5th Street</div>
-              <div>Newport, Kentucky 41073</div>
+              <div>{address}</div>
+              <div>{city}, {state} {zip}</div>
             </h3>
           </Bottom>
         </div>
