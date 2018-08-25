@@ -3,12 +3,13 @@
   margin: 1.5rem;
 
   .react-parallax-background-children,
-  .react-parallax-content { width: 100%; height: 100%; }
+  .react-parallax-content {
+    width: 100%;
+    height: 100%;
+  }
 
-  /*
-    HACK: Deal with transparent borders on image depending on screen size 
-    Hopefully can go away with a different approach to the "punch-through" hole
-  */
+  // HACK: Deal with transparent borders on image depending on screen size 
+  // Hopefully can go away with a different approach to the "punch-through" hole
   .react-parallax-content { transform: scale(1.02); }
 
   .profile-image {

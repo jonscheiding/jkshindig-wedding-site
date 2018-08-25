@@ -1,28 +1,31 @@
 .splash-image {
+  @include background-fill;
+
   filter: blur(3px);
   transform: scale(1.05);
 
   background-image: url('/assets/splash-image.jpg');
-  @include background-fill;
 }
 
 .splash-overlay {
   @include overlay;
 
   background: linear-gradient(
-    rgba(33, 48, 61, 1),
-    rgba(33, 48, 61, 0.25) 25%,
-    rgba(0, 0, 0, 0) 50%
+    $background-color,
+    transparentize($background-color, .25) 25%,
+    $transparent 50%
   );
 }
 
-.splash-content .bottom {
-  position: absolute;
-  bottom: 1vh;
-  width: 100%;
+.splash-content {
+  .bottom {
+    position: absolute;
+    bottom: 1vh;
+    width: 100%;
 
-  @include breakpoint-sm {
-    bottom: 5vh;
+    @include breakpoint-sm {
+      bottom: 5vh;
+    }
   }
 }
 

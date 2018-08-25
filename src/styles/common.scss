@@ -1,6 +1,7 @@
 $background-color: #21303d;
 $primary-color: #f5edd3;
 $secondary-color: #cc9389;
+$transparent: rgba(0, 0, 0, 0);
 
 @mixin overlay {
   height: 100%;
@@ -23,9 +24,9 @@ $secondary-color: #cc9389;
 }
 
 @mixin breakpoint-md {
-  @media only screen and (max-width: 768px) { @content }; 
+  @media only screen and (max-width: 768px) { @content };
 }
 
 @mixin breakpoint-sm {
-  @media only screen and (max-width : 400px) { @content };
+  @media only screen and (max-width: 400px) { @content };
 }

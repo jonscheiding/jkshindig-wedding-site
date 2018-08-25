@@ -3,22 +3,19 @@
     .profile-picture {
       height: 25vw;
       width: 25vw;
+      margin-top: 0;
     }
 
-    &:first-of-type {
-      float: left;
-    }
-    &:last-of-type {
-      float: right;
-    }
+    &:first-of-type { float: left; }
+    &:last-of-type { float: right; }
   }
 
   .story {
+    padding: 1.5rem;
     text-align: center;
     text-transform: none;
-    padding: 1.5rem;
   }
-    
+
   @include breakpoint-md {
     .spouse {
       .profile-picture {
@@ -26,7 +23,7 @@
         width: 35vw;
       }
 
-      h3 { font-size: 1rem }
+      h3 { font-size: 1rem; }
     }
 
     .story { clear: both; }

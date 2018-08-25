@@ -1,6 +1,8 @@
 @mixin splash-navigation($navigation) {
   $navigation-height: 2.5rem !default;
+  // sass-lint:disable zero-unit
   @if not $navigation { $navigation-height: 0px; }
+  // sass-lint:enable zero-unit
 
   .splash-content, .splash-image {
     height: 100vh;
@@ -8,17 +10,17 @@
     width: 100vw;
 
     .show-navigation & {
-      height: calc( 100vh - #{$navigation-height} );
+      height: calc(100vh - #{$navigation-height});
     }
   }
-  
+
   .navigation {
     height: $navigation-height;
     line-height: $navigation-height;
     background-color: $background-color;
 
     @if not $navigation { display: none; }
-  }  
+  }
 }
 
 @include splash-navigation(true);
@@ -27,21 +29,21 @@
 }
 
 .navigation {
-  > li {
-    display: inline-block;
-    width: 25%;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
   position: sticky;
   top: 0;
   margin: 0;  
   z-index: 10;
 
-  .current {
-    color: $secondary-color;
-    font-size: 1.2em;
+  > li {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    text-transform: uppercase;
+
+    &.current {
+      color: $secondary-color;
+      font-size: 1.2em;
+    }
   }
 }
 
