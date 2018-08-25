@@ -1,22 +1,16 @@
 @import 'styles/_reset';
 @import 'styles/_common';
 @import 'styles/_embellishments';
-@import 'styles/_headings';
 @import 'styles/_navigation';
 @import 'styles/_profiles';
 @import 'styles/_splash';
+@import 'styles/_text';
 
 @import 'styles/_sections';
 
 body {
-  @include primary-font;
-
   color: $primary-color;
   background-color: $background-color;
-}
-
-.secondary-text {
-  @include secondary-font;
 }
 
 @include breakpoint-md {

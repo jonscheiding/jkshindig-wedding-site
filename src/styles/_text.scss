@@ -1,0 +1,47 @@
+@mixin primary-font {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@mixin secondary-font {
+  font-family: 'Allura', cursive;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 100;
+}
+body {
+  @include primary-font;
+}
+
+.secondary-text {
+  @include secondary-font;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  padding: 0.2em;
+  margin: 0;
+  font-weight: bolder;
+  letter-spacing: 5px;
+}
+
+h1 { font-size: 3.6rem; }
+h2 { font-size: 2.7rem; }
+h3 { font-size: 1.8rem; }
+p { font-size: 2vw; }
+
+@include breakpoint-md {
+  h1 { font-size: 3.2rem; }
+  h2 { font-size: 2.4rem; }
+  h3 { font-size: 1.6rem; }
+  p { font-size: 1.2rem; }
+}
+
+@include breakpoint-sm {
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2.1rem; }
+  h3 { font-size: 1.4rem; }
+  p { font-size: 1.1rem; }
+}
+

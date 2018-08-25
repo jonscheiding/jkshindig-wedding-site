@@ -20,7 +20,9 @@ export default class StoriesSection extends Component {
             <Spouse {...content.spouses[0]} />
             <Spouse {...content.spouses[1]} />
           </div>
-          <div className='story'>{content.story}</div>
+          <div className='story'>
+            <p>{content.story}</p>
+          </div>
         </div>
       </div>
     );
