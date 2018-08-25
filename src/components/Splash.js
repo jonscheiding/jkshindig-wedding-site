@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Parallax, Background } from 'react-parallax';
 import dateFormat from 'dateformat';
+import cx from 'classnames';
 
 import BackgroundImage from './BackgroundImage';
 import image from '../assets/splash-image.jpg';
 import content from '../data/content';
+import sections from '../data/sections';
 
 export default class Splash extends Component {
   render() {
@@ -13,8 +15,10 @@ export default class Splash extends Component {
     const { address, city, state, zip } = content.location;
     const location = content.location.name;
 
+    const { showNavigation } = sections;
+
     return (
-      <Parallax strength={300}>
+      <Parallax strength={300} className={cx('splash', { 'show-navigation': showNavigation })}>
         <Background>
           <BackgroundImage image={image} className='splash-image' />
           <div className='splash-overlay' />

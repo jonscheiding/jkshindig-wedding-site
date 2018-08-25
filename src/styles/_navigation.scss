@@ -3,9 +3,13 @@
   @if not $navigation { $navigation-height: 0px; }
 
   .splash-content, .splash-image {
-    height: calc( 100vh - #{$navigation-height} );
+    height: 100vh;
     min-height: 325px;
     width: 100vw;
+
+    .show-navigation & {
+      height: calc( 100vh - #{$navigation-height} );
+    }
   }
   
   .navigation {

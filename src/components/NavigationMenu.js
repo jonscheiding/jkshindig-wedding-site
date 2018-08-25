@@ -5,15 +5,19 @@ import sections from '../data/sections';
 
 export default class NavigationMenu extends Component {
   render() {
-    const sectionIds = sections.map(s => s.id);
+    const { ids, showNavigation } = sections;
+
+    if(!showNavigation) {
+      return null;
+    }
 
     return (
       <Scrollspy 
-        items={['splash', ...sectionIds]} 
+        items={['splash', ...ids]} 
         offset={-5}
         currentClassName='current' className='navigation'>
         <li style={{ display: 'none' }} />
-        {sectionIds.map(id => (
+        {ids.map(id => (
           <li><a href={`#${id}`}>{id}</a></li>
         ))}
       </Scrollspy>

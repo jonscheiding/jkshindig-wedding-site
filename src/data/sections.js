@@ -4,6 +4,12 @@ import PeopleSection from '../components/PeopleSection';
 
 const wrap = (element, id) => (<div id={id}>{element}</div>);
 
-export default [
+const sections = [
   { id: 'people', component: wrap(<PeopleSection />, 'people') }
 ];
+
+export default {
+  components: sections.map(s => s.component),
+  ids: sections.map(s => s.id),
+  showNavigation: sections.length > 1
+};

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
-import flourishImage from './assets/large-flourish.png';
 import Splash from './components/Splash';
 import NavigationMenu from './components/NavigationMenu';
 import sections from './data/sections';
@@ -11,12 +9,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div id='splash'>
-          <Splash />
-        </div>
+        <Splash />
         <NavigationMenu />
         <div className='flourish' />
-        {sections.map(s => s.component)}
+        {sections.components}
       </div>
     );
   }
