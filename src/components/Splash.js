@@ -3,8 +3,6 @@ import { Parallax, Background } from 'react-parallax';
 import dateFormat from 'dateformat';
 import cx from 'classnames';
 
-import BackgroundImage from './BackgroundImage';
-import image from '../assets/splash-image.jpg';
 import content from '../data/content';
 import sections from '../data/sections';
 
@@ -20,7 +18,7 @@ export default class Splash extends Component {
     return (
       <Parallax strength={300} className={cx('splash', { 'show-navigation': showNavigation })}>
         <Background>
-          <BackgroundImage image={image} className='splash-image' />
+          <div className='splash-image' />
           <div className='splash-overlay' />
         </Background>
         <div className='splash-content'>
