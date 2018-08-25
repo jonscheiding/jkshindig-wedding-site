@@ -1,11 +1,11 @@
 import React from 'react';
 
-import PeopleSection from '../components/PeopleSection';
+import StoriesSection from '../components/sections/StoriesSection';
 
-const wrap = (element, id) => (<div id={id}>{element}</div>);
+const wrap = (element, id) => (<section id={id}>{element}</section>);
 
 const sections = [
-  { id: 'people', component: wrap(<PeopleSection />, 'people') }
+  { id: 'stories', component: wrap(<StoriesSection />, 'stories') }
 ];
 
 export default {

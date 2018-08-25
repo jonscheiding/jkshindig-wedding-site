@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const BackgroundImage = 
-  ({image, children, ...props}) => (
+  ({image, children, style = {}, ...props}) => (
     <div 
       style={{
         backgroundImage: `url(${image})`,
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        ...style
       }} 
       {...props}
       >

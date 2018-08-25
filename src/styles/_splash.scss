@@ -2,10 +2,8 @@
   filter: blur(3px);
   transform: scale(1.05);
 
-  background-size: cover;
-  background-position: center;
   background-image: url('/assets/splash-image.jpg');
-  background-repeat: no-repeat;
+  @include background-fill;
 }
 
 .splash-overlay {

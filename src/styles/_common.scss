@@ -23,6 +23,18 @@ $secondary-color: #cc9389;
   top: 0;
 }
 
+@mixin background-fill {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin absolute-fill {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 @mixin breakpoint-md {
   @media only screen and (max-width: 768px) { @content }; 
 }

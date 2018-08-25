@@ -3,7 +3,10 @@
 @import 'styles/_embellishments';
 @import 'styles/_headings';
 @import 'styles/_navigation';
+@import 'styles/_profiles';
 @import 'styles/_splash';
+
+@import 'styles/_sections';
 
 body {
   @include primary-font;

@@ -1,0 +1,19 @@
+.profile-picture {
+  position: relative;
+
+  .react-parallax-background-children,
+  .react-parallax-content { width: 100%; height: 100%; }
+
+  .profile-image {
+    background-image: url('https://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg');
+    @include background-fill;
+    @include absolute-fill;
+    height: 150%;
+  }
+
+  .profile-border {
+    background-image: url('/assets/profile-overlay.png');
+    @include background-fill;
+    @include absolute-fill;
+  }
+}

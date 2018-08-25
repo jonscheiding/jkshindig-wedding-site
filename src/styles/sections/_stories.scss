@@ -1,0 +1,36 @@
+.spouses {
+  .spouse {
+    .profile-picture {
+      height: 25vw;
+      width: 25vw;
+    }
+
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+
+    &:first-of-type {
+      float: left;
+    }
+    &:last-of-type {
+      float: right;
+    }
+  }
+
+  .story {
+    text-align: center;
+    text-transform: none;
+    padding: 1.5rem;
+  }
+    
+  @include breakpoint-sm {
+    .spouse {
+      h3 { display: none; }
+      .profile-picture {
+        height: 35vw;
+        width: 35vw;
+      }
+    }
+
+    .story { clear: both; }
+  }
+}
