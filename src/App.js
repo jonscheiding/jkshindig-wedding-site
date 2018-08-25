@@ -7,14 +7,6 @@ import NavigationMenu from './components/NavigationMenu';
 import sections from './data/sections';
 import content from './data/content';
 
-const LargeFlourish = styled.div`
-  background-image: url(${flourishImage});
-  height: 20vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-`;
-
 class App extends Component {
   render() {
     return (
@@ -23,7 +15,7 @@ class App extends Component {
           <Splash />
         </div>
         <NavigationMenu />
-        <LargeFlourish />
+        <div className='flourish' />
         {sections.map(s => s.component)}
       </div>
     );
