@@ -2,8 +2,10 @@
   "name": "jkshindig-wedding",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:4000/",
   "dependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "classnames": "^2.2.6",
     "css-reset": "^0.0.1",
@@ -23,12 +25,12 @@
   },
   "scripts": {
     "build:css": "node-sass-chokidar --importer=node_modules/node-sass-tilde-importer src/index.scss -o src",
-    "start:css": "yarn run build:css --watch --recursive",
-    "start:server": "yarn run babel-node src/server/index.js",
     "build:js": "react-scripts build",
-    "start:js": "react-scripts start",
-    "start": "npm-run-all -p start:css start:js",
     "build": "npm-run-all build:css build:js",
+    "start:css": "yarn run build:css --watch --recursive",
+    "start:server": "babel-watch src/server/index.js",
+    "start:js": "react-scripts start",
+    "start": "npm-run-all -p start:css start:js start:server",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "npm-run-all lint:sass lint:js",
@@ -36,6 +38,7 @@
     "lint:js": "eslint ."
   },
   "devDependencies": {
+    "babel-watch": "^2.0.7",
     "eslint": "^4",
     "eslint-config-standard-react": "^6.0.0",
     "eslint-plugin-react": "^7.11.1",

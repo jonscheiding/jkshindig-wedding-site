@@ -7,9 +7,13 @@ keystone.init({
   'user model': 'User',
   'auto update': true,
   'auth': true,
-  'port': 4000
+  'port': process.env.BACKEND_PORT || 4000,
+  'static': [
+    '../../build'
+  ]
 });
 
 keystone.import('./models');
+keystone.set('routes', require('./routes'));
 
 keystone.start();
