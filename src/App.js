@@ -12,9 +12,12 @@ class App extends Component {
         <Splash content={content} showNavigation={sections.showNavigation} />
         <NavigationMenu sections={sections} />
         <div className='flourish' />
-        {sections.components.map(c =>
-          <section id={c.id}><c.component /></section>
-        )}
+        <div className='sections'>
+          {sections.components.map(c =>
+            <section id={c.id}><c.component /></section>
+          )}
+          <div style={{height: '1000px'}} />
+        </div>
       </div>
     );
   }

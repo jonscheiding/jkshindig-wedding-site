@@ -2,13 +2,13 @@ export default {
   spouses: [
     { 
       name: { first: 'Kaleigh', last: 'Dillingham' }, 
-      title: 'The Bride',
-      image: 'https://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg'
+      title: 'Bride',
+      image: '/images/profile-kb.jpg'
     },
     { 
       name: { first: 'Jonathan', last: 'Scheiding' }, 
-      title: 'The Groom',
-      image: 'https://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg' 
+      title: 'Groom',
+      image: '/images/profile-jon.jpg' 
     }
   ],
   date: new Date(2019, 2, 29),

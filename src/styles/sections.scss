@@ -1,5 +1,13 @@
 @import 'sections/stories';
 
+.sections {
+  margin: 0 15vw;
+
+  @include breakpoint-md {
+    margin: 0;
+  }
+}
+
 section {
   padding-top: 2.5rem;
 }

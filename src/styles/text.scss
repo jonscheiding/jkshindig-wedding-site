@@ -19,24 +19,33 @@ body {
   @include secondary-font;
 }
 
-h1, h2, h3 {
-  font-weight: bolder;
-  letter-spacing: 5px;
+h1, h2, h3, h4, h5, h6 {
   text-align: center;
 
   padding: .2em;
   margin: 0;
 }
 
+h1, h2, h3 {
+  font-weight: bolder;
+  letter-spacing: 5px;
+}
+
+h4, h5, h6 {
+  @include secondary-font;
+}
+
 h1 { font-size: 3.6rem; }
 h2 { font-size: 2.7rem; }
 h3 { font-size: 1.8rem; }
+h4 { font-size: 1.2rem; }
 p { font-size: 2vw; }
 
 @include breakpoint-md {
   h1 { font-size: 3.2rem; }
   h2 { font-size: 2.4rem; }
   h3 { font-size: 1.6rem; }
+  h4 { font-size: 1.2rem; }
   p { font-size: 1.2rem; }
 }
 
@@ -44,6 +53,7 @@ p { font-size: 2vw; }
   h1 { font-size: 2.8rem; }
   h2 { font-size: 2.1rem; }
   h3 { font-size: 1.4rem; }
+  h4 { font-size: 1.1rem; }
   p { font-size: 1.1rem; }
 }
 

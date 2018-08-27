@@ -5,10 +5,11 @@ import content from '../../data/content';
 
 export default class StoriesSection extends Component {
   render() {
-    const Spouse = ({image, title}) => (
+    const Spouse = ({image, title, name}) => (
       <div className='spouse'>
         <ProfilePicture image={image} />
         <h3>{title}</h3>
+        <h4>{name.first} {name.last}</h4>
       </div>
     );
 
