@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Parallax, Background } from 'react-parallax';
 import dateFormat from 'dateformat';
 import cx from 'classnames';
 
-import content from '../data/content';
-import sections from '../data/sections';
-
 export default class Splash extends Component {
   render() {
+    const { content, showNavigation } = this.props;
+
     const names = content.spouses.map(n => n.name.first);
     const date = dateFormat(content.date, 'mmmm d, yyyy');
     const { address, city, state, zip } = content.location;
     const location = content.location.name;
-
-    const { showNavigation } = sections;
 
     return (
       <Parallax strength={300} className={cx('splash', { 'show-navigation': showNavigation })}>
@@ -37,3 +35,8 @@ export default class Splash extends Component {
     );
   }
 }
+
+Splash.propTypes = {
+  content: PropTypes.object.isRequired,
+  showNavigation: PropTypes.bool.isRequired
+};

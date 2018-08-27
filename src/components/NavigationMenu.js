@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Scrollspy from 'react-scrollspy';
-
-import sections from '../data/sections';
 
 export default class NavigationMenu extends Component {
   render() {
+    const { sections } = this.props;
     const { ids, showNavigation } = sections;
 
     if(!showNavigation) {
@@ -23,4 +23,8 @@ export default class NavigationMenu extends Component {
       </Scrollspy>
     );
   }
-}
+};
+
+NavigationMenu.propTypes = {
+  sections: PropTypes.object
+};

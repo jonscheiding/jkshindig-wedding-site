@@ -9,10 +9,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Splash />
-        <NavigationMenu />
+        <Splash content={content} showNavigation={sections.showNavigation} />
+        <NavigationMenu sections={sections} />
         <div className='flourish' />
-        {sections.components}
+        {sections.components.map(c =>
+          <section id={c.id}><c.component /></section>
+        )}
       </div>
     );
   }
