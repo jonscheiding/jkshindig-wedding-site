@@ -1,3 +1,63 @@
+.story {
+  text-transform: none;
+}
+
+.attendants {
+  .attendant {
+    width: 50%;
+
+    .profile-picture {
+      height: 20vw;
+      width: 20vw;
+      margin: auto;
+    }
+
+    h3 {
+      padding-top: 2vw;
+    }
+  }
+
+  .story {
+    padding: 1vw;
+    p { margin-bottom: 2vw; }
+  }
+
+  :nth-child(even) {
+    .attendant {
+      float: right;
+      margin-left: 5vw;
+    }
+
+    .story {
+      h4, p { text-align: right; }
+    }
+  }
+
+  :nth-child(odd) {
+    .attendant {
+      float: left;
+      margin-right: 5vw;
+    }
+
+    .story {
+      h4, p { text-align: left; }
+    }
+  }
+
+  @include breakpoint-md {
+    :nth-child(odd), :nth-child(even) {
+      .attendant {
+        float: none;
+        margin: auto;
+      }
+
+      .story {
+        h4, p { text-align: center; }
+      };
+    }
+  }
+}
+
 .spouses {
   .spouse {
     .profile-picture {
@@ -13,7 +73,6 @@
   .story {
     padding: 1.5rem;
     text-align: center;
-    text-transform: none;
     clear: both;
   }
 

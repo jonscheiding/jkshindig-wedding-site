@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         <Splash content={content} showNavigation={sections.showNavigation} />
         <NavigationMenu sections={sections} />
-        <div className='flourish' />
+        <div className='large-flourish' />
         <div className='sections'>
           {sections.components.map(c =>
             <section id={c.id}><c.component /></section>
