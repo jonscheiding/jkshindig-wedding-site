@@ -1,7 +1,9 @@
 import StoriesSection from '../components/sections/StoriesSection';
+import EventSection from '../components/sections/EventSection';
 
 const components = [
-  { id: 'stories', component: StoriesSection }
+  { id: 'stories', component: StoriesSection },
+  { id: 'event', component: EventSection }
 ];
 
 export default {

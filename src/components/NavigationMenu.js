@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Scrollspy from 'react-scrollspy';
+import styled from 'styled-components';
 
 export default class NavigationMenu extends Component {
   render() {
@@ -11,6 +12,10 @@ export default class NavigationMenu extends Component {
       return null;
     }
 
+    const MenuItem = styled.li`
+      width: ${100 / ids.length}%;
+    `;
+
     return (
       <Scrollspy 
         items={['splash', ...ids]} 
@@ -18,7 +23,7 @@ export default class NavigationMenu extends Component {
         currentClassName='current' className='navigation'>
         <li style={{ display: 'none' }} />
         {ids.map(id => (
-          <li><a href={`#${id}`}>{id}</a></li>
+          <MenuItem><a href={`#${id}`}>{id}</a></MenuItem>
         ))}
       </Scrollspy>
     );
