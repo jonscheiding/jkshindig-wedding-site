@@ -7,9 +7,11 @@
     width: 50%;
 
     .profile-picture {
-      height: 20vw;
-      width: 20vw;
+      @include square(20vw);
       margin: auto;
+
+      @include breakpoint-md { @include square(25vw); }
+      @include breakpoint-sm { @include square(35vw); }
     }
 
     h3 {
@@ -62,10 +64,11 @@
 
 .spouses {
   .spouse {
+    max-width: 50%;
+
     .profile-picture {
-      height: 25vw;
-      width: 25vw;
-      margin-top: 0;
+      @include square(25vw);
+      margin: auto;
     }
 
     &:first-of-type { float: left; }
@@ -80,18 +83,10 @@
 
   @include breakpoint-md {
     .spouse {
-      .profile-picture {
-        height: 35vw;
-        width: 35vw;
-      }
-
+      .profile-picture { @include square(35vw); }
       h3 { font-size: 1rem; }
     }
 
     .story { clear: both; }
-  }
-
-  @include breakpoint-sm {
-    h3 { display: none; }
   }
 }

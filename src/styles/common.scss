@@ -4,10 +4,7 @@ $secondary-color: #cc9389;
 $transparent: rgba(0, 0, 0, 0);
 
 @mixin overlay {
-  height: 100%;
-  width: 100%;
-
-  position: absolute;
+  @include absolute-fill;
   top: 0;
 }
 
@@ -21,6 +18,11 @@ $transparent: rgba(0, 0, 0, 0);
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+@mixin square($size) {
+  height: $size;
+  width: $size;
 }
 
 @mixin breakpoint-md {

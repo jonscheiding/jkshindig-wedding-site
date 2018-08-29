@@ -8,8 +8,8 @@ export default class StoriesSection extends Component {
     const Profile = ({image, title, name, ...props}) => (
       <div {...props}>
         <ProfilePicture image={image} />
-        <h3>{title}</h3>
-        <h4>{name.first} {name.last}</h4>
+        <h3>{name.first} {name.last}</h3>
+        <h4>{title}</h4>
       </div>
     );
 
