@@ -10,6 +10,7 @@
     }
   },
   "rules": {
-    "semi": "error"
+    "semi": "error",
+    "eqeqeq": "error"
   }
 }
