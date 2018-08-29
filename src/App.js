@@ -11,25 +11,25 @@ class App extends Component {
       <div>
         <Splash content={content} showNavigation={sections.showNavigation} />
         <NavigationMenu sections={sections} />
-        {this.renderContents()}
+        {this.renderSections()}
       </div>
     );
   }
 
-  renderContents() {
+  renderSections() {
     if(sections.components.length === 0) {
       return null;
     }
 
     return (
-      <div>
-        <div className='large-flourish' />
-        <div className='sections'>
-          {sections.components.map(c =>
+      <div className='sections'>
+        {sections.components.map(c =>
+          <div>
+            <div className='large-flourish' />
             <section id={c.id}><c.component /></section>
-          )}
-          <div style={{height: '1000px'}} />
-        </div>
+          </div>
+        )}
+        <div style={{height: '1000px'}} />
       </div>
     );
   }
