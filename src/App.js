@@ -11,6 +11,18 @@ class App extends Component {
       <div>
         <Splash content={content} showNavigation={sections.showNavigation} />
         <NavigationMenu sections={sections} />
+        {this.renderContents()}
+      </div>
+    );
+  }
+
+  renderContents() {
+    if(sections.components.length === 0) {
+      return null;
+    }
+
+    return (
+      <div>
         <div className='large-flourish' />
         <div className='sections'>
           {sections.components.map(c =>
