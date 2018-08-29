@@ -5,6 +5,7 @@
 .attendants {
   .attendant {
     width: 50%;
+    box-sizing: border-box;
 
     .profile-picture {
       @include square(20vw);
@@ -21,16 +22,18 @@
 
   .story {
     padding: 1vw;
+    width: 50%;
+    box-sizing: border-box;
+
     p { margin-bottom: 2vw; }
+    @include breakpoint-md { width: 100%; }
   }
 
   :nth-child(even) {
-    .attendant {
-      float: right;
-      margin-left: 5vw;
-    }
+    .attendant { float: right; }
 
     .story {
+      float: left;
       h4, p { text-align: right; }
     }
 
@@ -38,12 +41,10 @@
   }
 
   :nth-child(odd) {
-    .attendant {
-      float: left;
-      margin-right: 5vw;
-    }
+    .attendant { float: left; }
 
     .story {
+      float: right;
       h4, p { text-align: left; }
     }
   }
@@ -64,7 +65,7 @@
 
 .spouses {
   .spouse {
-    max-width: 50%;
+    width: 50%;
 
     .profile-picture {
       @include square(25vw);
@@ -84,7 +85,6 @@
   @include breakpoint-md {
     .spouse {
       .profile-picture { @include square(35vw); }
-      h3 { font-size: 1rem; }
     }
 
     .story { clear: both; }

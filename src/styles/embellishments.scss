@@ -1,17 +1,16 @@
+.large-flourish, .small-flourish {
+  clear: both;
+  @include background-fill(contain);
+}
+
 .large-flourish {
   background-image: url('/assets/large-flourish.png');
   height: 15vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   margin-top: 2.5rem;
 }
 
 .small-flourish {
   background-image: url('/assets/small-flourish.png');
   height: 7vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   margin-bottom: .5rem;
 }

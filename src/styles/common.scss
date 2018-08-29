@@ -8,10 +8,10 @@ $transparent: rgba(0, 0, 0, 0);
   top: 0;
 }
 
-@mixin background-fill {
+@mixin background-fill($size: cover) {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: $size;
 }
 
 @mixin absolute-fill {
