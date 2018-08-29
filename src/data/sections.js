@@ -1,6 +1,8 @@
 import StoriesSection from '../components/sections/StoriesSection';
 
-const components = [];
+const components = [
+  { id: 'stories', component: StoriesSection }
+];
 
 export default {
   components,
