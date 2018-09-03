@@ -1,5 +1,6 @@
 @import 'sections/stories';
 @import 'sections/event';
+@import 'sections/gifts';
 
 .sections {
   margin: 0 15vw;
@@ -9,6 +10,6 @@
   }
 }
 
-section {
+.section-h2 {
   padding-top: 2.5rem;
 }

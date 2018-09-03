@@ -3,15 +3,6 @@ $primary-color: #f5edd3;
 $secondary-color: #cc9389;
 $transparent: rgba(0, 0, 0, 0);
 
-// a {
-//   text-decoration: underline;
-
-//   :active, :visited, :hover {
-//     color: $secondary-color;
-//     text-decoration: underline;
-//   }
-// }
-
 @mixin overlay {
   @include absolute-fill;
   top: 0;

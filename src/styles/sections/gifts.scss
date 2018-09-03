@@ -1,0 +1,18 @@
+.gifts {
+  .gift-profiles {
+    padding-top: 2rem;
+
+    .gift-profile {
+      width: 33%;
+      display: inline-block;
+
+      .profile-picture {
+        @include square(30%);
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+}

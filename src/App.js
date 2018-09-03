@@ -26,8 +26,8 @@ class App extends Component {
         {sections.components.map(c =>
           <div>
             <div className='large-flourish' />
-            <h2>{c.id}</h2>
-            <section id={c.id}><c.component /></section>
+            <h2 className='section-h2' id={c.id}>{c.id}</h2>
+            <section><c.component /></section>
           </div>
         )}
         <div style={{height: '1000px'}} />
