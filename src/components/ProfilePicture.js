@@ -5,7 +5,7 @@ import { Parallax, Background } from 'react-parallax';
 import BackgroundImage from './BackgroundImage';
 
 const ProfilePicture = ({image}) => (
-  <Parallax className='profile-picture' strength={50}>
+  <Parallax className='profile-picture' strength={10}>
     <Background>
       <BackgroundImage className='profile-image' image={image} />
     </Background>

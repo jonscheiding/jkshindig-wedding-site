@@ -26,6 +26,7 @@ class App extends Component {
         {sections.components.map(c =>
           <div>
             <div className='large-flourish' />
+            <h2>{c.id}</h2>
             <section id={c.id}><c.component /></section>
           </div>
         )}

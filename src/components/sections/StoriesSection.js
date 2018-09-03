@@ -24,7 +24,6 @@ export default class StoriesSection extends Component {
 
     return (
       <div>
-        <h2>Stories</h2>
         <div className='spouses'>
           <div>
             <Spouse {...content.spouses[0]} />

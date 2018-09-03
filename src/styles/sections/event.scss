@@ -1,0 +1,19 @@
+.event {
+  .profile-picture {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @include square(30vw);
+
+    @include breakpoint-md {
+      @include square(50vw);
+    }
+
+    @include breakpoint-sm {
+      @include square(80vw);
+    }
+  }
+}
