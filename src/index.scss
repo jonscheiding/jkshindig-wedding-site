@@ -1,2 +1,13 @@
 @import 'styles/reset';
+@import 'styles/theme';
 @import 'styles/typography';
+@import 'styles/utility';
+
+// sass-lint:disable no-ids
+//
+// Temporary for testing
+//
+#root {
+  height: 10000px;
+}
+// sass-lint:enable no-ids

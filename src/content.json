@@ -1,0 +1,16 @@
+{
+  "spouses": [
+    { "name": { "first": "Kaleigh", "last": "Dillingham" } },
+    { "name": { "first": "Jonathan", "last": "Scheiding" } }
+  ],
+  "date": "2019-03-29T21:30:00Z",
+  "location": {
+    "name": "Newport Syndicate",
+    "address": {
+      "street": "18 East 5th Street",
+      "city": "Newport",
+      "state": "Kentucky",
+      "zip": "41073"
+    }
+  }
+}
