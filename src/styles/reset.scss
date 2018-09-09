@@ -1,0 +1,7 @@
+@import '~meyer-reset-scss/reset';
+
+// sass-lint:disable force-pseudo-nesting
+a, a:active, a:visited, a:hover {
+  color: inherit;
+}
+// sass-lint:enable force-pseudo-nesting
