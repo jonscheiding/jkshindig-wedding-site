@@ -31,6 +31,7 @@ const spouses = PropTypes.arrayOf(spouse);
 
 const content = PropTypes.exact({
   spouses: spouses.isRequired,
+  story: PropTypes.string.isRequired,
   date: date.isRequired,
   location: location.isRequired
 })
