@@ -3,8 +3,11 @@ import { Grid } from 'react-material-responsive-grid';
 import styled from 'styled-components';
 
 import { PropTypesContent } from '../PropTypesCustom';
+import Stories from './sections/Stories';
 
-const sections = [];
+const sections = [
+  Stories
+];
 
 const Section = styled.section`
   padding-top: 1rem;
