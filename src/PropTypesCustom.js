@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 
 const date = PropTypes.instanceOf(Date);
 
+const children = PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]);
+
 const name = PropTypes.exact({
   first: PropTypes.string.isRequired,
   last: PropTypes.string.isRequired
@@ -32,6 +34,7 @@ const content = PropTypes.exact({
   location: location.isRequired
 })
 
-const PropTypesEx = { date, name, address, location, spouse, content };
+const PropTypesEx = { date, children };
+const PropTypesContent = { date, name, address, location, spouse, content };
 
-export default PropTypesEx;
+export { PropTypesEx, PropTypesContent };

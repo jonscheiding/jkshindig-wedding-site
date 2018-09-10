@@ -4,7 +4,7 @@ import { Parallax, Background } from 'react-parallax';
 import styled, { css } from 'styled-components';
 import dateFormat from 'dateformat';
 
-import PropTypesEx from '../PropTypesEx';
+import { PropTypesContent } from '../PropTypesCustom';
 import { Breakpoint } from '../styles/responsive';
 import image from '../assets/splash-image.jpg';
 import BackgroundImage from './BackgroundImage';
@@ -76,9 +76,9 @@ class Splash extends Component {
 }
 
 Splash.propTypes = {
-  date: PropTypesEx.date.isRequired,
+  date: PropTypesContent.date.isRequired,
   names: PropTypes.arrayOf(PropTypes.string).isRequired,
-  location: PropTypesEx.location.isRequired
+  location: PropTypesContent.location.isRequired
 };
 
 export default Splash;

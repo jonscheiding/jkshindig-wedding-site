@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from 'react-material-responsive-grid';
 import styled from 'styled-components';
 
-import PropTypesEx from '../PropTypesEx';
+import { PropTypesContent } from '../PropTypesCustom';
 
 const sections = [];
 
@@ -21,7 +21,7 @@ const Sections = ({content}) => (
 );
 
 Sections.propTypes = {
-  content: PropTypesEx.content
+  content: PropTypesContent.content
 };
 
 export default Sections;

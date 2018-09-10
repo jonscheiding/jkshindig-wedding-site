@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import PropTypesEx from './PropTypesEx';
+import { PropTypesContent } from './PropTypesCustom';
 import Splash from './components/Splash';
 import Sections from './components/Sections';
 
@@ -16,7 +16,7 @@ class App extends Component {
         <Splash 
           location={location} date={date} 
           names={spouses.map(s => s.name.first)} />
-        <Sections />
+        <Sections content={content} />
       </div>
     );
   }
@@ -28,7 +28,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  content: PropTypesEx.content.isRequired
+  content: PropTypesContent.content.isRequired
 };
 
 export default App;
