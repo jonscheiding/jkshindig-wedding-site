@@ -5,3 +5,7 @@ a, a:active, a:visited, a:hover {
   color: inherit;
 }
 // sass-lint:enable force-pseudo-nesting
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}

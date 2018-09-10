@@ -36,7 +36,6 @@ class Splash extends Component {
       ${viewportSize}
 
       padding-top: 1rem;
-      box-sizing: border-box;
 
       > .names > i {
         display: block;
