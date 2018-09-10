@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 import { ThemeProvider } from 'styled-components';
 
 import Splash from './components/Splash';
-import content from './content.json';
+import content from './content/content.json';
 import theme from './theme.json';
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
