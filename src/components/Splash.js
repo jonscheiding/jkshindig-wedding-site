@@ -23,6 +23,8 @@ class Splash extends Component {
     const SplashContent = styled.div`
       width: 100vw;
       height: 100vh;
+      padding-top: 1rem;
+      box-sizing: border-box;
 
       > .names > i {
         display: block;
@@ -33,7 +35,7 @@ class Splash extends Component {
       > h1, h2, h3 { text-align: center }
       > footer { 
         position: absolute;
-        bottom: 0;
+        bottom: 1rem;
         width: 100%;
       }
     `;
