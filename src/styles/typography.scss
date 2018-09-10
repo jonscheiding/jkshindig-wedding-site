@@ -6,14 +6,33 @@ body {
 i {
   font-family: Allura, cursive;
   text-transform: none;
-  font-size: .9em;
 }
 
 h1, h2, h3 {
   text-transform: uppercase;
-  padding: 0.2em;
+  padding: 0.15em;
 }
 
-h1 { font-size: 2.4rem; }
-h2 { font-size: 2.0rem; }
-h3 { font-size: 1.7rem; }
+@mixin font-sizes($scale) {
+  h1 { font-size: 2.4rem * $scale; }
+  h2 { font-size: 2.0rem * $scale; }
+  h3 { font-size: 1.7rem * $scale; }
+}
+
+@include font-sizes(1.0);
+
+@include breakpoint-sm {
+  @include font-sizes(1.5);
+}
+
+@include breakpoint-md {
+  @include font-sizes(1.8);
+}
+
+@include breakpoint-lg {
+  @include font-sizes(2.1);
+}
+
+@include breakpoint-xl {
+  @include font-sizes(2.5);
+}

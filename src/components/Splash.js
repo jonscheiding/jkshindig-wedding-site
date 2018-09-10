@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import dateFormat from 'dateformat';
 
 import BackgroundImage from './BackgroundImage';
+import { Breakpoint } from '../styles/responsive';
 import image from '../assets/splash-image.jpg';
 
 class Splash extends Component {
@@ -25,6 +26,8 @@ class Splash extends Component {
 
       > .names > i {
         display: block;
+
+        ${Breakpoint.md` display: inline; `}
       }
 
       > h1, h2, h3 { text-align: center }
@@ -43,7 +46,7 @@ class Splash extends Component {
           <SplashBackgroundImage image={image} />
         </Background>
         <SplashContent>
-          <h1 className='names'>{names[0]} <i className='block-sm'>and</i> {names[1]}</h1>
+          <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
           <h2>{dateFormatted}</h2>
           <h2><i>save the date</i></h2>
           <footer>
