@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import ReactGA from 'react-ga';
 
 import PropTypesEx from './PropTypesEx';
 import Splash from './components/Splash';
 import Sections from './components/Sections';
-
-ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 class App extends Component {
   render() {
