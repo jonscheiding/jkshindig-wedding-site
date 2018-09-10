@@ -17,19 +17,20 @@ content.date = new Date(Date.parse(content.date));
 
 const rootEl = document.getElementById('root');
 
-ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <App content={content} />
-  </ThemeProvider>,
-  rootEl
-);
+const render = (AppComponent) => {
+  ReactDOM.render(
+    <ThemeProvider theme={theme}>
+      <AppComponent content={content} />
+    </ThemeProvider>,
+    rootEl
+  );
+};
+
+render(App);
 
 if (module.hot) {
   module.hot.accept('./App', () => {
     const NextApp = require('./App').default;
-    ReactDOM.render(
-      <NextApp />,
-      rootEl
-    );
+    render(NextApp)
   });
 }
