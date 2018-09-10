@@ -43,7 +43,6 @@ class Splash extends Component {
         ${Breakpoint.md` display: inline; `}
       }
 
-      > h1, h2, h3 { text-align: center }
       > footer { 
         position: absolute;
         bottom: 1rem;
