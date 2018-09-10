@@ -1,0 +1,9 @@
+{
+  "foreground-color": "#f5edd3",
+  "background-color": "#21303d",
+
+  "breakpoint-sm": "37.5rem",
+  "breakpoint-md": "64rem",
+  "breakpoint-lg": "90rem",
+  "breakpoint-xl": "120rem"
+}

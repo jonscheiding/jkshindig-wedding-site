@@ -1,17 +1,14 @@
 import { css } from 'styled-components';
 
-const breakpoints = {
-  sm: 600,
-  md: 1024,
-  lg: 1440,
-  xl: 1920
-};
+import theme from '../theme.json';
 
-const mixins = Object.keys(breakpoints).reduce(
+const labels = ['sm', 'md', 'lg', 'xl'];
+
+const Breakpoint = labels.reduce(
   (m, label) => {
-    const emSize = breakpoints[label] / 16;
+    const size = theme[`breakpoint-${label}`];
     m[label] = (...args) => css`
-      @media only screen and (min-width: ${emSize}em) {
+      @media only screen and (min-width: ${size}) {
         ${css(...args)}
       }
     `;
@@ -20,4 +17,4 @@ const mixins = Object.keys(breakpoints).reduce(
   {}
 );
 
-export default mixins;
+export { Breakpoint };
