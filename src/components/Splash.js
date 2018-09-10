@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Parallax, Background } from 'react-parallax';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import dateFormat from 'dateformat';
 
 import BackgroundImage from './BackgroundImage';
@@ -13,16 +13,28 @@ class Splash extends Component {
     const { date, names, location } = this.props;
     const { street, city, state, zip } = location.address;
 
-    const SplashBackgroundImage = styled(BackgroundImage)`
+    const viewportSize = css`
       width: 100vw;
       height: 100vh;
+      min-height: 28rem;
+
+      ${Breakpoint.sm` min-height: 37.5rem; `}
+      ${Breakpoint.lg` min-height: 45.0rem; `}
+      ${Breakpoint.xl` min-height: 50.0rem; `}
+    `
+
+    const SplashParallax = styled(Parallax)`${viewportSize}`;
+
+    const SplashBackgroundImage = styled(BackgroundImage)`
+      ${viewportSize}
+
       filter: blur(3px);
       transform: scale(1.05);
     `;
 
     const SplashContent = styled.div`
-      width: 100vw;
-      height: 100vh;
+      ${viewportSize}
+
       padding-top: 1rem;
       box-sizing: border-box;
 
@@ -50,7 +62,7 @@ class Splash extends Component {
     const dateFormatted = dateFormat(date, 'mmmm d, yyyy');
 
     return (
-      <Parallax strength={300} style={{ width: '100vw', height: '100vh' }}>
+      <SplashParallax strength={300}>
         <Background>
           <SplashBackgroundImage image={image} />
         </Background>
@@ -69,7 +81,7 @@ class Splash extends Component {
             </Teaser>
           </footer>
         </SplashContent>
-      </Parallax>
+      </SplashParallax>
     );
   }
 }
