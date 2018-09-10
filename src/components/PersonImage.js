@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Parallax } from 'react-parallax';
 
 function getImage({first, last}) {
-  return require(`../content/images/${first}.${last}.png`);
+  const filename = `${first}.${last}`
+    .replace(/[^a-zA-Z.]*/g, '');
+  return require(`../content/images/${filename}.png`);
 }
 
 const PersonImage = ({name, className}) => {
