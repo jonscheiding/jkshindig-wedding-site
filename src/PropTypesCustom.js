@@ -34,7 +34,7 @@ const content = PropTypes.exact({
   story: PropTypes.string.isRequired,
   date: date.isRequired,
   location: location.isRequired
-})
+});
 
 const PropTypesEx = { date, children };
 const PropTypesContent = { date, name, address, location, spouse, content };

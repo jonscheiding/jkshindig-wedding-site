@@ -22,7 +22,7 @@ class Splash extends Component {
       ${Breakpoint.sm` min-height: 37.5rem; `}
       ${Breakpoint.lg` min-height: 45.0rem; `}
       ${Breakpoint.xl` min-height: 50.0rem; `}
-    `
+    `;
 
     const SplashParallax = styled(Parallax)`${viewportSize}`;
 

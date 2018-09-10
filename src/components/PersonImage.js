@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Parallax } from 'react-parallax';
 
 function getImage({first, last}) {
-  return require(`../content/images/${first}.${last}.png`)
+  return require(`../content/images/${first}.${last}.png`);
 }
 
 const PersonImage = ({name, className}) => {
@@ -13,7 +13,8 @@ const PersonImage = ({name, className}) => {
 };
 
 PersonImage.propTypes = {
-  name: PropTypes.object.isRequired
+  name: PropTypes.object.isRequired,
+  className: PropTypes.string
 };
 
 export default PersonImage;

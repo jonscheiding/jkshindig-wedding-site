@@ -30,7 +30,7 @@ const Square = ({children, size}) => (
 );
 
 Square.propTypes = {
-  width: PropTypes.string,
+  size: PropTypes.string,
   children: PropTypesEx.children
 };
 

@@ -18,7 +18,7 @@ const PersonProfile = ({person}) => (
     <h4>{person.name.first} {person.name.last}</h4>
     <h5><i>{person.title}</i></h5>
   </div>
-)
+);
 
 PersonProfile.propTypes = {
   person: PropTypesContent.spouse.isRequired
