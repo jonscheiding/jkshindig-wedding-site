@@ -19,6 +19,11 @@ class App extends Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    const nicknames = content.spouses.map(s => s.nickname);
+    document.title = `${nicknames[0]} and ${nicknames[1]}`;
+  }
 }
 
 export default App;

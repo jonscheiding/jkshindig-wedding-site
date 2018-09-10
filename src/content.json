@@ -1,7 +1,13 @@
 {
   "spouses": [
-    { "name": { "first": "Kaleigh", "last": "Dillingham" } },
-    { "name": { "first": "Jonathan", "last": "Scheiding" } }
+    { 
+      "name": { "first": "Kaleigh", "last": "Dillingham" },
+      "nickname": "KB"
+    },
+    { 
+      "name": { "first": "Jonathan", "last": "Scheiding" },
+      "nickname": "Jon"
+    }
   ],
   "date": "2019-03-29T21:30:00Z",
   "location": {
