@@ -23,7 +23,8 @@ const location = PropTypes.exact({
 
 const spouse = PropTypes.exact({
   name: name.isRequired,
-  nickname: PropTypes.string.isRequired
+  nickname: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 });
 
 const spouses = PropTypes.arrayOf(spouse);

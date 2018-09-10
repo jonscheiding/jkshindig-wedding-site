@@ -2,11 +2,13 @@
   "spouses": [
     { 
       "name": { "first": "Kaleigh", "last": "Dillingham" },
-      "nickname": "KB"
+      "nickname": "KB",
+      "title": "The Bride"
     },
     { 
       "name": { "first": "Jonathan", "last": "Scheiding" },
-      "nickname": "Jon"
+      "nickname": "Jon",
+      "title": "The Groom"
     }
   ],
   "date": "2019-03-29T21:30:00Z",
