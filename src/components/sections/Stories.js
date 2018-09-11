@@ -13,8 +13,8 @@ const Story = styled.p`
 `;
 
 const QA = styled.div`
-  margin-bottom: 1.0rem;
-  p i { 
+  margin-bottom: 1.5rem;
+  p b { 
     display: inline-block;
     margin-bottom: 0.5rem; 
   }
@@ -28,13 +28,16 @@ const Attendant = ({attendant, spouses, questions, index}) => {
   return (
     <div>
       <Row reverse={isEven}>
+        <Col xs4={1} />
         <Col xs4={2}>
           <PersonProfile person={attendant.person} />
         </Col>
-        <Col xs4={2}>
+      </Row>
+      <Row>
+        <Col xs4={4}>
           {attendant.answers.map((a, i) => (
             <QA key={i}>
-              <p><i>{mappedQuestions[i]}</i></p>
+              <p><b>{mappedQuestions[i]}</b></p>
               <p>{a}</p>
             </QA>
           ))}
@@ -68,6 +71,7 @@ const Spouses = ({spouses, story}) => (
 const Stories = ({content}) => (
   <div>
     <Spouses spouses={content.spouses} story={content.story} />
+    <h3>The Wedding Party</h3>
     {content.attendants.map((a, i) => 
       <Attendant key={i} index={i}
         attendant={a} 

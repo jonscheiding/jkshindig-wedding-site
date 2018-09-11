@@ -13,7 +13,7 @@
   ],
   "questions": [
     "How long have you known {nickname}?",
-    "How did you meet?",
+    "How did you and {nickname} meet?",
     "What is a favorite memory you have together?"
   ],
   "attendants": [
@@ -35,7 +35,11 @@
         "title": "Best Man"
       },
       "spouse": 1,
-      "answers": [ "", "", "" ]
+      "answers": [
+        "Approximately 8400 days 7 hours and 5 minutes.", 
+        "English class. I was playing the guitar. It was love at first stairway.", 
+        "So many to choose from.  Number 1 was definitely <censored>.  Remember that time when we <censored>?!   Also at the top was that time when we were chasing each other around the pattern at Green County in a couple of beat up old Cessnas right after we soloed." 
+      ]
     },
     {
       "person": {
