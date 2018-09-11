@@ -1,17 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
+import format from 'string-format';
+import styled from 'styled-components';
 
 import { PropTypesContent } from '../../PropTypesCustom';
 import PersonProfile from '../PersonProfile';
 
-const Attendant = ({attendant, index}) => (
-  <Row reverse={index % 2 === 0}>
-    <Col xs4={2}>
-      <PersonProfile person={attendant.person} />
-    </Col>
-  </Row>
-);
+const Story = styled.p`
+  text-align: justify;
+`;
+
+const QA = styled.div`
+  padding-bottom: 1rem;
+`;
+
+const Attendant = ({attendant, spouses, questions, index}) => {
+  const spouse = spouses[attendant.spouse];
+  const mappedQuestions = questions.map(q => format(q, spouse));
+
+  return (
+    <Row reverse={index % 2 === 0}>
+      <Col xs4={2}>
+        <PersonProfile person={attendant.person} />
+      </Col>
+      <Col xs4={2}>
+        {attendant.answers.map((a, i) => (
+          <QA>
+            <p><i>{mappedQuestions[i]}</i></p>
+            <p>{a}</p>
+          </QA>
+        ))}
+      </Col>
+    </Row>
+  );
+};
 
 const Spouses = ({spouses, story}) => (
   <div>
@@ -25,7 +48,7 @@ const Spouses = ({spouses, story}) => (
     </Row>
     <Row>
       <Col xs4={4} sm8={6} md={8} sm8Offset={1} mdOffset={2}>
-        <p>{story}</p>
+        <Story>{story}</Story>
       </Col>
     </Row>
   </div>
@@ -35,13 +58,18 @@ const Stories = ({content}) => (
   <div>
     <Spouses spouses={content.spouses} story={content.story} />
     {content.attendants.map((a, i) => 
-      <Attendant key={i} attendant={a} index={i} />
+      <Attendant key={i} index={i}
+        attendant={a} 
+        spouses={content.spouses}
+        questions={content.questions} />
     )}
   </div>
 );
 
 Attendant.propTypes = {
   attendant: PropTypesContent.attendant,
+  spouses: PropTypesContent.spouses,
+  questions: PropTypesContent.questions,
   index: PropTypes.number.isRequired
 };
 

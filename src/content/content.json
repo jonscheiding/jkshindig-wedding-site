@@ -2,39 +2,56 @@
   "spouses": [
     { 
       "name": { "first": "Kaleigh", "last": "Dillingham" },
-      "nickname": "KB",
-      "title": "The Bride"
+      "title": "The Bride",
+      "nickname": "KB"
     },
     { 
       "name": { "first": "Jonathan", "last": "Scheiding" },
-      "nickname": "Jon",
-      "title": "The Groom"
+      "title": "The Groom",
+      "nickname": "Jon"
     }
+  ],
+  "questions": [
+    "How long have you known {nickname}?",
+    "How did you meet?",
+    "What is a favorite memory you have together?"
   ],
   "attendants": [
     {
       "person": {
         "name": { "first": "Kristin", "last": "Markley" },
         "title": "Matron of Honor"
-      }
+      },
+      "spouse": 0,
+      "answers": [
+        "About three years.",
+        "We worked together at Pure Romance.",
+        "When she played with Chase a whole lot!"
+      ]
     },
     {
       "person": {
         "name": { "first": "James", "last": "Hayes" },
         "title": "Best Man"
-      }
+      },
+      "spouse": 1,
+      "answers": [ "", "", "" ]
     },
     {
       "person": {
         "name": { "first": "Dee Dee", "last": "Tichenor" },
         "title": "Matron of Honor"
-      }
+      },
+      "spouse": 0,
+      "answers": [ "", "", "" ]
     },
     {
       "person": {
         "name": { "first": "Mike", "last": "Pateras" },
         "title": "Best Man"
-      }
+      },
+      "spouse": 1,
+      "answers": [ "", "", "" ]
     }
   ],
   "date": "2019-03-29T21:30:00Z",
