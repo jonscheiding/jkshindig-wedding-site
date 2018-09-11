@@ -1,14 +1,11 @@
 @import 'theme.json';
 
 @import 'styles/responsive';
+@import 'styles/grid';
 @import 'styles/reset';
 @import 'styles/typography';
 
 body {
   background-color: $background-color;
   color: $foreground-color;
-}
-
-.row {
-  margin-top: 1rem;
 }
