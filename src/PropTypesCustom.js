@@ -6,7 +6,8 @@ const children = PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropType
 
 const name = PropTypes.exact({
   first: PropTypes.string.isRequired,
-  last: PropTypes.string.isRequired
+  last: PropTypes.string.isRequired,
+  middle: PropTypes.string
 });
 
 const address = PropTypes.exact({

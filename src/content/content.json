@@ -1,12 +1,12 @@
 {
   "spouses": [
     { 
-      "name": { "first": "Kaleigh", "last": "Dillingham" },
+      "name": { "first": "Kaleigh", "middle": "Brooke", "last": "Dillingham" },
       "title": "The Bride",
       "nickname": "KB"
     },
     { 
-      "name": { "first": "Jonathan", "last": "Scheiding" },
+      "name": { "first": "Jonathan", "middle": "Michael", "last": "Scheiding" },
       "title": "The Groom",
       "nickname": "Jon"
     }

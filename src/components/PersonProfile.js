@@ -15,7 +15,7 @@ const PersonProfile = ({person}) => (
     <Square>
       <PersonImageFill name={person.name} />
     </Square>
-    <h4>{person.name.first} {person.name.last}</h4>
+    <h4>{person.name.first} {person.name.middle} {person.name.last}</h4>
     <h5><i>{person.title}</i></h5>
   </div>
 );
