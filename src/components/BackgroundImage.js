@@ -6,6 +6,8 @@ const BackgroundImage = styled.div`
   background-repeat: no-repeat;
   background-size: ${props => props.contain ? 'contain' : 'cover'};
   background-position: center;
+
+  /* ${props => props.style} */
 `;
 
 BackgroundImage.propTypes = {

@@ -23,14 +23,15 @@ const Inner = styled.div`
   right: 0;
 `;
 
-const Square = ({children, size}) => (
-  <Outer size={size}>
+const Square = ({children, size, className}) => (
+  <Outer size={size} className={className}>
     <Inner>{children}</Inner>
   </Outer>
 );
 
 Square.propTypes = {
   size: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypesEx.children
 };
 
