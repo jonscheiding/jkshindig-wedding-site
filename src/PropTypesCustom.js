@@ -21,22 +21,29 @@ const location = PropTypes.exact({
   address: address.isRequired
 });
 
-const spouse = PropTypes.exact({
+const person = PropTypes.exact({
   name: name.isRequired,
-  nickname: PropTypes.string.isRequired,
+  nickname: PropTypes.string,
   title: PropTypes.string.isRequired
 });
 
+const attendant = PropTypes.exact({
+  person: person
+});
+
+const spouse = person;
 const spouses = PropTypes.arrayOf(spouse);
+const attendants = PropTypes.arrayOf(attendant);
 
 const content = PropTypes.exact({
   spouses: spouses.isRequired,
+  attendants: attendants.isRequired,
   story: PropTypes.string.isRequired,
   date: date.isRequired,
   location: location.isRequired
 });
 
 const PropTypesEx = { date, children };
-const PropTypesContent = { date, name, address, location, spouse, content };
+const PropTypesContent = { date, name, address, location, person, spouse, spouses, attendant, attendants, content };
 
 export { PropTypesEx, PropTypesContent };
