@@ -6,38 +6,48 @@ import styled from 'styled-components';
 
 import { PropTypesContent } from '../../PropTypesCustom';
 import PersonProfile from '../PersonProfile';
+import Separator from '../Separator';
 
 const Story = styled.p`
   text-align: justify;
 `;
 
 const QA = styled.div`
-  padding-bottom: 1rem;
+  margin-bottom: 1.0rem;
+  p i { 
+    display: inline-block;
+    margin-bottom: 0.5rem; 
+  }
 `;
 
 const Attendant = ({attendant, spouses, questions, index}) => {
   const spouse = spouses[attendant.spouse];
   const mappedQuestions = questions.map(q => format(q, spouse));
+  const isEven = index % 2 === 0;
 
   return (
-    <Row reverse={index % 2 === 0}>
-      <Col xs4={2}>
-        <PersonProfile person={attendant.person} />
-      </Col>
-      <Col xs4={2}>
-        {attendant.answers.map((a, i) => (
-          <QA>
-            <p><i>{mappedQuestions[i]}</i></p>
-            <p>{a}</p>
-          </QA>
-        ))}
-      </Col>
-    </Row>
+    <div>
+      <Row reverse={isEven}>
+        <Col xs4={2}>
+          <PersonProfile person={attendant.person} />
+        </Col>
+        <Col xs4={2}>
+          {attendant.answers.map((a, i) => (
+            <QA key={i}>
+              <p><i>{mappedQuestions[i]}</i></p>
+              <p>{a}</p>
+            </QA>
+          ))}
+        </Col>
+      </Row>
+      <Separator small flip={isEven} />
+    </div>
   );
 };
 
 const Spouses = ({spouses, story}) => (
   <div>
+    <Separator />
     <Row>
       <Col sm8={1} md={2} />
       {spouses.map((s, i) => (
@@ -51,6 +61,7 @@ const Spouses = ({spouses, story}) => (
         <Story>{story}</Story>
       </Col>
     </Row>
+    <Separator flip />
   </div>
 );
 

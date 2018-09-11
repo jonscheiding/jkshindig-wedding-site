@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const BackgroundImage = styled.div`
   background-image: url(${props => props.image});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: ${props => props.contain ? 'contain' : 'cover'};
   background-position: center;
 `;
 
