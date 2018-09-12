@@ -6,6 +6,6 @@ a, a:active, a:visited, a:hover {
 }
 // sass-lint:enable force-pseudo-nesting
 
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: border-box;
 }

@@ -3,9 +3,11 @@ import { Grid } from 'react-material-responsive-grid';
 
 import { PropTypesContent } from '../PropTypesCustom';
 import Stories from './sections/Stories';
+import Event from './sections/Event';
 
 const sections = [
-  Stories
+  // Stories,
+  Event
 ];
 
 const Sections = ({content}) => (

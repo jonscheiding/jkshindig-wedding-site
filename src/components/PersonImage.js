@@ -10,7 +10,7 @@ import styled from 'styled-components';
 function getImage({first, last}) {
   const filename = `${first}.${last}`
     .replace(/[^a-zA-Z.]*/g, '');
-  return require(`../content/images/${filename}.png`);
+  return require(`../content/images/people/${filename}.png`);
 }
 
 const OverlaySquare = styled(Square)`
