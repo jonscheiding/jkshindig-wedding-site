@@ -7,16 +7,27 @@ import styled from 'styled-components';
 import { PropTypesContent } from '../../PropTypesCustom';
 import PersonProfile from '../PersonProfile';
 import Separator from '../Separator';
+import { Breakpoint } from '../../styles/responsive';
 
 const Story = styled.p`
   text-align: justify;
+  margin-top: 1em;
 `;
 
 const QA = styled.div`
-  margin-bottom: 1.5rem;
-  p b { 
-    display: inline-block;
-    margin-bottom: 0.5rem; 
+  /* margin-bottom: 1rem; */
+
+  p {
+    text-align: center;
+
+    ${ Breakpoint.sm`
+      text-align: ${ props => props.right ? 'right' : 'left' };
+    `}
+
+    b { 
+      display: inline-block;
+      margin-bottom: 0.5em; 
+    }
   }
 `;
 
@@ -28,15 +39,14 @@ const Attendant = ({attendant, spouses, questions, index}) => {
   return (
     <div>
       <Row reverse={isEven}>
-        <Col xs4={1} />
-        <Col xs4={2}>
+        <Col xs4={1} hiddenUp='sm8' />
+        <Col xs4={2} sm8={3} md={5} lg={5} mdOffset={1} >
           <PersonProfile person={attendant.person} />
         </Col>
-      </Row>
-      <Row>
-        <Col xs4={4}>
+        <Col xs4={1} hiddenUp='sm8' />
+        <Col xs4={4} sm8={5} md={5} lg={5}>
           {attendant.answers.map((a, i) => (
-            <QA key={i}>
+            <QA key={i} right={!isEven}>
               <p><b>{mappedQuestions[i]}</b></p>
               <p>{a}</p>
             </QA>
@@ -71,7 +81,7 @@ const Spouses = ({spouses, story}) => (
 const Stories = ({content}) => (
   <div>
     <Spouses spouses={content.spouses} story={content.story} />
-    <h3>The Wedding Party</h3>
+    <h2><i>The Wedding Party</i></h2>
     {content.attendants.map((a, i) => 
       <Attendant key={i} index={i}
         attendant={a} 
