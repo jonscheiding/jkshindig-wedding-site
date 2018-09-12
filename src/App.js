@@ -15,7 +15,7 @@ class App extends Component {
       <div style={style}>
         <Splash 
           location={location} date={date} 
-          names={spouses.map(s => s.name.first)} />
+          names={spouses.map(s => s.name)} />
       </div>
     );
   }

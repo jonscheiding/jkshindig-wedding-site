@@ -40,6 +40,37 @@ class Splash extends Component {
       }
     `;
 
+    const Names = styled.h1`
+      i {
+        display: block;
+        padding-right: 0.4em;
+        ${Breakpoint.md` display: inline; `}
+      }
+
+      ${Breakpoint.md`
+        display: table;
+        width: auto;
+        margin: auto;
+
+        > div { 
+          display: table-row;
+
+          > span {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 0 0.1em;
+          }
+        }
+      `};
+    `;
+
+    const Last = styled.div`
+      display: none;
+      @media only screen and (min-width: 1200px) {
+        display: block;
+      }
+    `;
+
     const dateFormatted = dateFormat(date, 'mmmm d, yyyy');
 
     return (
@@ -48,7 +79,13 @@ class Splash extends Component {
           <SplashBackgroundImage image={image} />
         </Background>
         <SplashContent>
-          <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
+          <Names>
+            <div>
+              <span>{names[0].first} <Last>{names[0].last}</Last></span>
+              <span><i>and</i></span>
+              <span>{names[1].first} <Last>{names[1].last}</Last></span>
+            </div>
+          </Names>
           <h2>{dateFormatted}</h2>
           <h2><i>save the date</i></h2>
           <footer>
