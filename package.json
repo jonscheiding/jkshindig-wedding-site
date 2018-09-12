@@ -16,13 +16,15 @@
     "lint": "npm-run-all lint:sass lint:js"
   },
   "dependencies": {
+    "env-loader": "./lib/env-loader",
     "meyer-reset-scss": "^2.0.4",
     "node-sass-chokidar": "^1.3.3",
     "node-sass-tilde-importer": "^1.0.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "remote-loader": "./lib/remote-loader"
   },
   "devDependencies": {
     "eslint": "^4",
