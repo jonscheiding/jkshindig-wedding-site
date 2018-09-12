@@ -1,100 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Row, Col } from 'react-material-responsive-grid';
-import format from 'string-format';
-import styled from 'styled-components';
+import React from 'react';
 
 import { PropTypesContent } from '../../PropTypesCustom';
-import PersonProfile from '../PersonProfile';
-import Separator from '../Separator';
-import { Breakpoint } from '../../styles/responsive';
-
-const Story = styled.p`
-  text-align: justify;
-  margin-top: 1em;
-`;
-
-const QA = styled.div`
-  margin-bottom: 1em;
-  
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  p {
-    text-align: center;
-
-    ${ Breakpoint.sm`
-      text-align: ${ props => props.right ? 'right' : 'left' };
-    `}
-
-    b { 
-      display: inline-block;
-      margin-bottom: 0.5em; 
-    }
-  }
-`;
-
-class Attendant extends Component {
-  render() {
-    const {attendant, spouses, questions, index} = this.props;
-    const spouse = spouses[attendant.spouse];
-    const mappedQuestions = questions.map(q => format(q, spouse));
-    const isEven = index % 2 === 0;
-
-    return (
-      <div>
-        <Row reverse={isEven}>
-          <Col xs4='2' md='4' xs4Offset='1' 
-            sm8={attendant.answers.length > 0 ? 3 : 4} 
-            sm8Offset={attendant.answers.length > 0 ? '0' : 2}
-            mdOffset={attendant.answers.length > 0 ? 1 : 4}>
-            <PersonProfile person={attendant.person} />
-          </Col>
-          {this.renderQuestions(mappedQuestions, attendant.answers, isEven)}
-        </Row>
-        <Separator small flip={isEven} />
-      </div>
-    );
-  }
-
-  renderQuestions(mappedQuestions, answers, isEven) {
-    if(answers.length === 0) {
-      return null;
-    }
-
-    return (
-      <Col xs4='4' sm8='5' md='6'>
-        {answers.map((a, i) => (
-          <QA key={i} right={!isEven}>
-            <p><b>{mappedQuestions[i]}</b></p>
-            <p>{a}</p>
-          </QA>
-        ))}
-      </Col>
-    );
-  }
-};
-
-const Spouses = ({spouses, story}) => (
-  <div>
-    <Separator />
-    <Row>
-      <Col sm8='1' md='2' />
-      {spouses.map((s, i) => (
-        <Col key={i} xs4='2' xs8='4' sm8='3' md='4'>
-          <PersonProfile person={s} />
-        </Col>
-      ))}
-    </Row>
-    <Row>
-      <Col xs4='4' sm8='6' md='8' sm8Offset='1' mdOffset='2'>
-        <Story>{story}</Story>
-      </Col>
-    </Row>
-    <Separator flip />
-  </div>
-);
+import Attendant from './stories/Attendant';
+import Spouses from './stories/Spouses';
 
 const Stories = ({content}) => (
   <div>
@@ -108,18 +16,6 @@ const Stories = ({content}) => (
     )}
   </div>
 );
-
-Attendant.propTypes = {
-  attendant: PropTypesContent.attendant,
-  spouses: PropTypesContent.spouses,
-  questions: PropTypesContent.questions,
-  index: PropTypes.number.isRequired
-};
-
-Spouses.propTypes = {
-  spouses: PropTypesContent.spouses.isRequired,
-  story: PropTypes.string.isRequired
-};
 
 Stories.propTypes = {
   content: PropTypesContent.content
