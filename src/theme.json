@@ -1,6 +1,7 @@
 {
   "foreground-color": "#f5edd3",
   "background-color": "#21303d",
+  "highlight-color": "#cc9389",
 
   "breakpoint-sm": "37.5rem",
   "breakpoint-md": "64rem",

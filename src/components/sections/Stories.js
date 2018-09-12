@@ -15,7 +15,11 @@ const Story = styled.p`
 `;
 
 const QA = styled.div`
-  /* margin-bottom: 1rem; */
+  margin-bottom: 1em;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   p {
     text-align: center;
@@ -40,11 +44,11 @@ const Attendant = ({attendant, spouses, questions, index}) => {
     <div>
       <Row reverse={isEven}>
         <Col xs4={1} hiddenUp='sm8' />
-        <Col xs4={2} sm8={3} md={5} lg={5} mdOffset={1} >
+        <Col xs4={2} sm8={3} md={4}  mdOffset={1} >
           <PersonProfile person={attendant.person} />
         </Col>
         <Col xs4={1} hiddenUp='sm8' />
-        <Col xs4={4} sm8={5} md={5} lg={5}>
+        <Col xs4={4} sm8={5} md={6} >
           {attendant.answers.map((a, i) => (
             <QA key={i} right={!isEven}>
               <p><b>{mappedQuestions[i]}</b></p>
