@@ -22,7 +22,7 @@ class App extends Component {
 
   componentDidMount() {
     const nicknames = content.spouses.map(s => s.nickname);
-    document.title = `${nicknames[0]} and ${nicknames[1]}`;
+    document.title = `${nicknames[0]} and ${nicknames[1]}'s Wedding`;
   }
 }
 
