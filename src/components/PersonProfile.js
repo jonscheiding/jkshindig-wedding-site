@@ -2,10 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { PropTypesContent } from '../PropTypesCustom';
+import { getImage } from '../content';
 import Square from './Square';
-import PersonImage from './PersonImage';
+import PortraitImage from './PortraitImage';
 
-const PersonImageFill = styled(PersonImage)`
+function getPersonImage(name) {
+  return getImage([name.first, name.last], 'people');
+}
+
+const PersonImageFill = styled(PortraitImage)`
   width: 100%;
   height: 100%;
 `;
@@ -13,7 +18,7 @@ const PersonImageFill = styled(PersonImage)`
 const PersonProfile = ({person}) => (
   <div>
     <Square>
-      <PersonImageFill name={person.name} />
+      <PersonImageFill image={getPersonImage(person.name)} />
     </Square>
     <h4>
       <div>{person.name.first}</div>
