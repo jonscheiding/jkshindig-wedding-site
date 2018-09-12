@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 import format from 'string-format';
@@ -35,46 +35,60 @@ const QA = styled.div`
   }
 `;
 
-const Attendant = ({attendant, spouses, questions, index}) => {
-  const spouse = spouses[attendant.spouse];
-  const mappedQuestions = questions.map(q => format(q, spouse));
-  const isEven = index % 2 === 0;
+class Attendant extends Component {
+  render() {
+    const {attendant, spouses, questions, index} = this.props;
+    const spouse = spouses[attendant.spouse];
+    const mappedQuestions = questions.map(q => format(q, spouse));
+    const isEven = index % 2 === 0;
 
-  return (
-    <div>
-      <Row reverse={isEven}>
-        <Col xs4={1} hiddenUp='sm8' />
-        <Col xs4={2} sm8={3} md={4}  mdOffset={1} >
-          <PersonProfile person={attendant.person} />
-        </Col>
-        <Col xs4={1} hiddenUp='sm8' />
-        <Col xs4={4} sm8={5} md={6} >
-          {attendant.answers.map((a, i) => (
-            <QA key={i} right={!isEven}>
-              <p><b>{mappedQuestions[i]}</b></p>
-              <p>{a}</p>
-            </QA>
-          ))}
-        </Col>
-      </Row>
-      <Separator small flip={isEven} />
-    </div>
-  );
+    return (
+      <div>
+        <Row reverse={isEven}>
+          <Col xs4='2' md='4' xs4Offset='1' 
+            sm8={attendant.answers.length > 0 ? 3 : 4} 
+            sm8Offset={attendant.answers.length > 0 ? '0' : 2}
+            mdOffset={attendant.answers.length > 0 ? 1 : 4}>
+            <PersonProfile person={attendant.person} />
+          </Col>
+          {this.renderQuestions(mappedQuestions, attendant.answers, isEven)}
+        </Row>
+        <Separator small flip={isEven} />
+      </div>
+    );
+  }
+
+  renderQuestions(mappedQuestions, answers, isEven) {
+    if(answers.length === 0) {
+      return null;
+    }
+
+    return (
+      <Col xs4='4' sm8='5' md='6'>
+        {answers.map((a, i) => (
+          <QA key={i} right={!isEven}>
+            <p><b>{mappedQuestions[i]}</b></p>
+            <p>{a}</p>
+          </QA>
+        ))}
+      </Col>
+    );
+  }
 };
 
 const Spouses = ({spouses, story}) => (
   <div>
     <Separator />
     <Row>
-      <Col sm8={1} md={2} />
+      <Col sm8='1' md='1' />
       {spouses.map((s, i) => (
-        <Col key={i} xs4={2} xs8={4} sm8={3} md={4}>
+        <Col key={i} xs4='2' xs8='4' sm8='3' md='4'>
           <PersonProfile person={s} />
         </Col>
       ))}
     </Row>
     <Row>
-      <Col xs4={4} sm8={6} md={8} sm8Offset={1} mdOffset={2}>
+      <Col xs4='4' sm8='6' md='8' sm8Offset='1' mdOffset='2'>
         <Story>{story}</Story>
       </Col>
     </Row>

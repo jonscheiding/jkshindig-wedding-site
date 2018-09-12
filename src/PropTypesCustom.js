@@ -25,7 +25,8 @@ const location = PropTypes.exact({
 const person = PropTypes.exact({
   name: name.isRequired,
   nickname: PropTypes.string,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string
 });
 
 const answers = PropTypes.arrayOf(PropTypes.string);
