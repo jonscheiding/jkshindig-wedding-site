@@ -80,7 +80,7 @@ const Spouses = ({spouses, story}) => (
   <div>
     <Separator />
     <Row>
-      <Col sm8='1' md='1' />
+      <Col sm8='1' md='2' />
       {spouses.map((s, i) => (
         <Col key={i} xs4='2' xs8='4' sm8='3' md='4'>
           <PersonProfile person={s} />
