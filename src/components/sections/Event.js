@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col } from 'react-material-responsive-grid';
 import dateFormat from 'dateformat';
 
 import { PropTypesContent } from '../../PropTypesCustom';
@@ -16,20 +17,30 @@ const Event = ({content}) => {
   const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
 
   return (
-    <div className='event'>
-      <h3>{dateFormat(date, 'dddd, mmmm dd, yyyy')}</h3>
-      <h3>{dateFormat(date, 'h:MM tt')}</h3>
-      <PortraitImage image={image} />
-      <h4>CEREMONY AND RECEPTION</h4>
-      <h4>
-        <i>
-          <div>{name}</div>
-          <a href={mapUrl} target='_blank'>
-            <div>{street}</div>
-            <div>{city}, {state}, {zip}</div>
-          </a>
-        </i>
-      </h4>
+    <div>
+      <Row>
+        <Col xs4='4'>
+          <h3>{dateFormat(date, 'dddd, mmmm dd, yyyy')}</h3>
+          <h3>{dateFormat(date, 'h:MM tt')}</h3>
+        </Col>
+      </Row>
+      <Row middle={['md', 'lg', 'xl']}>
+        <Col xs4='2' xs4Offset='1' md='4' mdOffset='2'>
+          <PortraitImage image={image} />
+        </Col>
+        <Col xs4='4' md='4'>
+          <h4>CEREMONY AND RECEPTION</h4>
+          <h4>
+            <i>
+              <div>{name}</div>
+              <a href={mapUrl} target='_blank'>
+                <div>{street}</div>
+                <div>{city}, {state}, {zip}</div>
+              </a>
+            </i>
+          </h4>
+        </Col>
+      </Row>
     </div>
   );
 };
