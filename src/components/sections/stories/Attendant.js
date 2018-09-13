@@ -32,10 +32,11 @@ const QA = styled.div`
 
 class Attendant extends Component {
   render() {
-    const {attendant, spouses, questions, index} = this.props;
+    const {attendant, spouses, questions, index, count} = this.props;
     const spouse = spouses[attendant.spouse];
     const mappedQuestions = questions.map(q => format(q, spouse));
     const isEven = index % 2 === 0;
+    const isLast = index === count - 1;
 
     return (
       <div>
@@ -48,7 +49,7 @@ class Attendant extends Component {
           </Col>
           {this.renderQuestions(mappedQuestions, attendant.answers, isEven)}
         </Row>
-        <Separator small flip={isEven} />
+        {isLast ? null : <Separator small flip={isEven} />}
       </div>
     );
   }
@@ -75,7 +76,8 @@ Attendant.propTypes = {
   attendant: PropTypesContent.attendant,
   spouses: PropTypesContent.spouses,
   questions: PropTypesContent.questions,
-  index: PropTypes.number.isRequired
+  index: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired
 };
 
 export default Attendant;

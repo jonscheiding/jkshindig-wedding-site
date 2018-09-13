@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 import styled from 'styled-components';
 
 import { PropTypesContent } from '../../../PropTypesCustom';
 import PersonProfile from '../../PersonProfile';
-import Separator from '../../Separator';
 
 const Story = styled.p`
   text-align: justify;
@@ -14,7 +13,6 @@ const Story = styled.p`
 
 const Spouses = ({spouses, story}) => (
   <div>
-    <Separator />
     <Row>
       <Col sm8='1' md='2' />
       {spouses.map((s, i) => (
@@ -28,7 +26,6 @@ const Spouses = ({spouses, story}) => (
         <Story>{story}</Story>
       </Col>
     </Row>
-    <Separator flip />
   </div>
 );
 
