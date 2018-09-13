@@ -9,7 +9,7 @@ class App extends Component {
     const { content } = this.props;
     const { location, date, spouses } = content;
 
-    const style = { height: process.env.REACT_APP_HACK_HEIGHT ? '10000px' : 'auto' };
+    const style = { marginBottom: process.env.REACT_APP_HACK_HEIGHT ? '2000px' : 'auto' };
 
     return (
       <div style={style}>
