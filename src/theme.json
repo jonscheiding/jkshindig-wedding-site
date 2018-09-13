@@ -4,7 +4,7 @@
   "highlight-color": "#cc9389",
 
   "breakpoint-sm": "37.5rem",
-  "breakpoint-md": "64rem",
-  "breakpoint-lg": "90rem",
+  "breakpoint-md": "60rem",
+  "breakpoint-lg": "80rem",
   "breakpoint-xl": "120rem"
 }

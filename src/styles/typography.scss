@@ -48,15 +48,11 @@ b {
 }
 
 @include breakpoint-md {
-  @include font-sizes(1.8);
+  @include font-sizes(1.7);
   p { font-size: 1.5rem; }
 }
 
 @include breakpoint-lg {
-  @include font-sizes(2.1);
-  p { font-size: 2rem; }
-}
-
-@include breakpoint-xl {
-  @include font-sizes(2.5);
+  @include font-sizes(1.9);
+  p { font-size: 1.8rem; }
 }

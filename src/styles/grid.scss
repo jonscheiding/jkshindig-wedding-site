@@ -1,9 +1,19 @@
+[class^='col'] {
+  margin: 0.5em 0;
+}
+
+.fixed-center {
+  max-width: 1200px;
+  // sass-lint:disable no-important
+  margin: auto !important;
+  // sass-lint:enable no-important
+}
+
 //
 // Fix weird behavior of react-material-responsive grid
 // Out of the box it does not reverse offsets - they still
 // push from the left even if the row is reversed
 //
-
 .reverse {
   @mixin offset-fix($sizes, $columns) {
     @each $size in $sizes {
