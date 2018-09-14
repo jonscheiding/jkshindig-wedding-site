@@ -16,6 +16,7 @@
     "lint": "npm-run-all lint:sass lint:js"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "dateformat": "^3.0.3",
     "meyer-reset-scss": "^2.0.4",
     "node-sass": "^4.9.3",
@@ -28,6 +29,7 @@
     "react-material-responsive-grid": "^1.2.1",
     "react-parallax": "^1.8.0",
     "react-scripts": "1.1.4",
+    "react-scrollspy": "^3.3.5",
     "string-format": "^2.0.0",
     "styled-components": "^3.4.5"
   },

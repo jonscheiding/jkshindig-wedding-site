@@ -11,17 +11,24 @@ const sections = [
   Event
 ];
 
+export const SECTION_NAMES = sections.map(s => s.name);
+
 const Sections = ({content}) => (
   <Grid fixed='center'>
-    {sections.map(SectionComponent => 
-      <div>
-        <Separator />
-        <h1>{SectionComponent.name}</h1>
-        <section key={SectionComponent.name}>
-          <SectionComponent content={content} />
-        </section>
-      </div>
-    )}
+    {sections.map(SectionComponent => {
+      const name = SectionComponent.name;
+      return (
+        <div>
+          <Separator />
+          <div id={name}>
+            <h1>{name}</h1>
+            <section key={name}>
+              <SectionComponent content={content} />
+            </section>
+          </div>
+        </div>
+      );
+    })}
   </Grid>
 );
 
