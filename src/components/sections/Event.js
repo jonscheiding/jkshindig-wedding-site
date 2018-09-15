@@ -50,6 +50,8 @@ const Event = ({content}) => {
   );
 };
 
+Event.title = 'Event';
+
 Event.propTypes = {
   content: PropTypesContent.content
 };

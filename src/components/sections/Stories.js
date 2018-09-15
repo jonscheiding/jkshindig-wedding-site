@@ -19,6 +19,8 @@ const Stories = ({content}) => (
   </div>
 );
 
+Stories.title = 'Stories';
+
 Stories.propTypes = {
   content: PropTypesContent.content
 };

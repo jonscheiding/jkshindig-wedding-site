@@ -11,12 +11,12 @@ const sections = [
   Event
 ];
 
-export const SECTION_NAMES = sections.map(s => s.name);
+export const SECTION_NAMES = sections.map(s => s.title);
 
 const Sections = ({content}) => (
   <Grid fixed='center'>
     {sections.map(SectionComponent => {
-      const name = SectionComponent.name;
+      const name = SectionComponent.title;
       return (
         <div>
           <Separator />
