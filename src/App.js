@@ -4,6 +4,11 @@ import { PropTypesContent } from './PropTypesCustom';
 import Splash from './components/Splash';
 import Navigation from './components/Navigation';
 import Sections from './components/Sections';
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+  margin-bottom: 3rem;
+`;
 
 class App extends Component {
   render() {
@@ -11,13 +16,13 @@ class App extends Component {
     const { location, date, spouses } = content;
 
     return (
-      <div className='app'>
+      <AppContainer className='app'>
         <Splash 
           location={location} date={date} 
           names={spouses.map(s => s.name.first)} />
         <Navigation />
         <Sections content={content} />
-      </div>
+      </AppContainer>
     );
   }
 

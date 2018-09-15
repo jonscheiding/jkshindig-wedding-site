@@ -2,16 +2,16 @@
   margin: 0.5em 0;
 }
 
-.app {
-  .grid.fixed-center {
-    @include breakpoint-lg {
-      max-width: 1200px;
-      // sass-lint:disable no-important
-      margin: auto;
-      // sass-lint:enable no-important
-    }
+// sass-lint:disable force-element-nesting
+.app .grid.fixed-center {
+  @include breakpoint-lg {
+    max-width: 1200px;
+    // sass-lint:disable no-important
+    margin: auto;
+    // sass-lint:enable no-important
   }
 }
+// sass-lint:enable force-element-nesting
 
 //
 // Fix weird behavior of react-material-responsive grid
