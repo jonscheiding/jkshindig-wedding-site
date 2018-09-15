@@ -128,10 +128,18 @@
     {
       "person": { "name": { "first": "Jon", "last": "Kovach" }, "title": "Groomsman" },
       "spouse": 1,
-      "answers": [ ]
+      "answers": [ 
+        "I've known you since a short while after you and Kaleigh started dating.", 
+        "I was introduced to you through Kaleigh. I feel like the first time I really got to know you was when we ran into each other at Rhinegeist, though.", 
+        "My favorite memory is when you came to visit me in NYC! Seeing shows, eating absurdly large bowls of ice cream, and late-night drinks & chats." ]
     },
     {
       "person": { "name": { "first": "Collin", "last": "Dillingham" }, "title": "Groomsman In Memoriam", "subtitle": "1996 - 2016" },
+      "spouse": 0,
+      "answers": [ ]
+    },
+    {
+      "person": { "name": { "first": "Rachel", "last": "Scheiding" }, "title": "Officiant" },
       "spouse": 0,
       "answers": [ ]
     }
