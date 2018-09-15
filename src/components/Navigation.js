@@ -2,8 +2,39 @@ import React, { Component } from 'react';
 import Scrollspy from 'react-scrollspy';
 import cx from 'classnames';
 import styled from 'styled-components';
+import { transparentize } from 'polished';
 
 import { SECTION_NAMES } from './Sections';
+
+const Menu = styled(Scrollspy)`
+  background-color: ${props => 
+    transparentize(0.4, props.theme['highlight-color'])};
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+`;
+
+const MenuItem = styled.li`
+  display: none;
+  text-align: center;
+  font-size: 2rem;
+  padding: 5px;
+  text-transform: uppercase;
+
+  &.next {
+    display: inline-block;
+    width: 100%;
+
+    a {
+      .icon {
+        font-family: 'Material Icons';
+        text-transform: none;
+        vertical-align: bottom;
+      }
+    }
+  }
+`;
 
 class Navigation extends Component {
   constructor() { super();
@@ -16,44 +47,16 @@ class Navigation extends Component {
   }
 
   render() {
-    const Menu = styled(Scrollspy)`
-      background: ${props => props.theme['background-color']};
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-      z-index: 2;
-    `;
-
-    const MenuItem = styled.li`
-      display: none;
-
-      &.next {
-        display: inline-block;
-        width: 100%;
-
-        a {
-          
-          &::after {
-            content: '➡';
-            padding-left: 0.5em;
-          }
-
-          &.return::after {
-            content: '⬆'
-          }
-        }
-      }
-    `;
-
     return (
       <Menu items={['Stories', 'Event']}
         onUpdate={this.updateNextSection}
         currentClassName='current'>
         {SECTION_NAMES.map(name => (
           <MenuItem className={cx({next: name === this.state.nextSection})}>
-            <h5>
-              <a href={`#${name}`}>{name}</a>
-            </h5>
+            <a href={`#${name}`}>
+              {name}
+              <span className='icon'>keyboard_arrow_right</span>
+            </a>
           </MenuItem>
         ))}
       </Menu>

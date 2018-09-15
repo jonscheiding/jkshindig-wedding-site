@@ -46,7 +46,7 @@ class Splash extends Component {
 
       > footer { 
         position: absolute;
-        bottom: 1rem;
+        bottom: 3rem;
         width: 100%;
       }
     `;
