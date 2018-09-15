@@ -26,20 +26,22 @@ const MenuItem = styled.li`
   width: ${ 100 / SECTION_NAMES.length }%;
 
   &.current { color: ${p => p.theme['highlight-color']}; }
-  .icon { display: none; }
 
   ${Breakpoint.smallest`
     :not(.next) { display: none; }
     width: 100%;
 
-    a {
-      .icon {
-        font-family: 'Material Icons';
-        text-transform: none;
-        vertical-align: bottom;
-      }
+    .icon {
+      font-family: 'Material Icons';
+      text-transform: none;
+      vertical-align: bottom;
     }
   `}
+
+  ${Breakpoint.sm`
+    .icon { display: none }
+    &.top { display: none }
+  `};
 `;
 
 class Navigation extends Component {
@@ -65,6 +67,9 @@ class Navigation extends Component {
             </a>
           </MenuItem>
         ))}
+        <MenuItem className={cx({next: this.state.nextSection === null}, 'top')}>
+          <a href='#top' className='icon'>keyboard_arrow_up</a>
+        </MenuItem>
       </Menu>
     );
   }
