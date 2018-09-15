@@ -10,10 +10,8 @@ class App extends Component {
     const { content } = this.props;
     const { location, date, spouses } = content;
 
-    const style = { marginBottom: process.env.REACT_APP_HACK_HEIGHT ? '2000px' : 'auto' };
-
     return (
-      <div style={style} className='app'>
+      <div className='app'>
         <Splash 
           location={location} date={date} 
           names={spouses.map(s => s.name.first)} />
