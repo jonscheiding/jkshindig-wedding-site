@@ -17,4 +17,10 @@ const Breakpoint = labels.reduce(
   {}
 );
 
+Breakpoint.smallest = (...args) => css`
+  @media only screen and (max-width: ${theme['breakpoint-sm']}) {
+    ${css(...args)}
+  }
+`;
+
 export { Breakpoint };

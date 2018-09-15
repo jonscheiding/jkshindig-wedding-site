@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import Scrollspy from 'react-scrollspy';
 import cx from 'classnames';
 import styled from 'styled-components';
-import { transparentize } from 'polished';
+import { lighten, transparentize } from 'polished';
 
 import { SECTION_NAMES } from './Sections';
+import { Breakpoint } from '../styles/responsive';
 
 const Menu = styled(Scrollspy)`
-  background-color: ${props => 
-    transparentize(0.4, props.theme['highlight-color'])};
+  background-color: ${p => 
+    transparentize(0.4, lighten(0.1, p.theme['background-color']))};
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -16,14 +17,19 @@ const Menu = styled(Scrollspy)`
 `;
 
 const MenuItem = styled.li`
-  display: none;
-  text-align: center;
   font-size: 2rem;
   padding: 5px;
+  text-align: center;
   text-transform: uppercase;
 
-  &.next {
-    display: inline-block;
+  display: inline-block;
+  width: ${ 100 / SECTION_NAMES.length }%;
+
+  &.current { color: ${p => p.theme['highlight-color']}; }
+  .icon { display: none; }
+
+  ${Breakpoint.smallest`
+    :not(.next) { display: none; }
     width: 100%;
 
     a {
@@ -33,7 +39,7 @@ const MenuItem = styled.li`
         vertical-align: bottom;
       }
     }
-  }
+  `}
 `;
 
 class Navigation extends Component {
