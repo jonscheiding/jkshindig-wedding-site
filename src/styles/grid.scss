@@ -2,11 +2,15 @@
   margin: 0.5em 0;
 }
 
-.fixed-center {
-  max-width: 1200px;
-  // sass-lint:disable no-important
-  margin: auto !important;
-  // sass-lint:enable no-important
+.app {
+  .grid.fixed-center {
+    @include breakpoint-lg {
+      max-width: 1200px;
+      // sass-lint:disable no-important
+      margin: auto;
+      // sass-lint:enable no-important
+    }
+  }
 }
 
 //
