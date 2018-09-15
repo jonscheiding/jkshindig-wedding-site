@@ -18,11 +18,11 @@ const Sections = ({content}) => (
     {sections.map(SectionComponent => {
       const name = SectionComponent.title;
       return (
-        <div>
+        <div key={name}>
           <Separator />
           <div id={name}>
             <h1>{name}</h1>
-            <section key={name}>
+            <section>
               <SectionComponent content={content} />
             </section>
           </div>

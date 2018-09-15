@@ -56,7 +56,7 @@ class Navigation extends Component {
         onUpdate={this.updateNextSection}
         currentClassName='current'>
         {SECTION_NAMES.map(name => (
-          <MenuItem className={cx({next: name === this.state.nextSection})}>
+          <MenuItem key={name} className={cx({next: name === this.state.nextSection})}>
             <a href={`#${name}`}>
               {name}
               <KeyboardArrowRightIcon className='icon' />
