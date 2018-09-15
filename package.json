@@ -16,6 +16,8 @@
     "lint": "npm-run-all lint:sass lint:js"
   },
   "dependencies": {
+    "@material-ui/core": "^3.0.3",
+    "@material-ui/icons": "^3.0.1",
     "classnames": "^2.2.6",
     "dateformat": "^3.0.3",
     "meyer-reset-scss": "^2.0.4",

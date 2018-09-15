@@ -1,3 +1,8 @@
+.app [class^='MuiSvgIcon-root-'] {
+  font-size: inherit;
+  vertical-align: bottom;
+}
+
 body {
   font-family: Lato, sans-serif;
   color: $foreground-color;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Scrollspy from 'react-scrollspy';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import cx from 'classnames';
 import styled from 'styled-components';
 import { lighten, transparentize } from 'polished';
@@ -30,12 +32,6 @@ const MenuItem = styled.li`
   ${Breakpoint.smallest`
     :not(.next) { display: none; }
     width: 100%;
-
-    .icon {
-      font-family: 'Material Icons';
-      text-transform: none;
-      vertical-align: bottom;
-    }
   `}
 
   ${Breakpoint.sm`
@@ -63,12 +59,12 @@ class Navigation extends Component {
           <MenuItem className={cx({next: name === this.state.nextSection})}>
             <a href={`#${name}`}>
               {name}
-              <span className='icon'>keyboard_arrow_right</span>
+              <KeyboardArrowRightIcon className='icon' />
             </a>
           </MenuItem>
         ))}
         <MenuItem className={cx({next: this.state.nextSection === null}, 'top')}>
-          <a href='#top' className='icon'>keyboard_arrow_up</a>
+          <a href='#top'><KeyboardArrowUpIcon className='icon' /></a>
         </MenuItem>
       </Menu>
     );
