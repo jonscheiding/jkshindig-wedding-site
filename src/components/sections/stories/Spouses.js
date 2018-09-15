@@ -14,15 +14,15 @@ const Story = styled.p`
 const Spouses = ({spouses, story}) => (
   <div>
     <Row>
-      <Col sm8='1' md='2' />
+      <Col sm8={1} md={2} />
       {spouses.map((s, i) => (
-        <Col key={i} xs4='2' xs8='4' sm8='3' md='4'>
+        <Col key={i} xs4={2} xs8={4} sm8={3} md={4}>
           <PersonProfile person={s} />
         </Col>
     ))}
     </Row>
     <Row>
-      <Col xs4='4' sm8='6' md='8' sm8Offset='1' mdOffset='2'>
+      <Col xs4={4} sm8={6} md={8} sm8Offset={1} mdOffset={2}>
         <Story>{story}</Story>
       </Col>
     </Row>

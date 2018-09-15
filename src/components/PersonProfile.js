@@ -5,21 +5,29 @@ import { PropTypesContent } from '../PropTypesCustom';
 import { getImage } from '../content';
 import Square from './Square';
 import PortraitImage from './PortraitImage';
+import { Breakpoint } from '../styles/responsive';
 
 function getPersonImage(name) {
   return getImage([name.first, name.last], 'people');
 }
 
-const PersonImageFill = styled(PortraitImage)`
+const PersonImageWrapper = styled(Square)`
+  width: '100%';
+  margin: auto;
+  ${Breakpoint.md` width: 80%; `}
+  ${Breakpoint.lg` width: 70%; `}
+`;
+
+const PersonImage = styled(PortraitImage)`
   width: 100%;
   height: 100%;
 `;
 
 const PersonProfile = ({person}) => (
   <div>
-    <Square>
-      <PersonImageFill image={getPersonImage(person.name)} />
-    </Square>
+    <PersonImageWrapper>
+      <PersonImage image={getPersonImage(person.name)} />
+    </PersonImageWrapper>
     <h4>
       <div>{person.name.first}</div>
       <div>{person.name.middle}</div>

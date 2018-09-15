@@ -41,9 +41,9 @@ class Attendant extends Component {
     return (
       <div>
         <Row reverse={isEven} middle={['sm8', 'sm4', 'md', 'lg', 'xl']}>
-          <Col xs4='2' md='4' xs4Offset='1' 
+          <Col xs4={2} md={4} xs4Offset={1} 
             sm8={attendant.answers.length > 0 ? 3 : 4} 
-            sm8Offset={attendant.answers.length > 0 ? '0' : 2}
+            sm8Offset={attendant.answers.length > 0 ? 0 : 2}
             mdOffset={attendant.answers.length > 0 ? 1 : 4}>
             <PersonProfile person={attendant.person} />
           </Col>
@@ -60,7 +60,7 @@ class Attendant extends Component {
     }
 
     return (
-      <Col xs4='4' sm8='5' md='6'>
+      <Col xs4={4} sm8={5} md={6}>
         {answers.map((a, i) => (
           <QA key={i} right={!isEven}>
             <p><b>{mappedQuestions[i]}</b></p>

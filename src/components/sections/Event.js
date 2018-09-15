@@ -22,16 +22,16 @@ const Event = ({content}) => {
   return (
     <div>
       <Row>
-        <Col xs4='4'>
+        <Col xs4={4}>
           <h3>{dateFormat(date, 'dddd, mmmm dd, yyyy')}</h3>
           <h3>{dateFormat(date, 'h:MM tt')}</h3>
         </Col>
       </Row>
       <Row middle={['md', 'lg', 'xl']}>
-        <Col xs4='2' xs4Offset='1' md='4' mdOffset='2'>
+        <Col xs4={2} xs4Offset={1} md={4} mdOffset={2}>
           <PortraitImage image={image} />
         </Col>
-        <Col xs4='4' md='4'>
+        <Col xs4={4} md={4}>
           <h4>CEREMONY AND RECEPTION</h4>
           <h4>
             <i>

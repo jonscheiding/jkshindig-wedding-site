@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { PropTypesEx } from '../PropTypesCustom';
 
 const Outer = styled.div`
-  width: ${({size}) => size || '100%'};
+  width: '100%';
   position: relative;
     
   &:before {
@@ -23,14 +23,13 @@ const Inner = styled.div`
   right: 0;
 `;
 
-const Square = ({children, size, className}) => (
-  <Outer size={size} className={className}>
+const Square = ({children, className}) => (
+  <Outer className={className}>
     <Inner>{children}</Inner>
   </Outer>
 );
 
 Square.propTypes = {
-  size: PropTypes.string,
   className: PropTypes.string,
   children: PropTypesEx.children
 };
