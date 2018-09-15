@@ -12,7 +12,7 @@ import BackgroundImage from './BackgroundImage';
 class Splash extends Component {
   render() {
     const { date, names, location } = this.props;
-    const { street, city, state, zip } = location.address;
+    const { city, state } = location.address;
 
     const viewportSize = css`
       width: 100vw;
@@ -65,8 +65,7 @@ class Splash extends Component {
           <footer>
             <h2>{location.name}</h2>
             <h3>
-              <div><i>{street}</i></div>
-              <div><i>{city}, {state} {zip}</i></div>
+              <div><i>{city}, {state}</i></div>
             </h3>
           </footer>
         </SplashContent>
