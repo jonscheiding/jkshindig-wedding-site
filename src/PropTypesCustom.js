@@ -19,7 +19,8 @@ const address = PropTypes.exact({
 
 const location = PropTypes.exact({
   name: PropTypes.string.isRequired,
-  address: address.isRequired
+  address: address.isRequired,
+  url: PropTypes.string.isRequired
 });
 
 const person = PropTypes.exact({

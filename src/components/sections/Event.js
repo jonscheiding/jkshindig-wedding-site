@@ -1,14 +1,17 @@
 import React from 'react';
 import { Row, Col } from 'react-material-responsive-grid';
+import DirectionsIcon from '@material-ui/icons/Directions';
+import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
 import dateFormat from 'dateformat';
 
 import { PropTypesContent } from '../../PropTypesCustom';
 import { getImage } from '../../content';
 import PortraitImage from '../PortraitImage';
+import { LinkButton } from '../Button';
 
 const Event = ({content}) => {
   const { date } = content;
-  const { name, address } = content.location;
+  const { name, address, url } = content.location;
   const { street, city, state, zip } = address;
 
   const image = getImage(name);
@@ -33,10 +36,12 @@ const Event = ({content}) => {
           <h4>
             <i>
               <div>{name}</div>
-              <a href={mapUrl} target='_blank'>
-                <div>{street}</div>
-                <div>{city}, {state}, {zip}</div>
-              </a>
+              <div>{street}</div>
+              <div>{city}, {state}, {zip}</div>
+              <div>
+                <LinkButton href={mapUrl} target='_blank'><DirectionsIcon /></LinkButton>
+                <LinkButton href={url} target='_blank'><OpenInBrowserIcon /></LinkButton>
+              </div>
             </i>
           </h4>
         </Col>
