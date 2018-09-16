@@ -13,13 +13,13 @@ const AppContainer = styled.div`
 class App extends Component {
   render() {
     const { content } = this.props;
-    const { location, date, spouses } = content;
+    const { venue, date, spouses } = content;
 
     return (
       <AppContainer className='app'>
         <Splash 
-          location={location} date={date} 
-          names={spouses.map(s => s.name.first)} />
+          venue={venue} date={date} 
+          names={spouses.map(s => s.firstName)} />
         <Navigation />
         <Sections content={content} />
       </AppContainer>

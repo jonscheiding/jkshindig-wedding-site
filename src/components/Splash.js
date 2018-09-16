@@ -11,8 +11,7 @@ import BackgroundImage from './BackgroundImage';
 
 class Splash extends Component {
   render() {
-    const { date, names, location } = this.props;
-    const { city, state } = location.address;
+    const { date, names, venue } = this.props;
 
     const viewportSize = css`
       width: 100vw;
@@ -63,9 +62,9 @@ class Splash extends Component {
           <h2>{dateFormatted}</h2>
           <h2><i>save the date</i></h2>
           <footer>
-            <h2>{location.name}</h2>
+            <h2>{venue.name}</h2>
             <h3>
-              <div><i>{city}, {state}</i></div>
+              <div><i>{venue.city}, {venue.state}</i></div>
             </h3>
           </footer>
         </SplashContent>
