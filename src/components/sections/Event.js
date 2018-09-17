@@ -11,12 +11,11 @@ import { LinkButton } from '../Button';
 
 const Event = ({content}) => {
   const { date } = content;
-  const { name, address, url } = content.location;
-  const { street, city, state, zip } = address;
+  const { name, streetAddress, city, state, zip, url } = content.venue;
 
   const image = getImage(name);
 
-  const mapQuery = `${name}, ${address}, ${city}, ${state}, ${zip}`;
+  const mapQuery = `${name}, ${streetAddress}, ${city}, ${state}, ${zip}`;
   const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
 
   return (
@@ -36,7 +35,7 @@ const Event = ({content}) => {
           <h4>
             <i>
               <div>{name}</div>
-              <div>{street}</div>
+              <div>{streetAddress}</div>
               <div>{city}, {state}, {zip}</div>
               <div>
                 <LinkButton href={mapUrl} target='_blank'><DirectionsIcon /></LinkButton>

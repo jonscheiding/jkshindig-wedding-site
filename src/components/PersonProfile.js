@@ -7,10 +7,6 @@ import Square from './Square';
 import PortraitImage from './PortraitImage';
 import { Breakpoint } from '../styles/responsive';
 
-function getPersonImage(name) {
-  return getImage([name.first, name.last], 'people');
-}
-
 const PersonImageWrapper = styled(Square)`
   width: '100%';
   margin: auto;
@@ -26,12 +22,12 @@ const PersonImage = styled(PortraitImage)`
 const PersonProfile = ({person}) => (
   <div>
     <PersonImageWrapper>
-      <PersonImage image={getPersonImage(person.name)} />
+      <PersonImage image={person.photo} />
     </PersonImageWrapper>
     <h4>
-      <div>{person.name.first}</div>
-      <div>{person.name.middle}</div>
-      <div>{person.name.last}</div>
+      <div>{person.firstName}</div>
+      <div>{person.middleName}</div>
+      <div>{person.lastName}</div>
     </h4>
     <h5><i>{person.title}</i></h5>
     {person.subtitle 

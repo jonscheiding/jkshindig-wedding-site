@@ -7,8 +7,8 @@ import Stories from './sections/Stories';
 import Event from './sections/Event';
 
 const sections = [
-  // Stories,
-  // Event
+  Stories,
+  Event
 ];
 
 export const SECTION_NAMES = sections.map(s => s.title);
