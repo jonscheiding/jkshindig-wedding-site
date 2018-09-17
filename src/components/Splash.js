@@ -76,7 +76,7 @@ class Splash extends Component {
 Splash.propTypes = {
   date: PropTypesEx.date.isRequired,
   names: PropTypes.arrayOf(PropTypes.string).isRequired,
-  location: PropTypesContent.location.isRequired
+  venue: PropTypes.object.isRequired
 };
 
 export default Splash;

@@ -44,14 +44,16 @@ const spouse = person;
 const spouses = PropTypes.arrayOf(spouse);
 const attendants = PropTypes.arrayOf(attendant);
 
-const content = PropTypes.exact({
-  spouses: spouses.isRequired,
-  attendants: attendants.isRequired,
-  questions: questions.isRequired,
-  story: PropTypes.string.isRequired,
-  date: date.isRequired,
-  location: location.isRequired
-});
+// const content = PropTypes.exact({
+//   spouses: spouses.isRequired,
+//   attendants: attendants.isRequired,
+//   questions: questions.isRequired,
+//   story: PropTypes.string.isRequired,
+//   date: date.isRequired,
+//   location: location.isRequired
+// });
+
+const content = PropTypes.object;
 
 const PropTypesEx = { date, children };
 const PropTypesContent = { 
