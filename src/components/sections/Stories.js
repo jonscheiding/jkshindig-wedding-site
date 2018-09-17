@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import { PropTypesContent } from '../../PropTypesCustom';
 import Separator from '../Separator';
 import Attendant from './stories/Attendant';
 import Spouses from './stories/Spouses';
@@ -13,8 +13,7 @@ const Stories = ({content}) => (
     {content.attendants.map((a, i) => 
       <Attendant key={i} index={i} count={content.attendants.length}
         attendant={a} 
-        spouses={content.spouses}
-        questions={content.questions} />
+        spouses={content.spouses} />
     )}
   </div>
 );
@@ -22,7 +21,11 @@ const Stories = ({content}) => (
 Stories.title = 'Stories';
 
 Stories.propTypes = {
-  content: PropTypesContent.content
+  content: PropTypes.shape({
+    spouses: PropTypes.array,
+    attendants: PropTypes.array,
+    story: PropTypes.string.isRequired
+  })
 };
 
 export default Stories;

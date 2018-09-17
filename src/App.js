@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { PropTypesContent } from './PropTypesCustom';
 import Splash from './components/Splash';
 import Navigation from './components/Navigation';
 import Sections from './components/Sections';
@@ -33,7 +33,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  content: PropTypesContent.content.isRequired
+  content: PropTypes.object.isRequired
 };
 
 export default App;

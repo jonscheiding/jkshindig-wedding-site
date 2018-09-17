@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { PropTypesEx } from '../PropTypesCustom';
-
 const Outer = styled.div`
   width: '100%';
   position: relative;
@@ -31,7 +29,7 @@ const Square = ({children, className}) => (
 
 Square.propTypes = {
   className: PropTypes.string,
-  children: PropTypesEx.children
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
 };
 
 export default Square;

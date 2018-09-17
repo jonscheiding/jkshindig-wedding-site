@@ -1,8 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { PropTypesContent } from '../PropTypesCustom';
-import { getImage } from '../content';
 import Square from './Square';
 import PortraitImage from './PortraitImage';
 import { Breakpoint } from '../styles/responsive';
@@ -37,7 +36,14 @@ const PersonProfile = ({person}) => (
 );
 
 PersonProfile.propTypes = {
-  person: PropTypesContent.spouse.isRequired
+  person: PropTypes.shape({
+    photo: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    middleName: PropTypes.string,
+    lastName: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string
+  })
 };
 
 export default PersonProfile;

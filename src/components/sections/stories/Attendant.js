@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 import styled from 'styled-components';
-import format from 'string-format';
 
-import { PropTypesContent } from '../../../PropTypesCustom';
 import { Breakpoint } from '../../../styles/responsive';
 import PersonProfile from '../../PersonProfile';
 import Separator from '../../Separator';
@@ -72,9 +70,14 @@ class Attendant extends Component {
 };
 
 Attendant.propTypes = {
-  attendant: PropTypesContent.attendant,
-  spouses: PropTypesContent.spouses,
-  questions: PropTypesContent.questions,
+  attendant: PropTypes.shape({
+    qa: PropTypes.arrayOf(
+      PropTypes.shape({
+        question: PropTypes.string.isRequired,
+        answer: PropTypes.string.isRequired
+      })
+    )
+  }),
   index: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired
 };

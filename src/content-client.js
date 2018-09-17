@@ -1,4 +1,5 @@
 import * as contentful from 'contentful';
+import format from 'string-format';
 
 export class ContentClient {
   constructor() {
@@ -32,7 +33,7 @@ export class ContentClient {
         this.contentTypes.qa.fields
           .filter(f => f.id.startsWith('question'))
           .map(f => ({
-            question: f.name.replace('{spouse}', o.fields.spouse.fields.nickname),
+            question: format(f.name, {spouse: o.fields.spouse.fields.nickname}),
             answer: o.fields[f.id]
           }))
     };
@@ -43,9 +44,7 @@ export class ContentClient {
     const content = await this.client.getEntries({ content_type: 'wedding', include: 10 })
       .then(r => r.items[0]);
 
-    const result = this.mapContent(content);
-    console.log(result);
-    return result;
+    return this.mapContent(content);
   }
 
   mapContent(entry) {

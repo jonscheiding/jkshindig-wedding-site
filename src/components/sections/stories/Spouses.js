@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 import styled from 'styled-components';
 
-import { PropTypesContent } from '../../../PropTypesCustom';
 import PersonProfile from '../../PersonProfile';
 
 const Story = styled.p`
@@ -30,7 +29,7 @@ const Spouses = ({spouses, story}) => (
 );
 
 Spouses.propTypes = {
-  spouses: PropTypesContent.spouses.isRequired,
+  spouses: PropTypes.arrayOf(PropTypes.object),
   story: PropTypes.string.isRequired
 };
 
