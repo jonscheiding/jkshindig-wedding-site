@@ -15,15 +15,12 @@ const QA = styled.div`
   }
 
   p {
-    text-align: center;
-
     ${ Breakpoint.sm`
       text-align: ${ props => props.right ? 'right' : 'left' };
     `}
 
     b { 
       display: inline-block;
-      margin-bottom: 0.5em; 
     }
   }
 `;

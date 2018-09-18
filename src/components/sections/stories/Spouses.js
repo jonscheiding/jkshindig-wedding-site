@@ -6,8 +6,7 @@ import styled from 'styled-components';
 import PersonProfile from '../../PersonProfile';
 
 const Story = styled.p`
-  text-align: justify;
-  margin-top: 1em;
+  /* margin-top: 1em; */
 `;
 
 const Spouses = ({spouses, story}) => (

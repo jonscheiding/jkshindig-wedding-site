@@ -9,6 +9,7 @@ import showdown from 'showdown';
 
 import PortraitImage from '../PortraitImage';
 import { LinkButton } from '../Button';
+import Separator from '../Separator';
 
 const converter = new showdown.Converter();
 
@@ -26,7 +27,7 @@ const Hotel = ({hotel}) => {
     <Col xs4={2} md={4}>
       <h5>{name}</h5>
       <p>{venueNotes}</p>
-      <div style={{width: '80%', margin: '10%'}}>
+      <div style={{width: '80%', margin: '0 10%'}}>
         <PortraitImage image={photo} />
       </div>
       <h6>
@@ -77,9 +78,9 @@ const Event = ({content}) => {
         </Col>
         <Col xs4={4} md={4}>
           <h4>CEREMONY AND RECEPTION</h4>
-          <h4>
+          <h4><i>{name}</i></h4>
+          <h5>
             <i>
-              <div>{name}</div>
               <div>{streetAddress}</div>
               <div>{city}, {state}, {zipCode}</div>
               <div>
@@ -87,12 +88,13 @@ const Event = ({content}) => {
                 <LinkButton href={url} target='_blank'><OpenInBrowserIcon /></LinkButton>
               </div>
             </i>
-          </h4>
+          </h5>
         </Col>
         <Col xs4={4} md={8} mdOffset={2}>
           <p dangerouslySetInnerHTML={{__html: converter.makeHtml(venueNotes)}} />
         </Col>
       </Row>
+      <Separator small />
       <Row>
         <Col xs4={4} md={8} mdOffset={2}>
           <h3>Accommodations</h3>
@@ -101,7 +103,7 @@ const Event = ({content}) => {
       </Row>
       <Row>
         <Col hidden={['xs4', 'xs8']} md={2} />
-        {accommodations.hotels.map(h => <Hotel hotel={h} />)}
+        {accommodations.hotels.map(h => <Hotel key={h.name} hotel={h} />)}
       </Row>
     </div>
   );
