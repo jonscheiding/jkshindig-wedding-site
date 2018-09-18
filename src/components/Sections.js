@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from 'react-material-responsive-grid';
 
+import { getConfigured } from '../util';
 import Separator from './Separator';
 import Stories from './sections/Stories';
 import Event from './sections/Event';
 
-const sections = [
-  Stories,
-  Event
-];
-
+const sections = getConfigured(
+  [Stories, Event], 
+  process.env.REACT_APP_ENABLED_SECTIONS, 
+  s => s.title);
+  
 export const SECTION_NAMES = sections.map(s => s.title);
 
 const Sections = ({content}) => (

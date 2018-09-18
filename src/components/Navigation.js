@@ -54,6 +54,10 @@ class Navigation extends Component {
   }
 
   render() {
+    if(SECTION_NAMES.length === 0) {
+      return null;
+    }
+    
     return (
       <Menu items={['Stories', 'Event']}
         onUpdate={this.updateNextSection}
