@@ -4,13 +4,16 @@ import { Row, Col } from 'react-material-responsive-grid';
 import DirectionsIcon from '@material-ui/icons/Directions';
 import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
 import dateFormat from 'dateformat';
+import showdown from 'showdown';
 
 import PortraitImage from '../PortraitImage';
 import { LinkButton } from '../Button';
 
+const converter = new showdown.Converter();
+
 const Event = ({content}) => {
   const { date } = content;
-  const { name, streetAddress, city, state, zipCode, url, photo } = content.venue;
+  const { name, streetAddress, city, state, zipCode, url, photo, venueNotes } = content.venue;
 
   const mapQuery = `${name}, ${streetAddress}, ${city}, ${state}, ${zipCode}`;
   const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
@@ -41,6 +44,9 @@ const Event = ({content}) => {
             </i>
           </h4>
         </Col>
+        <Col xs4={4} md={8} mdOffset={2}>
+          <p dangerouslySetInnerHTML={{__html: converter.makeHtml(venueNotes)}} />
+        </Col>
       </Row>
     </div>
   );
@@ -56,6 +62,7 @@ Event.propTypes = {
       city: PropTypes.string.isRequired,
       state: PropTypes.string.isRequired,
       zipCode: PropTypes.string.isRequired,
+      venueNotes: PropTypes.string,
       url: PropTypes.string.isRequired,
       photo: PropTypes.string.isRequired
     })
