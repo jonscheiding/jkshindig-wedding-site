@@ -5,6 +5,7 @@ import Splash from './components/Splash';
 import Navigation from './components/Navigation';
 import Sections from './components/Sections';
 import styled from 'styled-components';
+import Attribution from './components/Attribution';
 
 const AppContainer = styled.div`
   margin-bottom: 3rem;
@@ -23,6 +24,7 @@ class App extends Component {
           splash={splash} />
         <Navigation />
         <Sections content={content} />
+        <Attribution />
       </AppContainer>
     );
   }
