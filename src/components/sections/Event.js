@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 import DirectionsIcon from '@material-ui/icons/Directions';
 import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
+import PhoneIcon from '@material-ui/icons/Phone';
 import dateFormat from 'dateformat';
 import showdown from 'showdown';
 
@@ -11,12 +12,56 @@ import { LinkButton } from '../Button';
 
 const converter = new showdown.Converter();
 
+function createMapUrl(address) {
+  const { name, streetAddress, city, state, zipCode } = address;
+  const mapQuery = `${name}, ${streetAddress}, ${city}, ${state}, ${zipCode}`;
+  return `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
+}
+
+const Hotel = ({hotel}) => {
+  const { name, streetAddress, city, state, zipCode, url, phoneNumber, photo, venueNotes } = hotel;
+  const mapUrl = createMapUrl(hotel);
+
+  return (
+    <Col xs4={2} md={4}>
+      <h5>{name}</h5>
+      <p>{venueNotes}</p>
+      <div style={{width: '80%', margin: '10%'}}>
+        <PortraitImage image={photo} />
+      </div>
+      <h6>
+        <i>
+          <div>{streetAddress}</div>
+          <div>{city}, {state}, {zipCode}</div>
+          <div>{phoneNumber}</div>
+        </i>
+        <div>
+          <LinkButton href={mapUrl} target='_blank'><DirectionsIcon /></LinkButton>
+          <LinkButton href={`tel:${phoneNumber}`} target='_blank'><PhoneIcon /></LinkButton>
+          <LinkButton href={url} target='_blank'><OpenInBrowserIcon /></LinkButton>
+        </div>
+      </h6>
+    </Col>
+  );
+};
+
+Hotel.propTypes = {
+  hotel: PropTypes.shape({
+    streetAddress: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    zipCode: PropTypes.string.isRequired,
+    venueNotes: PropTypes.string,
+    url: PropTypes.string.isRequired,
+    photo: PropTypes.string.isRequired,
+  })
+};
+
 const Event = ({content}) => {
-  const { date } = content;
+  const { date, accommodations } = content;
   const { name, streetAddress, city, state, zipCode, url, photo, venueNotes } = content.venue;
 
-  const mapQuery = `${name}, ${streetAddress}, ${city}, ${state}, ${zipCode}`;
-  const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
+  const mapUrl = createMapUrl(content.venue);
 
   return (
     <div>
@@ -48,6 +93,16 @@ const Event = ({content}) => {
           <p dangerouslySetInnerHTML={{__html: converter.makeHtml(venueNotes)}} />
         </Col>
       </Row>
+      <Row>
+        <Col xs4={4} md={8} mdOffset={2}>
+          <h3>Accommodations</h3>
+          <p>{accommodations.notes}</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col hidden={['xs4', 'xs8']} md={2} />
+        {accommodations.hotels.map(h => <Hotel hotel={h} />)}
+      </Row>
     </div>
   );
 };
@@ -64,7 +119,8 @@ Event.propTypes = {
       zipCode: PropTypes.string.isRequired,
       venueNotes: PropTypes.string,
       url: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired
+      photo: PropTypes.string.isRequired,
+      accommodations: PropTypes.object
     })
   })
 };
