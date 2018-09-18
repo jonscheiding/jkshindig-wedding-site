@@ -14,6 +14,7 @@ const Menu = styled(Scrollspy)`
     transparentize(0.4, lighten(0.1, p.theme['background-color']))};
   position: fixed;
   width: 100%;
+  height: 3rem;
   bottom: 0;
   z-index: 2;
 `;

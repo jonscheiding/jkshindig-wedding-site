@@ -14,11 +14,11 @@ class Splash extends Component {
     const viewportSize = css`
       width: 100vw;
       height: 100vh;
-      min-height: 28rem;
+      min-height: 24rem;
 
-      ${Breakpoint.sm` min-height: 37.5rem; `}
-      ${Breakpoint.lg` min-height: 45.0rem; `}
-      ${Breakpoint.xl` min-height: 50.0rem; `}
+      ${Breakpoint.sm` min-height: 28rem; `}
+      ${Breakpoint.lg` min-height: 32rem; `}
+      ${Breakpoint.xl` min-height: 36rem; `}
     `;
 
     const SplashParallax = styled(Parallax)`${viewportSize}`;
