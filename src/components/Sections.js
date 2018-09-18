@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid } from 'react-material-responsive-grid';
 
-import { PropTypesContent } from '../PropTypesCustom';
 import Separator from './Separator';
 import Stories from './sections/Stories';
 import Event from './sections/Event';
@@ -33,7 +33,7 @@ const Sections = ({content}) => (
 );
 
 Sections.propTypes = {
-  content: PropTypesContent.content
+  content: PropTypes.object.isRequired
 };
 
 export default Sections;

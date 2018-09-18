@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { PropTypesContent } from './PropTypesCustom';
 import Splash from './components/Splash';
 import Navigation from './components/Navigation';
 import Sections from './components/Sections';
@@ -13,13 +13,14 @@ const AppContainer = styled.div`
 class App extends Component {
   render() {
     const { content } = this.props;
-    const { location, date, spouses } = content;
+    const { venue, date, spouses, splash } = content;
 
     return (
       <AppContainer className='app'>
         <Splash 
-          location={location} date={date} 
-          names={spouses.map(s => s.name.first)} />
+          venue={venue} date={date} 
+          names={spouses.map(s => s.firstName)}
+          splash={splash} />
         <Navigation />
         <Sections content={content} />
       </AppContainer>
@@ -33,7 +34,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  content: PropTypesContent.content.isRequired
+  content: PropTypes.object.isRequired
 };
 
 export default App;

@@ -4,15 +4,12 @@ import { Parallax, Background } from 'react-parallax';
 import styled, { css } from 'styled-components';
 import dateFormat from 'dateformat';
 
-import { PropTypesEx, PropTypesContent } from '../PropTypesCustom';
 import { Breakpoint } from '../styles/responsive';
-import image from '../assets/splash-image.jpg';
 import BackgroundImage from './BackgroundImage';
 
 class Splash extends Component {
   render() {
-    const { date, names, location } = this.props;
-    const { city, state } = location.address;
+    const { date, names, venue, splash } = this.props;
 
     const viewportSize = css`
       width: 100vw;
@@ -56,16 +53,16 @@ class Splash extends Component {
     return (
       <SplashParallax strength={300}>
         <Background>
-          <SplashBackgroundImage image={image} />
+          <SplashBackgroundImage image={splash} />
         </Background>
         <SplashContent>
           <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
           <h2>{dateFormatted}</h2>
           <h2><i>save the date</i></h2>
           <footer>
-            <h2>{location.name}</h2>
+            <h2>{venue.name}</h2>
             <h3>
-              <div><i>{city}, {state}</i></div>
+              <div><i>{venue.city}, {venue.state}</i></div>
             </h3>
           </footer>
         </SplashContent>
@@ -75,9 +72,14 @@ class Splash extends Component {
 }
 
 Splash.propTypes = {
-  date: PropTypesEx.date.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
   names: PropTypes.arrayOf(PropTypes.string).isRequired,
-  location: PropTypesContent.location.isRequired
+  venue: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired
+  }),
+  splash: PropTypes.string.isRequired
 };
 
 export default Splash;
