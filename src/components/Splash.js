@@ -5,12 +5,11 @@ import styled, { css } from 'styled-components';
 import dateFormat from 'dateformat';
 
 import { Breakpoint } from '../styles/responsive';
-import image from '../assets/splash-image.jpg';
 import BackgroundImage from './BackgroundImage';
 
 class Splash extends Component {
   render() {
-    const { date, names, venue } = this.props;
+    const { date, names, venue, splash } = this.props;
 
     const viewportSize = css`
       width: 100vw;
@@ -54,7 +53,7 @@ class Splash extends Component {
     return (
       <SplashParallax strength={300}>
         <Background>
-          <SplashBackgroundImage image={image} />
+          <SplashBackgroundImage image={splash} />
         </Background>
         <SplashContent>
           <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
@@ -79,7 +78,8 @@ Splash.propTypes = {
     name: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
     state: PropTypes.string.isRequired
-  })
+  }),
+  splash: PropTypes.string.isRequired
 };
 
 export default Splash;
