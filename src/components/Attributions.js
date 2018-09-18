@@ -21,7 +21,7 @@ const Attributions = ({attributions}) => (
   <Attribution>
     {attributions.map(a => (
       <a href={a.url} title={a.title} target='_blank'>
-        <img src={a.icon} />
+        <img src={a.icon} alt={a.title} />
       </a>
     ))}
   </Attribution>
