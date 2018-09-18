@@ -6,6 +6,7 @@ import dateFormat from 'dateformat';
 
 import { Breakpoint } from '../styles/responsive';
 import BackgroundImage from './BackgroundImage';
+import { MENU_HEIGHT } from './Navigation';
 
 class Splash extends Component {
   render() {
@@ -21,7 +22,10 @@ class Splash extends Component {
       ${Breakpoint.xl` min-height: 36rem; `}
     `;
 
-    const SplashParallax = styled(Parallax)`${viewportSize}`;
+    const SplashParallax = styled(Parallax)`
+      ${viewportSize}
+      width: 100%;
+    `;
 
     const SplashBackgroundImage = styled(BackgroundImage)`
       ${viewportSize}
@@ -43,7 +47,7 @@ class Splash extends Component {
 
       > footer { 
         position: absolute;
-        bottom: 3rem;
+        bottom: ${ MENU_HEIGHT };
         width: 100%;
       }
     `;

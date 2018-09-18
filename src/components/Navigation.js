@@ -9,12 +9,14 @@ import { lighten, transparentize } from 'polished';
 import { SECTION_NAMES } from './Sections';
 import { Breakpoint } from '../styles/responsive';
 
+export const MENU_HEIGHT = '2.65rem';
+
 const Menu = styled(Scrollspy)`
   background-color: ${p => 
     transparentize(0.4, lighten(0.1, p.theme['background-color']))};
   position: fixed;
   width: 100%;
-  height: 3rem;
+  height: ${ MENU_HEIGHT };
   bottom: 0;
   z-index: 2;
 `;

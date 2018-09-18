@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { darken, transparentize } from 'polished';
 import styled from 'styled-components';
 
 const Attribution = styled.div`
   text-align: center;
   height: 4rem;
   margin-top: 4rem;
-  background-color: ${p => transparentize(0.75, darken(0.1, p.theme['foreground-color']))};
 
   img {
     height: 2rem;
@@ -20,7 +18,7 @@ const Attribution = styled.div`
 const Attributions = ({attributions}) => (
   <Attribution>
     {attributions.map(a => (
-      <a href={a.url} title={a.title} target='_blank'>
+      <a href={a.url} title={a.title} key={a.title} target='_blank'>
         <img src={a.icon} alt={a.title} />
       </a>
     ))}
