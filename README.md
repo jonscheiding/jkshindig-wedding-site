@@ -1,5 +1,7 @@
 # Jon and Kaleigh's wedding website
 
+<a href="https://travis-ci.org/jonscheiding/jk-wedding"><img src="https://travis-ci.org/jonscheiding/jk-wedding.svg?branch=master"></a>
+
 This is the website for Jon and Kaleigh's wedding, currently hosted at https://jkshindig.com.
 
 ## Setup
