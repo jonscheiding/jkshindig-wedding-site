@@ -24,10 +24,10 @@ const Hotel = ({hotel}) => {
   const mapUrl = createMapUrl(hotel);
 
   return (
-    <Col xs4={2} md={4}>
+    <Col xs4={4} md={3}>
       <h5>{name}</h5>
       <p>{venueNotes}</p>
-      <div style={{width: '80%', margin: '0 10%'}}>
+      <div>
         <PortraitImage image={photo} />
       </div>
       <h6>
@@ -102,7 +102,7 @@ const Event = ({content}) => {
         </Col>
       </Row>
       <Row>
-        <Col hidden={['xs4', 'xs8']} md={2} />
+        <Col hidden={['xs4', 'xs8']} md={3} />
         {accommodations.hotels.map(h => <Hotel key={h.name} hotel={h} />)}
       </Row>
     </div>

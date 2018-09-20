@@ -7,7 +7,7 @@ import PortraitImage from './PortraitImage';
 import { Breakpoint } from '../styles/responsive';
 
 const PersonImageWrapper = styled(Square)`
-  width: '100%';
+  width: 100%;
   margin: auto;
   ${Breakpoint.md` width: 80%; `}
   ${Breakpoint.lg` width: 70%; `}
