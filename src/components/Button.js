@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { lighten, darken, transparentize } from 'polished';
 
 const Button = styled.span`
   background-color: ${p => 
-    transparentize(0.25, lighten(0.1, p.theme['background-color']))
+    transparentize(0.0, lighten(0.1, p.theme['background-color']))
   };
   margin: 0.35em;
   padding: 0.25em;
@@ -13,11 +14,15 @@ const Button = styled.span`
     darken(0.1, p.theme['background-color'])};
 `;
 
-const LinkButton = ({children, ...props}) => {
-  if(props.external && !props.target) {
+const LinkButton = ({children, external, ...props}) => {
+  if(external && !props.target) {
     props.target = '_blank';
   }
   return (<Button><a {...props}>{children}</a></Button>);
+};
+
+LinkButton.propTypes = {
+  external: PropTypes.bool
 };
 
 export default Button;

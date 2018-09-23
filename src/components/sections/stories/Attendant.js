@@ -35,7 +35,7 @@ class Attendant extends Component {
     return (
       <div>
         <Row reverse={isEven} middle={['sm8', 'sm4', 'md', 'lg', 'xl']}>
-          <Col xs4={2} md={4} xs4Offset={1} 
+          <Col xs4={4} md={4} 
             sm8={qa.length > 0 ? 3 : 4} 
             sm8Offset={qa.length > 0 ? 0 : 2}
             mdOffset={qa.length > 0 ? 1 : 4}>

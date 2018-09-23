@@ -17,6 +17,7 @@ class ProfileIcons extends Component {
   render() {
     const Wrapper = styled.div`
       font-size: 1.2em;
+      text-align: center;
     `;
 
     return (

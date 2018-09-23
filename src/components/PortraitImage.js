@@ -7,23 +7,19 @@ import BackgroundImage from './BackgroundImage';
 import overlay from '../assets/picture-overlay.png';
 import styled from 'styled-components';
 
-import { Breakpoint } from '../styles/responsive';
-
 const OverlaySquare = styled(Square)`
   transform: scale(1.01);
   width: 100%;
 `;
 
 const SizedParallax = styled(Parallax)`
-  ${Breakpoint.smallest` 
-    max-width: 50vw; 
-    margin: auto; 
-  `}
+  margin: auto; 
+  max-width: 50%;
 `;
 
-const PersonImage = ({image, className}) => {
+const PersonImage = ({image, ...props}) => {
   return (
-    <SizedParallax strength={10} bgImage={image} className={className}>
+    <SizedParallax strength={10} bgImage={image} {...props}>
       <OverlaySquare>
         <BackgroundImage image={overlay} style={{height: '100%'}} />
       </OverlaySquare>

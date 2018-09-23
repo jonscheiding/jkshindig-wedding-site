@@ -14,7 +14,7 @@ const Hotel = ({hotel}) => {
   const { name, streetAddress, city, state, zipCode, url, phoneNumber, photo, venueNotes } = hotel;
 
   return (
-    <Col xs4={4} md={3}>
+    <Col xs4={4} md={4}>
       <h4>{name}</h4>
       <p>{venueNotes}</p>
       <div>
@@ -83,7 +83,7 @@ const Event = ({content}) => {
         </Col>
       </Row>
       <Row>
-        <Col hidden={['xs4', 'xs8']} md={3} />
+        <Col hidden={['xs4', 'xs8']} md={2} />
         {accommodations.hotels.map(h => <Hotel key={h.name} hotel={h} />)}
       </Row>
     </div>
