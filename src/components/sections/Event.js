@@ -1,47 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
-import DirectionsIcon from '@material-ui/icons/Directions';
-import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
-import PhoneIcon from '@material-ui/icons/Phone';
 import dateFormat from 'dateformat';
 import showdown from 'showdown';
 
 import PortraitImage from '../PortraitImage';
-import { LinkButton } from '../Button';
+import ProfileIcons from '../ProfileIcons';
 import Separator from '../Separator';
 
 const converter = new showdown.Converter();
 
-function createMapUrl(address) {
-  const { name, streetAddress, city, state, zipCode } = address;
-  const mapQuery = `${name}, ${streetAddress}, ${city}, ${state}, ${zipCode}`;
-  return `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
-}
-
 const Hotel = ({hotel}) => {
   const { name, streetAddress, city, state, zipCode, url, phoneNumber, photo, venueNotes } = hotel;
-  const mapUrl = createMapUrl(hotel);
 
   return (
     <Col xs4={4} md={3}>
-      <h5>{name}</h5>
+      <h4>{name}</h4>
       <p>{venueNotes}</p>
       <div>
         <PortraitImage image={photo} />
       </div>
-      <h6>
+      <h5>
         <i>
           <div>{streetAddress}</div>
           <div>{city}, {state}, {zipCode}</div>
           <div>{phoneNumber}</div>
         </i>
-        <div>
-          <LinkButton href={mapUrl} target='_blank'><DirectionsIcon /></LinkButton>
-          <LinkButton href={`tel:${phoneNumber}`} target='_blank'><PhoneIcon /></LinkButton>
-          <LinkButton href={url} target='_blank'><OpenInBrowserIcon /></LinkButton>
-        </div>
-      </h6>
+        <ProfileIcons location={hotel} phoneNumber={phoneNumber} website={url} />
+      </h5>
     </Col>
   );
 };
@@ -62,8 +48,6 @@ const Event = ({content}) => {
   const { date, accommodations } = content;
   const { name, streetAddress, city, state, zipCode, url, photo, venueNotes } = content.venue;
 
-  const mapUrl = createMapUrl(content.venue);
-
   return (
     <div>
       <Row>
@@ -83,11 +67,8 @@ const Event = ({content}) => {
             <i>
               <div>{streetAddress}</div>
               <div>{city}, {state}, {zipCode}</div>
-              <div>
-                <LinkButton href={mapUrl} target='_blank'><DirectionsIcon /></LinkButton>
-                <LinkButton href={url} target='_blank'><OpenInBrowserIcon /></LinkButton>
-              </div>
             </i>
+            <ProfileIcons location={content.venue} website={url} />
           </h5>
         </Col>
         <Col xs4={4} md={8} mdOffset={2}>

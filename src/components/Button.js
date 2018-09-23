@@ -13,9 +13,12 @@ const Button = styled.span`
     darken(0.1, p.theme['background-color'])};
 `;
 
-const LinkButton = ({children, ...props}) => (
-  <Button><a {...props}>{children}</a></Button>
-);
+const LinkButton = ({children, ...props}) => {
+  if(props.external && !props.target) {
+    props.target = '_blank';
+  }
+  return (<Button><a {...props}>{children}</a></Button>);
+};
 
 export default Button;
 export { LinkButton };
