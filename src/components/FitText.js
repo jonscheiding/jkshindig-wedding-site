@@ -10,7 +10,8 @@ function calcFontSize(text, breakpoint, factor) {
 
 const FitText = styled.div`
   ${Breakpoint.sm`
-    font-size: ${ p => calcFontSize(p.children, 10, 10) }
+    font-size: ${ p => calcFontSize(p.children, 10, 12) }
+    min-height: 2rem;
   `};
 `;
 

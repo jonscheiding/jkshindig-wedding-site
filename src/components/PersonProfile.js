@@ -11,13 +11,10 @@ const PersonImage = styled(PortraitImage)`
 
 const PersonProfile = ({person, fullImage}) => {
   const style = {};
-  if(fullImage) {
-    style.maxWidth = '100%';
-  }
 
   return (
     <div>
-      <PersonImage image={person.photo} style={style} />
+      <PersonImage image={person.photo} style={style} fullImage={fullImage} />
       <h4>
         <div>{person.firstName}</div>
         <div>{person.middleName}</div>

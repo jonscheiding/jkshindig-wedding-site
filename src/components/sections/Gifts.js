@@ -66,12 +66,14 @@ class Gifts extends Component {
       <Md3Col key={registryLink.title} xs4={4} sm8={4} sm8Offset={2} mdOffset={0}>
         <PortraitImage image={registryLink.image} />
         <div>
-          <h4 style={{height: '1.5em'}}>
+          <h4>
             <FitText>
               {registryLink.title}
             </FitText>
           </h4>
-          <ProfileIcons website={registryLink.url} />
+          <h5>
+            <ProfileIcons website={registryLink.url} />
+          </h5>
           <p>{registryLink.comments}</p>
         </div>
       </Md3Col>

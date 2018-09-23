@@ -39,7 +39,7 @@ class Attendant extends Component {
             sm8={qa.length > 0 ? 3 : 4} 
             sm8Offset={qa.length > 0 ? 0 : 2}
             mdOffset={qa.length > 0 ? 1 : 4}>
-            <PersonProfile person={attendant} />
+            <PersonProfile person={attendant} fullImage />
           </Col>
           {this.renderQuestions(qa, isEven)}
         </Row>
