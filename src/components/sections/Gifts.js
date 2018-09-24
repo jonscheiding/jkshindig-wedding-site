@@ -1,31 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Row, Col } from 'react-material-responsive-grid';
 
 import PortraitImage from '../PortraitImage';
 import FitText from '../FitText';
 import Separator from '../Separator';
-import { Breakpoint } from '../../styles/responsive';
 import ProfileIcons from '../ProfileIcons';
-
-const CenteredRow = styled(Row)` 
-  ${Breakpoint.md`justify-content: center;`} 
-`;
-
-const Md3Col = styled(Col)`
-  ${Breakpoint.md`
-    &.col-xs4-4 { 
-      flex-basis: 33%;
-    }
-  `}
-
-  .react-parallax {
-    .react-parallax-bgimage {
-      filter: blur(2px);
-    }
-  }
-`;
+import { ALL_SIZES } from '../../responsive-styles';
 
 class Gifts extends Component {
   constructor() { super();
@@ -48,45 +29,60 @@ class Gifts extends Component {
       <div key={registry.title}>
         <Separator small flip={i % 2 === 1} />
         <Row>
-          <Col xs4={4} xs8={4} xs8Offset={2} md={6} mdOffset={3}>
+          <Col xs4={4} xs8={6} xs8Offset={1} md={6} mdOffset={3}>
             <p>
               {registry.comments}
             </p>
           </Col>
         </Row>
-        <CenteredRow>
-          {registry.links.map(this.renderRegistryLink)}
-        </CenteredRow>
+        <Row center={ALL_SIZES}>
+          {registry.links.map((r, i) => this.renderRegistryLink(r, i))}
+        </Row>
       </div>
     );
   }
 
-  renderRegistryLink(registryLink) {
+  renderRegistryLink(registryLink, i) {
+    const { image, url, comments, title } = registryLink;
+
     return (
-      <Md3Col key={registryLink.title} xs4={4} sm8={4} sm8Offset={2} mdOffset={0}>
-        <PortraitImage image={registryLink.image} />
+      <Col key={i} xs4={4} sm8={4} md={4} lg={3}>
+        <PortraitImage image={image} half />
         <div>
           <h4>
             <FitText>
-              {registryLink.title}
+              {title}
             </FitText>
           </h4>
           <h5>
-            <ProfileIcons website={registryLink.url} />
+            <ProfileIcons website={url} />
           </h5>
-          <p>{registryLink.comments}</p>
+          <p>{comments}</p>
         </div>
-      </Md3Col>
+      </Col>
     );
   }
 }
 
 Gifts.title = 'Gifts';
 
-Gifts.propTypes = {
-  content: PropTypes.shape({
-    registries: PropTypes.any
-  })
+const SHAPE_REGISTRYLINK = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  comments: PropTypes.string
 };
+
+const SHAPE_REGISTRY = {
+  title: PropTypes.string.isRequired,
+  comments: PropTypes.string,
+  links: PropTypes.arrayOf(PropTypes.shape(SHAPE_REGISTRYLINK))
+};
+
+const SHAPE_CONTENT = {
+  registries: PropTypes.arrayOf(PropTypes.shape(SHAPE_REGISTRY))
+};
+
+Gifts.propTypes = { content: PropTypes.shape(SHAPE_CONTENT) };
 
 export default Gifts;

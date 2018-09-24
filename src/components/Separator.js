@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import separatorSmall from '../assets/separator-small.png';
 import separatorLarge from '../assets/separator-large.png';
 import BackgroundImage from './BackgroundImage';
-import { Breakpoint } from '../styles/responsive';
+import { Breakpoint } from '../responsive-styles';
 
 const Separator = ({small, flip}) => {
   const size = small ? '2.5rem' : '5rem';

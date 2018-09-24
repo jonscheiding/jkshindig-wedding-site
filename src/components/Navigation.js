@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { lighten, transparentize } from 'polished';
 
 import { SECTION_NAMES } from './Sections';
-import { Breakpoint } from '../styles/responsive';
+import { Breakpoint } from '../responsive-styles';
 
 export const MENU_HEIGHT = '2.65rem';
 

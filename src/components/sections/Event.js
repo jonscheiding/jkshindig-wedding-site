@@ -1,111 +1,139 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 import dateFormat from 'dateformat';
-import showdown from 'showdown';
 
+import FitText from '../FitText';
 import PortraitImage from '../PortraitImage';
 import ProfileIcons from '../ProfileIcons';
 import Separator from '../Separator';
+import { ALL_SIZES } from '../../responsive-styles';
 
-const converter = new showdown.Converter();
-
-const Hotel = ({hotel}) => {
-  const { name, streetAddress, city, state, zipCode, url, phoneNumber, photo, venueNotes } = hotel;
-
-  return (
-    <Col xs4={4} md={4}>
-      <h4>{name}</h4>
-      <p>{venueNotes}</p>
+class Event extends Component {
+  render() {
+    return (
       <div>
-        <PortraitImage image={photo} />
+        {this.renderDateAndTime()}
+        {this.renderVenue()}
+        {this.renderAccommodations()}
       </div>
-      <h5>
-        <i>
-          <div>{streetAddress}</div>
-          <div>{city}, {state}, {zipCode}</div>
-          <div>{phoneNumber}</div>
-        </i>
-        <ProfileIcons location={hotel} phoneNumber={phoneNumber} website={url} />
-      </h5>
-    </Col>
-  );
-};
+    );
+  }
 
-Hotel.propTypes = {
-  hotel: PropTypes.shape({
-    streetAddress: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-    state: PropTypes.string.isRequired,
-    zipCode: PropTypes.string.isRequired,
-    venueNotes: PropTypes.string,
-    url: PropTypes.string.isRequired,
-    photo: PropTypes.string.isRequired,
-  })
-};
+  renderDateAndTime() {
+    const { date } = this.props.content;
 
-const Event = ({content}) => {
-  const { date, accommodations } = content;
-  const { name, streetAddress, city, state, zipCode, url, photo, venueNotes } = content.venue;
-
-  return (
-    <div>
+    return (
       <Row>
         <Col xs4={4}>
           <h3>{dateFormat(date, 'dddd, mmmm dd, yyyy')}</h3>
           <h3>{dateFormat(date, 'h:MM tt')}</h3>
         </Col>
       </Row>
-      <Row middle={['md', 'lg', 'xl']}>
-        <Col xs4={4} md={4} mdOffset={2}>
+    );
+  }
+
+  renderVenue() {
+    const { venue } = this.props.content;
+    const { name, photo, venueNotes } = venue;
+
+    return (
+      <Row middle={['md', 'lg', 'xl']} center={ALL_SIZES}>
+        <Col xs4={2} md={4} mdOffset={0}>
           <PortraitImage image={photo} sizes={{xs: 'half', md: 'full'}} />
         </Col>
         <Col xs4={4} md={4}>
           <h4>CEREMONY AND RECEPTION</h4>
           <h4><i>{name}</i></h4>
-          <h5>
-            <i>
-              <div>{streetAddress}</div>
-              <div>{city}, {state}, {zipCode}</div>
-            </i>
-            <ProfileIcons location={content.venue} website={url} />
-          </h5>
+          {this.renderPlaceInformation(venue)}
         </Col>
-        <Col xs4={4} md={8} mdOffset={2}>
-          <p dangerouslySetInnerHTML={{__html: converter.makeHtml(venueNotes)}} />
+        <Col xs4={4} md={8}>
+          <p>{venueNotes}</p>
         </Col>
       </Row>
-      <Separator small />
-      <Row>
-        <Col xs4={4} md={8} mdOffset={2}>
-          <h3>Accommodations</h3>
-          <p>{accommodations.notes}</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col hidden={['xs4', 'xs8']} md={2} />
-        {accommodations.hotels.map(h => <Hotel key={h.name} hotel={h} />)}
-      </Row>
-    </div>
-  );
+    );
+  }
+
+  renderAccommodations() {
+    const { accommodations } = this.props.content;
+
+    if(accommodations === undefined || accommodations.length === 0) { 
+      return null;
+    }
+
+    return (
+      <div>
+        <Separator small />
+        <Row>
+          <Col xs4={4} md={8} mdOffset={2}>
+            <h3>Accommodations</h3>
+            <p>{accommodations.notes}</p>
+          </Col>
+        </Row>
+        <Row center={ALL_SIZES}>
+          {accommodations.hotels.map((h, i) => this.renderHotel(h, i))}
+        </Row>
+      </div>
+    );
+  }
+
+  renderHotel(hotel, i) {
+    const { name, photo } = hotel;
+
+    return (
+      <Col key={i} xs4={4} sm8={4}>
+        <h4><FitText breakpoint={24} scale={20}>{name}</FitText></h4>
+        <PortraitImage image={photo} half />
+        {this.renderPlaceInformation(hotel)}
+      </Col>
+    );
+  }
+
+  renderPlaceInformation(place) {
+    const { streetAddress, city, state, zipCode, url, phoneNumber } = place;
+
+    return (
+      <h5>
+        <i>
+          <div>{streetAddress}</div>
+          <div>{city}, {state}, {zipCode}</div>
+          <div>{phoneNumber}</div>
+        </i>
+        <ProfileIcons location={place} phoneNumber={phoneNumber} website={url} />
+      </h5>
+    );
+  }
 };
 
 Event.title = 'Event';
 
+const SHAPE_PLACE = {
+  streetAddress: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+  zipCode: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  photo: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
+};
+
+const SHAPE_HOTEL = {
+  ...SHAPE_PLACE,
+  phoneNumber: PropTypes.string.isRequired
+};
+
+const SHAPE_VENUE = {
+  ...SHAPE_PLACE,
+  accommodations: PropTypes.arrayOf(PropTypes.shape(SHAPE_HOTEL))
+};
+
+const SHAPE_CONTENT = {
+  date: PropTypes.date.isRequired,
+  venue: PropTypes.shape(SHAPE_VENUE)
+};
+
 Event.propTypes = {
-  content: PropTypes.shape({
-    date: PropTypes.instanceOf(Date).isRequired,
-    venue: PropTypes.shape({
-      streetAddress: PropTypes.string.isRequired,
-      city: PropTypes.string.isRequired,
-      state: PropTypes.string.isRequired,
-      zipCode: PropTypes.string.isRequired,
-      venueNotes: PropTypes.string,
-      url: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired,
-      accommodations: PropTypes.object
-    })
-  })
+  content: PropTypes.shape(SHAPE_CONTENT)
 };
 
 export default Event;

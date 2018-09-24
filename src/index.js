@@ -6,6 +6,8 @@ import { ThemeProvider } from 'styled-components';
 
 import './index.css';
 import theme from './theme.json';
+
+import './prop-types-ex';
 import App from './App';
 
 import { ContentClient } from './content-client';

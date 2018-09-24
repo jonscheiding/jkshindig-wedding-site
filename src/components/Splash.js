@@ -4,7 +4,7 @@ import { Parallax, Background } from 'react-parallax';
 import styled, { css } from 'styled-components';
 import dateFormat from 'dateformat';
 
-import { Breakpoint } from '../styles/responsive';
+import { Breakpoint } from '../responsive-styles';
 import BackgroundImage from './BackgroundImage';
 import { MENU_HEIGHT } from './Navigation';
 
