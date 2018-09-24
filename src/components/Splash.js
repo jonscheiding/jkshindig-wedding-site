@@ -14,7 +14,7 @@ class Splash extends Component {
 
     const viewportSize = css`
       width: 100vw;
-      height: 100vh;
+      height: calc(100vh - var(--browser-address-bar));
       min-height: 24rem;
 
       ${Breakpoint.sm` min-height: 28rem; `}
