@@ -15,7 +15,7 @@ const Spouses = ({spouses, story}) => (
       <Col sm8={1} md={2} />
       {spouses.map((s, i) => (
         <Col key={i} xs4={2} xs8={4} sm8={3} md={4}>
-          <PersonProfile person={s} fullImage />
+          <PersonProfile person={s} imageSizes='full' />
         </Col>
       ))}
     </Row>

@@ -13,15 +13,36 @@ const OverlaySquare = styled(Square)`
   width: 100%;
 `;
 
+function getSize(sizes, breakpoint) {
+  switch(sizes) {
+    case 'full': return '100%';
+    case 'half': return '50%';
+    case 'third': return '33%';
+    case undefined: 
+      if(breakpoint === 'xs') { return '50%'; }
+      return undefined;
+    default:
+      return getSize(sizes[breakpoint], breakpoint);
+  }
+}
+
+function getStylesFromProps(breakpoint) {
+  return p => {
+    const size = getSize(p.sizes, breakpoint);
+    if(size === undefined) { return null; }
+    return { maxWidth: size };
+  };
+}
+
 const SizedParallax = styled(Parallax)`
   margin: auto; 
-  max-width: 50%;
-  ${Breakpoint.sm` 
-    max-width: ${p => p.fullImage ? '100%' : '50%'};
-  `};
-  ${Breakpoint.md`
-    max-width: ${p => p.fullImage ? '100%' : '50%'};
-  `};
+
+  ${getStylesFromProps('xs')};
+
+  ${Breakpoint.sm` ${getStylesFromProps('sm')}; `};
+  ${Breakpoint.md` ${getStylesFromProps('md')}; `};
+  ${Breakpoint.lg` ${getStylesFromProps('lg')}; `};
+  ${Breakpoint.xl` ${getStylesFromProps('xl')}; `};
 `;
 
 const PortraitImage = ({image, ...props}) => {
@@ -34,9 +55,21 @@ const PortraitImage = ({image, ...props}) => {
   );
 };
 
+const size = PropTypes.oneOf('half', 'full');
+
 PortraitImage.propTypes = {
   image: PropTypes.string.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  sizes: PropTypes.oneOfType(
+    PropTypes.shape({
+      xs: size,
+      sm: size,
+      md: size,
+      lg: size,
+      xl: size
+    }),
+    size
+  )
 };
 
 export default PortraitImage;

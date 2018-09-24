@@ -58,7 +58,7 @@ const Event = ({content}) => {
       </Row>
       <Row middle={['md', 'lg', 'xl']}>
         <Col xs4={4} md={4} mdOffset={2}>
-          <PortraitImage image={photo} fullImage />
+          <PortraitImage image={photo} sizes={{xs: 'half', md: 'full'}} />
         </Col>
         <Col xs4={4} md={4}>
           <h4>CEREMONY AND RECEPTION</h4>

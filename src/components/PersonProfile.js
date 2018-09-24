@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import PortraitImage from './PortraitImage';
 
-const PersonImage = styled(PortraitImage)`
-  width: 100%;
-  height: 100%;
-`;
-
-const PersonProfile = ({person, fullImage}) => {
+const PersonProfile = ({person, imageSizes}) => {
   const style = {};
 
   return (
     <div>
-      <PersonImage image={person.photo} style={style} fullImage={fullImage} />
+      <PortraitImage image={person.photo} style={style} sizes={imageSizes} />
       <h4>
         <div>{person.firstName}</div>
         <div>{person.middleName}</div>
@@ -37,7 +31,7 @@ PersonProfile.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string
   }),
-  fullImage: PropTypes.bool
+  imageSizes: PropTypes.object
 };
 
 export default PersonProfile;
