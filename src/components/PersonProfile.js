@@ -31,7 +31,7 @@ PersonProfile.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string
   }),
-  imageSizes: PropTypes.object
+  imageSizes: PropTypes.any
 };
 
 export default PersonProfile;

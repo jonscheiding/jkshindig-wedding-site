@@ -55,21 +55,15 @@ const PortraitImage = ({image, ...props}) => {
   );
 };
 
-const size = PropTypes.oneOf('half', 'full');
+const size = PropTypes.oneOf(['half', 'full']);
 
 PortraitImage.propTypes = {
   image: PropTypes.string.isRequired,
   className: PropTypes.string,
-  sizes: PropTypes.oneOfType(
-    PropTypes.shape({
-      xs: size,
-      sm: size,
-      md: size,
-      lg: size,
-      xl: size
-    }),
+  sizes: PropTypes.oneOfType([
+    PropTypes.shape({ xs: size, sm: size, md: size, lg: size, xl: size }),
     size
-  )
+  ])
 };
 
 export default PortraitImage;

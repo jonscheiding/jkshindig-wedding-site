@@ -59,7 +59,7 @@ class Navigation extends Component {
     }
     
     return (
-      <Menu items={['Stories', 'Event']}
+      <Menu items={SECTION_NAMES}
         onUpdate={this.updateNextSection}
         currentClassName='current'>
         {SECTION_NAMES.map(name => (
