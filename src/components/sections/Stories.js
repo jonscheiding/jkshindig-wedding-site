@@ -78,7 +78,7 @@ class Stories extends Component {
     return (
       <div key={i}>
         <Row reverse={isEven} middle={ALL_SIZES} center={ALL_SIZES}>
-          <Col xs4={2} sm8={3} md={4}>
+          <Col xs4={2} sm8={3} md={3}>
             <PersonProfile person={attendant} imageSizes={{md: 'full'}} />
           </Col>
           {this.renderQuestions(qa, isEven)}
@@ -94,7 +94,7 @@ class Stories extends Component {
     }
 
     return (
-      <Col xs4={4} sm8={5} md={6}>
+      <Col xs4={4} sm8={5} md={7}>
         {qa.map((item, i) => (
           <QA key={i} right={!isEven}>
             <p><b>{item.question}</b></p>

@@ -19,7 +19,7 @@ const SizedParallax = styled(Parallax)`
 
 const PortraitImage = ({image, ...props}) => {
   return (
-    <SizedParallax strength={10} bgImage={image} {...props}>
+    <SizedParallax strength={20} bgImage={image} {...props}>
       <OverlaySquare>
         <BackgroundImage image={overlay} style={{height: '100%'}} />
       </OverlaySquare>
