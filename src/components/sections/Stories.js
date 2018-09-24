@@ -26,7 +26,7 @@ class Stories extends Component {
         <Separator flip />
         {this.renderAttendants()}
       </div>
-    )
+    );
   }
 
   renderStory() {
@@ -37,7 +37,7 @@ class Stories extends Component {
           <p>{story}</p>
         </Col>
       </Row>
-    )
+    );
   }
 
   renderSpouses() {
@@ -111,7 +111,7 @@ Stories.title = 'Stories';
 const SHAPE_QA = { 
   question: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired
-}
+};
 
 const SHAPE_ATTENDANT = {
   qa: PropTypes.arrayOf(PropTypes.shape(SHAPE_QA))
