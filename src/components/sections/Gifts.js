@@ -57,7 +57,7 @@ class Gifts extends Component {
           <h5>
             <ProfileIcons website={url} />
           </h5>
-          <p>{comments}</p>
+          <p className='smaller'>{comments}</p>
         </div>
       </Col>
     );

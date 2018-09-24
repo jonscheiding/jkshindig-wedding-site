@@ -63,4 +63,5 @@ b {
 @include breakpoint-lg {
   @include font-sizes(1.7);
   p { font-size: 1.5rem; }
+  p.smaller { font-size: 1.2rem; }
 }
