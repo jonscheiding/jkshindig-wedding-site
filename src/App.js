@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Splash from './components/Splash';
+import NoContent from './NoContent';
 import Navigation, { MENU_HEIGHT } from './components/Navigation';
 import Sections from './components/Sections';
 import styled from 'styled-components';
@@ -13,6 +14,10 @@ const AppContainer = styled.div`
 
 class App extends Component {
   render() {
+    if(!this.props.content) {
+      return <NoContent />;
+    }
+
     const { content } = this.props;
     const { venue, date, spouses, splash } = content;
 
@@ -30,6 +35,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    if(!this.props.content) {
+      return;
+    }
+
     const nicknames = this.props.content.spouses.map(s => s.nickname);
     document.title = `${nicknames[0]} and ${nicknames[1]}`;
   }

@@ -31,6 +31,7 @@ This is the website for Jon and Kaleigh's wedding, currently hosted at https://j
     $ yarn
     $ yarn start
     ```
+7. Start entering your wedding content!
 
 <br><br>
 
