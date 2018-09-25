@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 
-import PortraitImage from '../PortraitImage';
+import BackgroundImage from '../BackgroundImage';
 import FitText from '../FitText';
 import Separator from '../Separator';
 import ProfileIcons from '../ProfileIcons';
 import { ALL_SIZES } from '../../responsive-styles';
+import Square from '../Square';
 
 class Gifts extends Component {
   constructor() { super();
@@ -47,7 +48,9 @@ class Gifts extends Component {
 
     return (
       <Col key={i} xs4={4} sm8={4} md={4} lg={3}>
-        <PortraitImage image={image} half />
+        <Square style={{ width: '50%', margin: 'auto' }} aspect={1.6}>
+          <BackgroundImage image={image} />
+        </Square>
         <div>
           <h4>
             <FitText>

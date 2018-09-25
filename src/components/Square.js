@@ -9,7 +9,7 @@ const Outer = styled.div`
   &:before {
     content: "";
     display: block;
-    padding-top: 100%;
+    padding-top: ${p => 100 / p.aspect}%;
   }
 `;
 
@@ -21,15 +21,19 @@ const Inner = styled.div`
   right: 0;
 `;
 
-const Square = ({children, className}) => (
-  <Outer className={className}>
+const Square = ({children, ...props}) => (
+  <Outer {...props}>
     <Inner>{children}</Inner>
   </Outer>
 );
 
 Square.propTypes = {
-  className: PropTypes.string,
+  aspect: PropTypes.number,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
+};
+
+Square.defaultProps = {
+  aspect: 1
 };
 
 export default Square;
