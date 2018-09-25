@@ -16,7 +16,9 @@ const PersonProfile = ({person, imageSizes}) => {
       </h4>
       <h5><i>{person.title}</i></h5>
       {person.subtitles 
-        ? person.subtitles.map(s => <h6><i>{s}</i></h6>) 
+        ? person.subtitles.map((s, i) => 
+          <h6 key={i}><i>{s}</i></h6>
+        ) 
         : null}
     </div>
   );
