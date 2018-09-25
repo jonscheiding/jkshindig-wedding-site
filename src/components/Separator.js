@@ -13,11 +13,14 @@ const Separator = ({small, flip}) => {
   const Image = styled(BackgroundImage)`
     transform: ${flip ? 'rotate(180deg)' : 'none'};
     font-size: ${size};
-    /* margin: 0.25em 0; */
+    
     height: 1em;
     background-size: contain;
+    background-position: center;
 
-    ${Breakpoint.sm` font-size: calc(${size} + 1.0em); margin: 0.25em; `}
+    margin: 2vw 0;
+
+    ${Breakpoint.sm` font-size: calc(${size} + 1.0em); `}
     ${Breakpoint.md` font-size: calc(${size} + 1.2em); `}
     ${Breakpoint.lg` font-size: calc(${size} + 1.5em); `}
     ${Breakpoint.xl` font-size: calc(${size} + 2.5em); `}
