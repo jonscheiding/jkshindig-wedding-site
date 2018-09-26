@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Banner = (props) => (
   <div style={{height: '100vh', width: '100vw', display: 'table'}}>
@@ -7,6 +8,10 @@ const Banner = (props) => (
     </div>
   </div>
 );
+
+Banner.propTypes = {
+  children: PropTypes.any
+};
 
 export default () => {
   const link = `http://app.contentful.com/spaces/${process.env.REACT_APP_CONTENTFUL_SPACE_ID}`;
