@@ -53,7 +53,7 @@ class ProfileIcons extends Component {
   renderButton(IconComponent, url) {
     return (
       <LinkButton href={url} external>
-        <IconComponent />
+        <IconComponent className='icon' />
       </LinkButton>
     );
   }
