@@ -417,7 +417,7 @@
         "id": "attendant",
         "type": "ContentType",
         "createdAt": "2018-09-16T16:49:41.057Z",
-        "updatedAt": "2018-09-24T23:27:29.549Z",
+        "updatedAt": "2018-09-28T00:15:46.806Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -439,8 +439,8 @@
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
         },
-        "publishedCounter": 12,
-        "version": 25,
+        "publishedCounter": 13,
+        "version": 27,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -448,9 +448,9 @@
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
         },
-        "publishedVersion": 24,
+        "publishedVersion": 26,
         "firstPublishedAt": "2018-09-16T16:49:41.404Z",
-        "publishedAt": "2018-09-24T23:27:29.549Z"
+        "publishedAt": "2018-09-28T00:15:46.806Z"
       },
       "displayField": "firstName",
       "name": "Attendant",
@@ -549,6 +549,17 @@
           "disabled": false,
           "omitted": false,
           "linkType": "Entry"
+        },
+        {
+          "id": "notes",
+          "name": "Notes",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
         }
       ]
     },
@@ -1372,7 +1383,7 @@
             "linkType": "Space"
           }
         },
-        "version": 24,
+        "version": 26,
         "createdAt": "2018-09-16T16:49:41.539Z",
         "createdBy": {
           "sys": {
@@ -1381,7 +1392,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2018-09-24T23:27:30.130Z",
+        "updatedAt": "2018-09-28T00:15:47.267Z",
         "updatedBy": {
           "sys": {
             "id": "1nSg76FRqSuIeJeXlyODuS",
@@ -1432,6 +1443,10 @@
         {
           "fieldId": "qa",
           "widgetId": "entryLinkEditor"
+        },
+        {
+          "fieldId": "notes",
+          "widgetId": "multipleLine"
         }
       ]
     },
@@ -1855,5 +1870,7 @@
         "updatedAt": "2018-09-15T20:17:47Z"
       }
     }
+  ],
+  "webhooks": [
   ]
 }

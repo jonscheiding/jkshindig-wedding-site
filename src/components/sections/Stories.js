@@ -3,18 +3,12 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 import styled from 'styled-components';
 
+import { ALL_SIZES } from '../../responsive-styles';
 import Separator from '../Separator';
 import PersonProfile from '../PersonProfile';
-import { ALL_SIZES, Breakpoint } from '../../responsive-styles';
 
 const QA = styled.div`
   margin-bottom: 1em;
-
-  p {
-    ${ Breakpoint.sm`
-      text-align: ${ props => props.right ? 'right' : 'left' };
-    `}
-  }
 `;
 
 class Stories extends Component {
@@ -71,7 +65,6 @@ class Stories extends Component {
   renderAttendant(attendant, i) {
     const { attendants } = this.props.content;
 
-    const qa = attendant.qa || [];
     const isEven = i % 2 === 0;
     const isLast = i === attendants.length - 1;
     
@@ -81,28 +74,40 @@ class Stories extends Component {
           <Col xs4={2} sm8={3} md={3}>
             <PersonProfile person={attendant} imageSizes={{md: 'full'}} />
           </Col>
-          {this.renderQuestions(qa, isEven)}
+          {this.renderAttendantContent(attendant, isEven)}
         </Row>
         {isLast ? null : <Separator small flip={isEven} />}
       </div>
     );
   }
 
-  renderQuestions(qa, isEven) {
-    if(qa.length === 0) {
+  renderAttendantContent(attendant, isEven) {
+    const { story, qa } = attendant;
+
+    if(!story && (!qa || qa.length === 0)) {
       return null;
     }
 
+    const content = this.renderQuestions(qa, isEven) || <p>{story}</p>;
+
     return (
       <Col xs4={4} sm8={5} md={7}>
-        {qa.map((item, i) => (
-          <QA key={i} right={!isEven}>
-            <p><b>{item.question}</b></p>
-            <p>{item.answer}</p>
-          </QA>
-        ))}
+        {content}
       </Col>
     );
+  }
+
+  renderQuestions(qa) {
+    if(!qa || qa.length === 0) {
+      return null;
+    }
+
+    return qa.map((item, i) => (
+      <QA key={i}>
+        <p><b>{item.question}</b></p>
+        <p>{item.answer}</p>
+      </QA>
+    ));
   }
 }
 
@@ -114,7 +119,8 @@ const SHAPE_QA = {
 };
 
 const SHAPE_ATTENDANT = {
-  qa: PropTypes.arrayOf(PropTypes.shape(SHAPE_QA))
+  qa: PropTypes.arrayOf(PropTypes.shape(SHAPE_QA)),
+  story: PropTypes.string
 };
 
 const SHAPE_SPOUSE = { };
