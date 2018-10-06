@@ -3,7 +3,7 @@ import Scrollspy from 'react-scrollspy';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import cx from 'classnames';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { lighten, transparentize } from 'polished';
 
 import { SECTION_NAMES } from './Sections';
@@ -28,19 +28,25 @@ const MenuItem = styled.li`
   text-transform: uppercase;
 
   display: inline-block;
-  width: ${ 100 / SECTION_NAMES.length }%;
 
   &.current { color: ${p => p.theme['highlight-color']}; }
 
-  ${Breakpoint.smallest`
-    :not(.next) { display: none; }
-    width: 100%;
-  `}
+  :not(.next) { display: none; }
+  width: 100%;
 
-  ${Breakpoint.sm`
-    .icon { display: none }
-    &.top { display: none }
-  `};
+  ${() => {
+    if(SECTION_NAMES.length === 1) { return null; }
+
+    return css`
+      ${Breakpoint.sm`
+        width: ${ 100 / SECTION_NAMES.length }%;
+        :not(.next) { display: inline-block; }
+
+        .icon { display: none }
+        &.top { display: none }
+      `};
+    `;
+  }}
 `;
 
 class Navigation extends Component {
@@ -70,7 +76,7 @@ class Navigation extends Component {
             </a>
           </MenuItem>
         ))}
-        <MenuItem className={cx({next: this.state.nextSection === null}, 'top')}>
+        <MenuItem className={cx('top', { 'next': this.state.nextSection === null })}>
           <a href='#top'><KeyboardArrowUpIcon className='icon' /></a>
         </MenuItem>
       </Menu>
