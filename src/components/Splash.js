@@ -44,49 +44,11 @@ class Splash extends Component {
         ${Breakpoint.md` display: inline; `}
       }
 
-      > h1, h2, h3, h4, h5, h6 { text-align: center }
+      > h1, h2, h3 { text-align: center }
       > footer { 
         position: absolute;
-        bottom: 0;
+        bottom: 1rem;
         width: 100%;
-      }
-    `;
-
-    const Teaser = styled.div`
-      background-color: ${props => props.theme['background-color']};
-      margin-top: 1rem;
-
-      i { display: block; }
-    `;
-
-    const Names = styled.h1`
-      i {
-        display: block;
-        padding-right: 0.4em;
-        ${Breakpoint.md` display: inline; `}
-      }
-
-      ${Breakpoint.md`
-        display: table;
-        width: auto;
-        margin: auto;
-
-        > div { 
-          display: table-row;
-
-          > span {
-            display: table-cell;
-            vertical-align: middle;
-            padding: 0 0.1em;
-          }
-        }
-      `};
-    `;
-
-    const Last = styled.div`
-      display: none;
-      @media only screen and (min-width: 1200px) {
-        display: block;
       }
     `;
 
@@ -113,9 +75,6 @@ class Splash extends Component {
               <div><i>{street}</i></div>
               <div><i>{city}, {state} {zip}</i></div>
             </h3>
-            <Teaser>
-              <h6><i>Soon:</i> Meet the wedding party</h6>
-            </Teaser>
           </footer>
         </SplashContent>
       </SplashParallax>
