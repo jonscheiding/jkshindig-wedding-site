@@ -14,6 +14,7 @@ class Splash extends Component {
 
     const viewportSize = css`
       width: 100vw;
+      height: 100vh; /* For browsers that don't support calc() or var() */
       height: calc(100vh - var(--browser-address-bar));
       min-height: 24rem;
 
