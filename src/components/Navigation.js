@@ -5,6 +5,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import cx from 'classnames';
 import styled, { css } from 'styled-components';
 import { lighten, transparentize } from 'polished';
+import URL from 'url';
 
 import { SECTION_NAMES } from './Sections';
 import { Breakpoint } from '../responsive-styles';
@@ -70,22 +71,43 @@ class Navigation extends Component {
         currentClassName='current'>
         {SECTION_NAMES.map(name => (
           <MenuItem key={name} className={cx({next: name === this.state.nextSection})}>
-            <a href={`#${name}`}>
+            <a onClick={() => this.navigateTo(name)}>
               {name}
               <KeyboardArrowRightIcon className='icon' />
             </a>
           </MenuItem>
         ))}
         <MenuItem className={cx('top', { 'next': this.state.nextSection === null })}>
-          <a href='#top'><KeyboardArrowUpIcon className='icon' /></a>
+          <a onClick={this.navigateToTop}><KeyboardArrowUpIcon className='icon' /></a>
         </MenuItem>
       </Menu>
     );
   }
 
+  navigateTo = (section) => {
+    if(!section) {
+      this.navigateToTop();
+      return;
+    }
+
+    section = SECTION_NAMES.find(
+      s => s.toUpperCase() === section.toUpperCase()
+    )
+    
+    this.updateUrl(section);
+    document.getElementById(section).scrollIntoView();
+  }
+
+  navigateToTop = () => {
+    this.updateUrl(null);
+    window.scrollTo(0, 0);
+  }
+
   updateNextSection(e) {
     const currentSection = e ? e.id : undefined;
     const nextSection = this.determineNextSection(currentSection);
+
+    this.updateUrl(currentSection);
 
     if(this.state.nextSection === nextSection) { return; }
 
@@ -103,6 +125,20 @@ class Navigation extends Component {
     }
 
     return SECTION_NAMES[nextSectionIndex];
+  }
+
+  componentDidMount() {
+    var currentUrl = URL.parse(window.location.href);
+    var section = currentUrl.path.replace(/^\//, '');
+    this.navigateTo(section);
+  }
+
+  updateUrl(section) {
+    if(!window.history.pushState) {
+      return;
+    }
+
+    window.history.pushState(null, null, `/${section || ''}`);
   }
 }
 
