@@ -18,6 +18,8 @@ class Gifts extends Component {
   render() {
     const { registries } = this.props.content;
 
+    if(!registries) { return null; }
+
     return (
       <div>
         {registries.map(this.renderRegistry)}
