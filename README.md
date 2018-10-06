@@ -6,20 +6,32 @@ This is the website for Jon and Kaleigh's wedding, currently hosted at https://j
 
 ## Setup
 
-1. Create a [Contentful](https://www.contentful.com) space to host the content for the site.  (The content model is not currently in this repository.)
-2. Create the `.env.local` file.  
+1. Create a [Contentful](https://www.contentful.com) space to host the content for the site.
+2. Install the Contentful CLI and log in.
+    ```bash
+    $ yarn add global contentful-cli
+    $ contentful login
+    ```
+3. Import the Contentful content model to your space.
+    ```bash
+    $ contentful space use --space-id <space-id>
+    $ contentful space import --content-file contentful/content-model.json
+    ```
+4. Create an access token for your Contentful space.
+5. Create the `.env.local` file.  
     ```bash
     # If you want to enable Google Analytics
-    REACT_APP_GA_TRACKING_ID=... 
+    REACT_APP_GA_TRACKING_ID=...
 
     REACT_APP_CONTENTFUL_SPACE_ID=...
     REACT_APP_CONTENTFUL_ACCESS_TOKEN=...
     ```
-3. Start with Yarn.
+6. Start with Yarn.
     ```bash
     $ yarn
     $ yarn start
     ```
+7. Start entering your wedding content!
 
 <br><br>
 

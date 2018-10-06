@@ -1,5 +1,15 @@
 @import 'theme.json';
 
 @import 'styles/responsive';
+@import 'styles/grid';
 @import 'styles/reset';
 @import 'styles/typography';
+
+body {
+  background-color: $background-color;
+  color: $foreground-color;
+}
+
+:root {
+  --browser-address-bar: 0px; // sass-lint:disable-line zero-unit
+}

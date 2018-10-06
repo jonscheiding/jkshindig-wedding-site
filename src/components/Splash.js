@@ -4,26 +4,29 @@ import { Parallax, Background } from 'react-parallax';
 import styled, { css } from 'styled-components';
 import dateFormat from 'dateformat';
 
+import { Breakpoint } from '../responsive-styles';
 import BackgroundImage from './BackgroundImage';
-import { Breakpoint } from '../styles/responsive';
-import image from '../assets/splash-image.jpg';
+import { MENU_HEIGHT } from './Navigation';
 
 class Splash extends Component {
   render() {
-    const { date, names, location } = this.props;
-    const { street, city, state, zip } = location.address;
+    const { date, names, venue, splash } = this.props;
 
     const viewportSize = css`
       width: 100vw;
-      height: 100vh;
-      min-height: 28rem;
+      height: 100vh; /* For browsers that don't support calc() or var() */
+      height: calc(100vh - var(--browser-address-bar));
+      min-height: 24rem;
 
-      ${Breakpoint.sm` min-height: 37.5rem; `}
-      ${Breakpoint.lg` min-height: 45.0rem; `}
-      ${Breakpoint.xl` min-height: 50.0rem; `}
+      ${Breakpoint.sm` min-height: 28rem; `}
+      ${Breakpoint.lg` min-height: 32rem; `}
+      ${Breakpoint.xl` min-height: 36rem; `}
     `;
 
-    const SplashParallax = styled(Parallax)`${viewportSize}`;
+    const SplashParallax = styled(Parallax)`
+      ${viewportSize}
+      width: 100%;
+    `;
 
     const SplashBackgroundImage = styled(BackgroundImage)`
       ${viewportSize}
@@ -36,7 +39,6 @@ class Splash extends Component {
       ${viewportSize}
 
       padding-top: 1rem;
-      box-sizing: border-box;
 
       > .names > i {
         display: block;
@@ -44,10 +46,9 @@ class Splash extends Component {
         ${Breakpoint.md` display: inline; `}
       }
 
-      > h1, h2, h3 { text-align: center }
       > footer { 
         position: absolute;
-        bottom: 1rem;
+        bottom: ${ MENU_HEIGHT };
         width: 100%;
       }
     `;
@@ -57,17 +58,16 @@ class Splash extends Component {
     return (
       <SplashParallax strength={300}>
         <Background>
-          <SplashBackgroundImage image={image} />
+          <SplashBackgroundImage image={splash} />
         </Background>
         <SplashContent>
           <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
           <h2>{dateFormatted}</h2>
           <h2><i>save the date</i></h2>
           <footer>
-            <h2>{location.name}</h2>
+            <h2>{venue.name}</h2>
             <h3>
-              <div><i>{street}</i></div>
-              <div><i>{city}, {state} {zip}</i></div>
+              <div><i>{venue.city}, {venue.state}</i></div>
             </h3>
           </footer>
         </SplashContent>
@@ -79,7 +79,12 @@ class Splash extends Component {
 Splash.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
   names: PropTypes.arrayOf(PropTypes.string).isRequired,
-  location: PropTypes.object.isRequired
+  venue: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired
+  }),
+  splash: PropTypes.string.isRequired
 };
 
 export default Splash;

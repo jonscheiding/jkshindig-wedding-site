@@ -1,8 +1,9 @@
 import { css } from 'styled-components';
 
-import theme from '../theme.json';
+import theme from './theme.json';
 
 const labels = ['sm', 'md', 'lg', 'xl'];
+export const ALL_SIZES = ['xs4', 'xs8', 'sm4', 'sm8', 'md', 'lg', 'xl'];
 
 const Breakpoint = labels.reduce(
   (m, label) => {
@@ -16,5 +17,11 @@ const Breakpoint = labels.reduce(
   },
   {}
 );
+
+Breakpoint.smallest = (...args) => css`
+  @media only screen and (max-width: ${theme['breakpoint-sm']}) {
+    ${css(...args)}
+  }
+`;
 
 export { Breakpoint };
