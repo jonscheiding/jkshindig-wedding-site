@@ -92,7 +92,7 @@ class Navigation extends Component {
 
     section = SECTION_NAMES.find(
       s => s.toUpperCase() === section.toUpperCase()
-    )
+    );
     
     this.updateUrl(section);
     document.getElementById(section).scrollIntoView();
