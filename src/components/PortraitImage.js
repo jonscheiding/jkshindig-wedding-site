@@ -10,6 +10,14 @@ import theme from '../theme.json';
 const SizedParallax = styled(Parallax)`
   margin: auto; 
   max-width: ${p => p.half ? '50%' : '100%'};
+
+  svg {
+    /*
+      Work around strange issue where edges of underlying image 
+      are sometimes visible
+    */
+    transform: scale(1.01);
+  }
 `;
 
 const CircleOverlay = () => {
