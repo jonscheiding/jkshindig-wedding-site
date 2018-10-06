@@ -1,6 +1,9 @@
 [context.develop.environment]
   REACT_APP_ENABLED_SECTIONS = "*"
 
+[context.production.environment]
+  REACT_APP_ENABLED_SECTIONS = "Stories,Event"
+
 [[redirects]]
   from = "/*"
   to = "/"
