@@ -60,13 +60,7 @@ class Splash extends Component {
           <SplashBackgroundImage image={image} />
         </Background>
         <SplashContent>
-          <Names>
-            <div>
-              <span>{names[0].first} <Last>{names[0].last}</Last></span>
-              <span><i>and</i></span>
-              <span>{names[1].first} <Last>{names[1].last}</Last></span>
-            </div>
-          </Names>
+          <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
           <h2>{dateFormatted}</h2>
           <h2><i>save the date</i></h2>
           <footer>
