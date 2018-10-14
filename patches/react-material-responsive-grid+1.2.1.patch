@@ -1,0 +1,74 @@
+patch-package
+--- a/node_modules/react-material-responsive-grid/components/Col.js
++++ b/node_modules/react-material-responsive-grid/components/Col.js
+@@ -88,31 +88,31 @@ var Col = function Col(_ref) {
+ 		classNames.push((0, _utils.getClass)('col-xl12-' + xl12));
+ 	}
+ 
+-	if (xs4Offset) {
++	if (xs4Offset != null) {
+ 		classNames.push((0, _utils.getClass)('col-xs4-offset-' + xs4Offset));
+ 	}
+ 
+-	if (xs8Offset) {
++	if (xs8Offset != null) {
+ 		classNames.push((0, _utils.getClass)('col-xs8-offset-' + xs8Offset));
+ 	}
+ 
+-	if (sm8Offset) {
++	if (sm8Offset != null) {
+ 		classNames.push((0, _utils.getClass)('col-sm8-offset-' + sm8Offset));
+ 	}
+ 
+-	if (sm12Offset) {
++	if (sm12Offset != null) {
+ 		classNames.push((0, _utils.getClass)('col-sm12-offset-' + sm12Offset));
+ 	}
+ 
+-	if (md12Offset) {
++	if (md12Offset != null) {
+ 		classNames.push((0, _utils.getClass)('col-md12-offset-' + md12Offset));
+ 	}
+ 
+-	if (lg12Offset) {
++	if (lg12Offset != null) {
+ 		classNames.push((0, _utils.getClass)('col-lg12-offset-' + lg12Offset));
+ 	}
+ 
+-	if (xl12Offset) {
++	if (xl12Offset != null) {
+ 		classNames.push((0, _utils.getClass)('col-xl12-offset-' + xl12Offset));
+ 	}
+ 
+@@ -133,27 +133,19 @@ var Col = function Col(_ref) {
+ 		classNames.push((0, _utils.getClass)('col-xl-' + xl));
+ 	}
+ 
+-	if (smOffset) {
++	if (smOffset != null) {
+ 		classNames.push((0, _utils.getClass)('col-sm-offset-' + smOffset));
+ 	}
+ 
+-	if (mdOffset) {
++	if (mdOffset != null) {
+ 		classNames.push((0, _utils.getClass)('col-md-offset-' + mdOffset));
+ 	}
+ 
+-	if (lgOffset) {
++	if (lgOffset != null) {
+ 		classNames.push((0, _utils.getClass)('col-lg-offset-' + lgOffset));
+ 	}
+ 
+-	if (xlOffset) {
+-		classNames.push((0, _utils.getClass)('col-xl-offset-' + xlOffset));
+-	}
+-
+-	if (lgOffset) {
+-		classNames.push((0, _utils.getClass)('col-lg-offset-' + lgOffset));
+-	}
+-
+-	if (xlOffset) {
++	if (xlOffset != null) {
+ 		classNames.push((0, _utils.getClass)('col-xl-offset-' + xlOffset));
+ 	}
+ 
