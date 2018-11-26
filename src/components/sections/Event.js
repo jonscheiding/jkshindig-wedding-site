@@ -85,6 +85,7 @@ class Event extends Component {
         <h4><FitText breakpoint={24} scale={20}>{name}</FitText></h4>
         <PortraitImage image={photo} half />
         {this.renderPlaceInformation(hotel)}
+        <p>{hotel.venueNotes}</p>
       </Col>
     );
   }
