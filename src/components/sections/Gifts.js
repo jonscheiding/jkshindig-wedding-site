@@ -55,7 +55,7 @@ class Gifts extends Component {
         </Square>
         <div>
           <h4>
-            <FitText>
+            <FitText className='header-height'>
               {title}
             </FitText>
           </h4>

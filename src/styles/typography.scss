@@ -39,13 +39,20 @@ b {
   color: $foreground-color;
 }
 
+@mixin font-size($element, $size) {
+  #{$element} { 
+    font-size: $size;    
+    > .header-height { height: $size * 1.5; }
+  }
+}
+
 @mixin font-sizes($scale) {
-  h1 { font-size: 2.0rem * $scale; }
-  h2 { font-size: 1.7rem * $scale; }
-  h3 { font-size: 1.5rem * $scale; }
-  h4 { font-size: 1.3rem * $scale; }
-  h5 { font-size: 1.1rem * $scale; }
-  h6 { font-size: 0.9rem * $scale; }
+  @include font-size(h1, 2.0rem * $scale);
+  @include font-size(h2, 1.7rem * $scale);
+  @include font-size(h3, 1.5rem * $scale);
+  @include font-size(h4, 1.3rem * $scale);
+  @include font-size(h5, 1.1rem * $scale);
+  @include font-size(h6, 0.9rem * $scale);
 }
 
 @include font-sizes(1.0);

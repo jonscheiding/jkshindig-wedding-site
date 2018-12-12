@@ -82,7 +82,7 @@ class Event extends Component {
 
     return (
       <Col key={i} xs4={4} sm8={4}>
-        <h4><FitText breakpoint={24} scale={20}>{name}</FitText></h4>
+        <h4><FitText className='header-height'>{name}</FitText></h4>
         <PortraitImage image={photo} half />
         {this.renderPlaceInformation(hotel)}
         <p>{hotel.venueNotes}</p>

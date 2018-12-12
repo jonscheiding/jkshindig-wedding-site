@@ -1,29 +1,17 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Textfit from 'react-textfit';
 
-import { Breakpoint } from '../responsive-styles';
-
-function calcFontSize({children, breakpoint, scale}) {
-  const size = 100 - (scale * Math.floor(children.length / breakpoint));
-  return `${size}%`;
-}
-
-const FitText = styled.div`
-  ${Breakpoint.sm`
-    font-size: ${ p => calcFontSize(p) }
-    min-height: 2.5rem;
-  `};
+const FitText = styled(Textfit)`
+  > div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
 
 FitText.propTypes = {
-  children: PropTypes.string,
-  breakpoint: PropTypes.number,
-  scale: PropTypes.number
-};
-
-FitText.defaultProps = {
-  breakpoint: 10,
-  scale: 12
+  children: PropTypes.string
 };
 
 export default FitText;
