@@ -2,7 +2,7 @@
   REACT_APP_ENABLED_SECTIONS = "*"
 
 [context.production.environment]
-  REACT_APP_ENABLED_SECTIONS = "Stories,Event"
+  REACT_APP_ENABLED_SECTIONS = "Stories,Event,Gifts"
 
 [[redirects]]
   from = "/*"
