@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 
-import { getCampaignStatus } from '../../crowdrise-client';
+import { CrowdRiseClient } from '../../crowdrise-client';
 
 import BackgroundImage from '../BackgroundImage';
 import FitText from '../FitText';
@@ -23,15 +23,15 @@ class RegistryLink extends Component {
       return;
     }
 
-    getCampaignStatus(registryLink.url, (error, result) => {
-      if(error) {
-        console.error(error);
-        return;
-      }
-
-      this.setState({status: result});
-    });
+    this.client = new CrowdRiseClient(registryLink.url);
+    this.client.on('refresh', (status) => this.setState({status}));
   }
+
+  componentWillUnmount() {
+    this.client.stop();
+  }
+
+  componentw
 
   render() {
     const { registryLink } = this.props;
