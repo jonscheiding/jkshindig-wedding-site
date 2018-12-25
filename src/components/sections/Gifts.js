@@ -2,12 +2,73 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 
+import { getCampaignStatus } from '../../crowdrise-client';
+
 import BackgroundImage from '../BackgroundImage';
 import FitText from '../FitText';
 import Separator from '../Separator';
 import ProfileIcons from '../ProfileIcons';
 import { ALL_SIZES } from '../../responsive-styles';
 import Square from '../Square';
+
+class RegistryLink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { status: null };
+  }
+
+  componentDidMount() {
+    const { scrapeCrowdRise, registryLink } = this.props;
+    if(!scrapeCrowdRise) {
+      return;
+    }
+
+    getCampaignStatus(registryLink.url, (error, result) => {
+      if(error) {
+        console.error(error);
+        return;
+      }
+
+      this.setState({status: result});
+    });
+  }
+
+  render() {
+    const { registryLink } = this.props;
+    const { image, url, comments, title } = registryLink;
+
+    return (
+      <Col xs4={4} sm8={4} md={4} lg={3}>
+        <Square style={{ width: '50%', margin: 'auto' }} aspect={1.6}>
+          <BackgroundImage image={image} />
+        </Square>
+        <div>
+          <h4>
+            <FitText className='header-height'>
+              {title}
+            </FitText>
+          </h4>
+          {this.renderCampaignStatus()}
+          <h5>
+            <ProfileIcons website={url} />
+          </h5>
+          <p className='smaller'>{comments}</p>
+        </div>
+      </Col>
+    );
+  }
+
+  renderCampaignStatus() {
+    const { status } = this.state;
+    if(!status) {
+      return null;
+    }
+
+    return (
+      <p className='smaller'><b>{status.raised} raised</b></p>
+    );
+  }
+}
 
 class Gifts extends Component {
   constructor() { super();
@@ -39,33 +100,14 @@ class Gifts extends Component {
           </Col>
         </Row>
         <Row center={ALL_SIZES}>
-          {registry.links.map((r, i) => this.renderRegistryLink(r, i))}
+          {registry.links.map((r, i) => this.renderRegistryLink(r, registry.scrapeCrowdRise, i))}
         </Row>
       </div>
     );
   }
 
-  renderRegistryLink(registryLink, i) {
-    const { image, url, comments, title } = registryLink;
-
-    return (
-      <Col key={i} xs4={4} sm8={4} md={4} lg={3}>
-        <Square style={{ width: '50%', margin: 'auto' }} aspect={1.6}>
-          <BackgroundImage image={image} />
-        </Square>
-        <div>
-          <h4>
-            <FitText className='header-height'>
-              {title}
-            </FitText>
-          </h4>
-          <h5>
-            <ProfileIcons website={url} />
-          </h5>
-          <p className='smaller'>{comments}</p>
-        </div>
-      </Col>
-    );
+  renderRegistryLink(registryLink, scrapeCrowdRise, i) {
+    return (<RegistryLink key={i} registryLink={registryLink} scrapeCrowdRise={scrapeCrowdRise} />);
   }
 }
 
@@ -81,6 +123,7 @@ const SHAPE_REGISTRYLINK = {
 const SHAPE_REGISTRY = {
   title: PropTypes.string.isRequired,
   comments: PropTypes.string,
+  scrapeCrowdRise: PropTypes.bool,
   links: PropTypes.arrayOf(PropTypes.shape(SHAPE_REGISTRYLINK))
 };
 
@@ -89,5 +132,9 @@ const SHAPE_CONTENT = {
 };
 
 Gifts.propTypes = { content: PropTypes.shape(SHAPE_CONTENT) };
+RegistryLink.propTypes = { 
+  registryLink: PropTypes.shape(SHAPE_REGISTRYLINK),
+  scrapeCrowdRise: PropTypes.bool
+};
 
 export default Gifts;
