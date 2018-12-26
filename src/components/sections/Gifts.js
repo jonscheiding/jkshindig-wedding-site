@@ -31,8 +31,6 @@ class RegistryLink extends Component {
     this.client.stop();
   }
 
-  componentw
-
   render() {
     const { registryLink } = this.props;
     const { image, url, comments, title } = registryLink;
