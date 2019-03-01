@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 import dateFormat from 'dateformat';
@@ -46,7 +47,7 @@ class Event extends Component {
             {this.renderPlaceInformation(location)}
           </Col>
           <Col xs4={4} md={8}>
-            <p>{description}</p>
+            <ReactMarkdown source={description} />
           </Col>
         </Row>
       </div>
