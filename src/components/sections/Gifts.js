@@ -28,6 +28,10 @@ class RegistryLink extends Component {
   }
 
   componentWillUnmount() {
+    if(!this.client) {
+      return;
+    }
+    
     this.client.stop();
   }
 

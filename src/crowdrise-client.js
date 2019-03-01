@@ -17,7 +17,7 @@ export class CrowdRiseClient extends EventEmitter {
 
     request(requestUrl, {json: true}, (error, response, body) => {
       if(error || response.statusCode !== 200) {
-        console.error(error || response.statusMessage);
+        console.warn(`Couldn't load fundraiser details: ${error || response.statusMessage}`);
         return;
       }
 
