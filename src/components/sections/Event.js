@@ -13,44 +13,43 @@ class Event extends Component {
   render() {
     return (
       <div>
-        {this.renderDateAndTime()}
-        {this.renderVenue()}
+        {this.renderMainEvent()}
         {this.renderAccommodations()}
       </div>
     );
   }
 
-  renderDateAndTime() {
-    const { date } = this.props.content;
-
-    return (
-      <Row>
-        <Col xs4={4}>
-          <h3>{dateFormat(date, 'dddd, mmmm dd, yyyy')}</h3>
-          <h3>{dateFormat(date, 'h:MM tt')}</h3>
-        </Col>
-      </Row>
-    );
+  renderMainEvent() {
+    const { mainEvent } = this.props.content;
+    return this.renderEvent(mainEvent);
   }
 
-  renderVenue() {
-    const { venue } = this.props.content;
-    const { name, photo, venueNotes } = venue;
-
+  renderEvent = (event) => {
+    const { title, date, location } = event;
+    const { name, photo, venueNotes } = location;
+  
     return (
-      <Row middle={['md', 'lg', 'xl']} center={ALL_SIZES}>
-        <Col xs4={2} md={4} mdOffset={0}>
-          <PortraitImage image={photo} sizes={{xs: 'half', md: 'full'}} />
-        </Col>
-        <Col xs4={4} md={4}>
-          <h4>CEREMONY AND RECEPTION</h4>
-          <h4><i>{name}</i></h4>
-          {this.renderPlaceInformation(venue)}
-        </Col>
-        <Col xs4={4} md={8}>
-          <p>{venueNotes}</p>
-        </Col>
-      </Row>
+      <div>
+        <Row>
+          <Col xs4={4}>
+            <h3>{dateFormat(date, 'dddd, mmmm dd, yyyy')}</h3>
+            <h3>{dateFormat(date, 'h:MM tt')}</h3>
+          </Col>
+        </Row> 
+        <Row middle={['md', 'lg', 'xl']} center={ALL_SIZES}>
+          <Col xs4={2} md={4} mdOffset={0}>
+            <PortraitImage image={photo} sizes={{xs: 'half', md: 'full'}} />
+          </Col>
+          <Col xs4={4} md={4}>
+            <h4>{title}</h4>
+            <h4><i>{name}</i></h4>
+            {this.renderPlaceInformation(location)}
+          </Col>
+          <Col xs4={4} md={8}>
+            <p>{venueNotes}</p>
+          </Col>
+        </Row>
+      </div>
     );
   }
 
@@ -76,7 +75,7 @@ class Event extends Component {
       </div>
     );
   }
-
+  
   renderHotel(hotel, i) {
     const { name, photo } = hotel;
 
