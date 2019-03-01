@@ -19,12 +19,13 @@ class App extends Component {
     }
 
     const { content } = this.props;
-    const { venue, date, spouses, splash } = content;
+    const { mainEvent, spouses, splash } = content;
+    const { location, date } = mainEvent;
 
     return (
       <AppContainer className='app'>
         <Splash 
-          venue={venue} date={date} 
+          venue={location} date={date} 
           names={spouses.map(s => s.firstName)}
           splash={splash} />
         <Navigation />
