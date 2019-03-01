@@ -13,7 +13,7 @@ export class CrowdRiseClient extends EventEmitter {
   }
 
   updateCampaignStatus = () => {
-    const requestUrl = `https://api.allorigins.ml/get?url=${encodeURIComponent(this.url)}`;
+    const requestUrl = `https://cors-anywhere.herokuapp.com/${this.url}`;
 
     request(requestUrl, {json: true}, (error, response, body) => {
       if(error || response.statusCode !== 200) {
@@ -21,7 +21,7 @@ export class CrowdRiseClient extends EventEmitter {
         return;
       }
 
-      const $ = cheerio.load(body.contents);
+      const $ = cheerio.load(body);
       const result = {
         raised: $('.inline.raised').first().text()
       };
