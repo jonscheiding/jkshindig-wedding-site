@@ -25,8 +25,8 @@ class Event extends Component {
   }
 
   renderEvent = (event) => {
-    const { title, date, location } = event;
-    const { name, photo, venueNotes } = location;
+    const { title, description, date, location } = event;
+    const { name, photo } = location;
   
     return (
       <div>
@@ -46,7 +46,7 @@ class Event extends Component {
             {this.renderPlaceInformation(location)}
           </Col>
           <Col xs4={4} md={8}>
-            <p>{venueNotes}</p>
+            <p>{description}</p>
           </Col>
         </Row>
       </div>
