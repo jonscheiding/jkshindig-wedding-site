@@ -15,6 +15,7 @@ class Event extends Component {
     return (
       <div>
         {this.renderMainEvent()}
+        {this.renderOtherEvents()}
         {this.renderAccommodations()}
       </div>
     );
@@ -22,13 +23,8 @@ class Event extends Component {
 
   renderMainEvent() {
     const { mainEvent } = this.props.content;
-    return this.renderEvent(mainEvent);
-  }
+    const { date, title, description, location } = mainEvent;
 
-  renderEvent = (event) => {
-    const { title, description, date, location } = event;
-    const { name, photo } = location;
-  
     return (
       <div>
         <Row>
@@ -39,16 +35,45 @@ class Event extends Component {
         </Row> 
         <Row middle={['md', 'lg', 'xl']} center={ALL_SIZES}>
           <Col xs4={2} md={4} mdOffset={0}>
-            <PortraitImage image={photo} sizes={{xs: 'half', md: 'full'}} />
+            <PortraitImage image={location.photo} sizes={{xs: 'half', md: 'full'}} />
           </Col>
           <Col xs4={4} md={4}>
             <h4>{title}</h4>
-            <h4><i>{name}</i></h4>
+            <h4><i>{location.name}</i></h4>
             {this.renderPlaceInformation(location)}
           </Col>
           <Col xs4={4} md={8}>
             <ReactMarkdown source={description} />
           </Col>
+        </Row>
+      </div>
+    );
+  }
+
+  renderOtherEvents() {
+    const { otherEvents } = this.props.content;
+
+    if(!otherEvents || otherEvents.length === 0) {
+      return null;
+    }
+
+    return (
+      <div>
+        <Separator small flip />
+        <h3>Other Events</h3>
+        <Row center={ALL_SIZES}>
+          {otherEvents.map(e => (
+            <Col xs4={4} sm8={4} md={4} lg={3} lgOffset={3}>
+              <h6>{dateFormat(e.date, 'dddd, mmm dd, yyyy')}</h6>
+              <h6>{dateFormat(e.date, 'h:MM tt')}</h6>
+              <h5><FitText className='header-height'>{e.title}</FitText></h5>
+              <h5><i>{e.location.name}</i></h5>
+              {this.renderPlaceInformation(e.location, true)}
+              <div>
+                <ReactMarkdown source={e.description} />          
+              </div>
+            </Col>
+          ))}
         </Row>
       </div>
     );
@@ -90,18 +115,24 @@ class Event extends Component {
     );
   }
 
-  renderPlaceInformation(place) {
+  renderPlaceInformation(place, small = false) {
     const { streetAddress, city, state, zipCode, url, phoneNumber } = place;
 
+    const Header = ({children}) => (
+      small
+        ? <h6>{children}</h6>
+        : <h5>{children}</h5>
+    );
+
     return (
-      <h5>
+      <Header>
         <i>
           <div>{streetAddress}</div>
           <div>{city}, {state}, {zipCode}</div>
           <div>{phoneNumber}</div>
         </i>
         <ProfileIcons location={place} phoneNumber={phoneNumber} website={url} />
-      </h5>
+      </Header>
     );
   }
 };
