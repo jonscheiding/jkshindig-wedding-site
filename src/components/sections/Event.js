@@ -63,7 +63,7 @@ class Event extends Component {
         <h3>Other Events</h3>
         <Row center={ALL_SIZES}>
           {otherEvents.map(e => (
-            <Col xs4={4} sm8={4} md={4} lg={3} lgOffset={3}>
+            <Col xs4={4} sm8={4} md={4} lg={3} key={e.title}>
               <h6>{dateFormat(e.date, 'dddd, mmm dd, yyyy')}</h6>
               <h6>{dateFormat(e.date, 'h:MM tt')}</h6>
               <h5><FitText className='header-height'>{e.title}</FitText></h5>
