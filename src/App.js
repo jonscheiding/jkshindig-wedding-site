@@ -40,7 +40,7 @@ class App extends Component {
       return;
     }
 
-    const nicknames = this.props.content.spouses.map(s => s.nickname);
+    const nicknames = this.props.content.spouses.map(s => s.firstName + ' ' + s.lastName);
     document.title = `${nicknames[0]} and ${nicknames[1]}`;
   }
 }
