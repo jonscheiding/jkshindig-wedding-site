@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
+import { DateTime } from 'luxon';
 import { Row, Col } from 'react-material-responsive-grid';
-import dateFormat from 'dateformat';
 
 import FitText from '../FitText';
 import PortraitImage from '../PortraitImage';
@@ -33,8 +33,8 @@ class Event extends Component {
       <div>
         <Row>
           <Col xs4={4}>
-            <h3>{dateFormat(date, 'dddd, mmmm dd, yyyy')}</h3>
-            <h3>{dateFormat(date, 'h:MM tt')}</h3>
+            <h3>{date.toFormat('cccc, LLLL dd, yyyy')}</h3>
+            <h3>{date.toFormat('h:mm a')}</h3>
           </Col>
         </Row> 
         <Row middle={['md', 'lg', 'xl']} center={ALL_SIZES}>
@@ -129,7 +129,7 @@ const SHAPE_VENUE = {
 };
 
 const SHAPE_EVENT = {
-  date: PropTypes.date.isRequired,
+  date: PropTypes.instanceOf(DateTime).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   location: PropTypes.shape(SHAPE_VENUE)
