@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Parallax, Background } from 'react-parallax';
+import { DateTime } from 'luxon';
 import styled, { css } from 'styled-components';
-import dateFormat from 'dateformat';
 
 import { Breakpoint } from '../responsive-styles';
 import BackgroundImage from './BackgroundImage';
@@ -53,8 +53,6 @@ class Splash extends Component {
       }
     `;
 
-    const dateFormatted = dateFormat(date, 'mmmm d, yyyy');
-
     return (
       <SplashParallax strength={300}>
         <Background>
@@ -62,7 +60,7 @@ class Splash extends Component {
         </Background>
         <SplashContent>
           <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
-          <h2>{dateFormatted}</h2>
+          <h2>{date.toFormat('LLLL d, yyyy')}</h2>
           <h2><i>save the date</i></h2>
           <footer>
             <h2>{venue.name}</h2>
@@ -77,7 +75,7 @@ class Splash extends Component {
 }
 
 Splash.propTypes = {
-  date: PropTypes.instanceOf(Date).isRequired,
+  date: PropTypes.instanceOf(DateTime).isRequired,
   names: PropTypes.arrayOf(PropTypes.string).isRequired,
   venue: PropTypes.shape({
     name: PropTypes.string.isRequired,

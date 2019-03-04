@@ -1,5 +1,6 @@
 import * as contentful from 'contentful';
 import format from 'string-format';
+import { DateTime } from 'luxon';
 
 export class ContentClient {
   constructor() {
@@ -29,7 +30,7 @@ export class ContentClient {
       },
       weddingEvent: o => ({
         ...this.map.default(o),
-        date: new Date(Date.parse(o.fields.date))
+        date: DateTime.fromISO(o.fields.date)
       }),
       qa: o =>
         this.contentTypes.qa.fields
