@@ -2,7 +2,7 @@ import cheerio from 'cheerio';
 import request from 'request';
 import { EventEmitter } from 'events';
 
-const REFRESH_INTERVAL = 5000;
+const REFRESH_INTERVAL = 30000;
 
 export class CrowdRiseClient extends EventEmitter {
   constructor(url) {
