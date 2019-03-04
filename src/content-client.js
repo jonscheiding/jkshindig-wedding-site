@@ -30,7 +30,7 @@ export class ContentClient {
       },
       weddingEvent: o => ({
         ...this.map.default(o),
-        date: DateTime.fromISO(o.fields.date)
+        date: DateTime.fromISO(o.fields.date).setZone(process.env.REACT_APP_HOME_TIMEZONE)
       }),
       qa: o =>
         this.contentTypes.qa.fields
