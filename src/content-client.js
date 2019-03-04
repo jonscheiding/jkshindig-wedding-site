@@ -27,7 +27,11 @@ export class ContentClient {
         }
         return content;
       },
-      wedding: o => ({
+      weddingEvent: o => ({
+        ...this.map.default(o),
+        date: new Date(Date.parse(o.fields.date))
+      }),
+      weddingEvent: o => ({
         ...this.map.default(o),
         date: new Date(Date.parse(o.fields.date))
       }),
