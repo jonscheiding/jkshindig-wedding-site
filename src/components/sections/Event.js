@@ -67,7 +67,7 @@ class Event extends Component {
               <h6>{dateFormat(e.date, 'dddd, mmm dd, yyyy')}</h6>
               <h6>{dateFormat(e.date, 'h:MM tt')}</h6>
               <h5><FitText className='header-height'>{e.title}</FitText></h5>
-              <h5><i>{e.location.name}</i></h5>
+              <h5><FitText className='header-height'><i>{e.location.name}</i></FitText></h5>
               {this.renderPlaceInformation(e.location, true)}
               <div>
                 <ReactMarkdown source={e.description} />          
