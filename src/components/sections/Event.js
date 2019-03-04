@@ -128,9 +128,16 @@ const SHAPE_VENUE = {
   accommodations: PropTypes.arrayOf(PropTypes.shape(SHAPE_HOTEL))
 };
 
-const SHAPE_CONTENT = {
+const SHAPE_EVENT = {
   date: PropTypes.date.isRequired,
-  venue: PropTypes.shape(SHAPE_VENUE)
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  location: PropTypes.shape(SHAPE_VENUE)
+};
+
+const SHAPE_CONTENT = {
+  mainEvent: PropTypes.shape(SHAPE_EVENT),
+  otherEvents: PropTypes.arrayOf(PropTypes.shape(SHAPE_EVENT))
 };
 
 Event.propTypes = {

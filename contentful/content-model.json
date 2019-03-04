@@ -12,7 +12,7 @@
         "id": "wedding",
         "type": "ContentType",
         "createdAt": "2018-09-15T20:25:28.522Z",
-        "updatedAt": "2018-09-18T23:05:32.717Z",
+        "updatedAt": "2019-03-01T04:02:41.546Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -20,6 +20,9 @@
             "linkType": "Environment"
           }
         },
+        "publishedVersion": 57,
+        "publishedAt": "2019-03-01T04:02:41.546Z",
+        "firstPublishedAt": "2018-09-15T20:25:28.807Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -34,18 +37,15 @@
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
         },
-        "publishedCounter": 23,
-        "version": 46,
+        "publishedCounter": 29,
+        "version": 58,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
-        },
-        "publishedVersion": 45,
-        "firstPublishedAt": "2018-09-15T20:25:28.807Z",
-        "publishedAt": "2018-09-18T23:05:32.717Z"
+        }
       },
       "displayField": "title",
       "name": "Wedding",
@@ -57,28 +57,6 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "date",
-          "name": "Date",
-          "type": "Date",
-          "localized": false,
-          "required": true,
-          "validations": [
-          ],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "story",
-          "name": "Story",
-          "type": "Text",
-          "localized": false,
-          "required": false,
           "validations": [
           ],
           "disabled": false,
@@ -100,6 +78,17 @@
           "disabled": false,
           "omitted": false,
           "linkType": "Asset"
+        },
+        {
+          "id": "story",
+          "name": "Story",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
         },
         {
           "id": "spouses",
@@ -152,23 +141,6 @@
           }
         },
         {
-          "id": "venue",
-          "name": "Venue",
-          "type": "Link",
-          "localized": false,
-          "required": true,
-          "validations": [
-            {
-              "linkContentType": [
-                "venue"
-              ]
-            }
-          ],
-          "disabled": false,
-          "omitted": false,
-          "linkType": "Entry"
-        },
-        {
           "id": "accommodations",
           "name": "Accommodations",
           "type": "Link",
@@ -184,6 +156,45 @@
           "disabled": false,
           "omitted": false,
           "linkType": "Entry"
+        },
+        {
+          "id": "mainEvent",
+          "name": "Main Event",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "weddingEvent"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "otherEvents",
+          "name": "Other Events",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "weddingEvent"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
         },
         {
           "id": "registries",
@@ -243,7 +254,7 @@
         "id": "venue",
         "type": "ContentType",
         "createdAt": "2018-09-15T20:26:47.508Z",
-        "updatedAt": "2018-09-18T17:03:46.836Z",
+        "updatedAt": "2019-03-01T01:57:43.567Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -251,6 +262,9 @@
             "linkType": "Environment"
           }
         },
+        "publishedVersion": 19,
+        "publishedAt": "2019-03-01T01:57:43.567Z",
+        "firstPublishedAt": "2018-09-15T20:26:47.735Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -265,18 +279,15 @@
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
         },
-        "publishedCounter": 8,
-        "version": 16,
+        "publishedCounter": 10,
+        "version": 20,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
-        },
-        "publishedVersion": 15,
-        "firstPublishedAt": "2018-09-15T20:26:47.735Z",
-        "publishedAt": "2018-09-18T17:03:46.836Z"
+        }
       },
       "displayField": "name",
       "name": "Venue",
@@ -417,7 +428,7 @@
         "id": "attendant",
         "type": "ContentType",
         "createdAt": "2018-09-16T16:49:41.057Z",
-        "updatedAt": "2018-09-28T00:15:46.806Z",
+        "updatedAt": "2018-09-28T00:23:15.586Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -425,6 +436,9 @@
             "linkType": "Environment"
           }
         },
+        "publishedVersion": 30,
+        "publishedAt": "2018-09-28T00:23:15.586Z",
+        "firstPublishedAt": "2018-09-16T16:49:41.404Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -439,18 +453,15 @@
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
         },
-        "publishedCounter": 13,
-        "version": 27,
+        "publishedCounter": 15,
+        "version": 31,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
-        },
-        "publishedVersion": 26,
-        "firstPublishedAt": "2018-09-16T16:49:41.404Z",
-        "publishedAt": "2018-09-28T00:15:46.806Z"
+        }
       },
       "displayField": "firstName",
       "name": "Attendant",
@@ -551,8 +562,8 @@
           "linkType": "Entry"
         },
         {
-          "id": "notes",
-          "name": "Notes",
+          "id": "story",
+          "name": "Story",
           "type": "Text",
           "localized": false,
           "required": false,
@@ -583,6 +594,9 @@
             "linkType": "Environment"
           }
         },
+        "publishedVersion": 9,
+        "publishedAt": "2018-09-17T01:20:08.243Z",
+        "firstPublishedAt": "2018-09-16T16:49:49.905Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -605,10 +619,7 @@
             "linkType": "User",
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
-        },
-        "publishedVersion": 9,
-        "firstPublishedAt": "2018-09-16T16:49:49.905Z",
-        "publishedAt": "2018-09-17T01:20:08.243Z"
+        }
       },
       "displayField": "firstName",
       "name": "Spouse",
@@ -708,6 +719,9 @@
             "linkType": "Environment"
           }
         },
+        "publishedVersion": 8,
+        "publishedAt": "2018-09-16T19:17:04.231Z",
+        "firstPublishedAt": "2018-09-16T18:37:45.629Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -730,10 +744,7 @@
             "linkType": "User",
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
-        },
-        "publishedVersion": 8,
-        "firstPublishedAt": "2018-09-16T18:37:45.629Z",
-        "publishedAt": "2018-09-16T19:17:04.231Z"
+        }
       },
       "displayField": "title",
       "name": "Q&A",
@@ -822,6 +833,9 @@
             "linkType": "Environment"
           }
         },
+        "publishedVersion": 1,
+        "publishedAt": "2018-09-18T02:58:06.562Z",
+        "firstPublishedAt": "2018-09-18T02:58:06.562Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -844,10 +858,7 @@
             "linkType": "User",
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
-        },
-        "publishedVersion": 1,
-        "firstPublishedAt": "2018-09-18T02:58:06.562Z",
-        "publishedAt": "2018-09-18T02:58:06.562Z"
+        }
       },
       "displayField": "title",
       "name": "Attribution",
@@ -911,7 +922,7 @@
         "id": "accommodations",
         "type": "ContentType",
         "createdAt": "2018-09-18T16:52:34.476Z",
-        "updatedAt": "2018-09-18T16:52:34.789Z",
+        "updatedAt": "2019-03-01T03:11:31.959Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -919,6 +930,9 @@
             "linkType": "Environment"
           }
         },
+        "publishedVersion": 3,
+        "publishedAt": "2019-03-01T03:11:31.959Z",
+        "firstPublishedAt": "2018-09-18T16:52:34.789Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -933,18 +947,15 @@
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 4,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
-        },
-        "publishedVersion": 1,
-        "firstPublishedAt": "2018-09-18T16:52:34.789Z",
-        "publishedAt": "2018-09-18T16:52:34.789Z"
+        }
       },
       "displayField": "notes",
       "name": "Accommodations",
@@ -1005,6 +1016,9 @@
             "linkType": "Environment"
           }
         },
+        "publishedVersion": 3,
+        "publishedAt": "2018-09-20T22:45:04.886Z",
+        "firstPublishedAt": "2018-09-18T22:33:18.911Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -1027,10 +1041,7 @@
             "linkType": "User",
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
-        },
-        "publishedVersion": 3,
-        "firstPublishedAt": "2018-09-18T22:33:18.911Z",
-        "publishedAt": "2018-09-20T22:45:04.886Z"
+        }
       },
       "displayField": "title",
       "name": "Registry Link",
@@ -1100,7 +1111,7 @@
         "id": "registry",
         "type": "ContentType",
         "createdAt": "2018-09-18T22:34:45.395Z",
-        "updatedAt": "2018-09-18T22:34:45.788Z",
+        "updatedAt": "2018-12-25T02:47:03.611Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1108,6 +1119,9 @@
             "linkType": "Environment"
           }
         },
+        "publishedVersion": 3,
+        "publishedAt": "2018-12-25T02:47:03.610Z",
+        "firstPublishedAt": "2018-09-18T22:34:45.787Z",
         "createdBy": {
           "sys": {
             "type": "Link",
@@ -1122,18 +1136,15 @@
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 4,
         "publishedBy": {
           "sys": {
             "type": "Link",
             "linkType": "User",
             "id": "1nSg76FRqSuIeJeXlyODuS"
           }
-        },
-        "publishedVersion": 1,
-        "firstPublishedAt": "2018-09-18T22:34:45.787Z",
-        "publishedAt": "2018-09-18T22:34:45.787Z"
+        }
       },
       "displayField": "title",
       "name": "Registry",
@@ -1182,6 +1193,120 @@
             ],
             "linkType": "Entry"
           }
+        },
+        {
+          "id": "scrapeCrowdRise",
+          "name": "Enable CrowdRise scraping",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "tpymuk92o1hv"
+          }
+        },
+        "id": "weddingEvent",
+        "type": "ContentType",
+        "createdAt": "2019-03-01T00:43:07.066Z",
+        "updatedAt": "2019-03-01T00:52:01.074Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2019-03-01T00:52:01.074Z",
+        "firstPublishedAt": "2019-03-01T00:43:07.483Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1nSg76FRqSuIeJeXlyODuS"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1nSg76FRqSuIeJeXlyODuS"
+          }
+        },
+        "publishedCounter": 5,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1nSg76FRqSuIeJeXlyODuS"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Wedding Event",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "date",
+          "name": "Date",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "location",
+          "name": "Location",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "venue"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
         }
       ]
     }
@@ -1198,7 +1323,7 @@
             "linkType": "Space"
           }
         },
-        "version": 46,
+        "version": 58,
         "createdAt": "2018-09-15T20:25:29.037Z",
         "createdBy": {
           "sys": {
@@ -1207,7 +1332,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2018-09-18T23:05:35.099Z",
+        "updatedAt": "2019-03-01T04:02:42.151Z",
         "updatedBy": {
           "sys": {
             "id": "1nSg76FRqSuIeJeXlyODuS",
@@ -1233,60 +1358,68 @@
       "controls": [
         {
           "fieldId": "title",
-          "widgetId": "singleLine"
-        },
-        {
-          "fieldId": "date",
-          "settings": {
-            "ampm": "24",
-            "format": "timeZ",
-            "helpText": "The date and time of the wedding"
-          },
-          "widgetId": "datePicker"
-        },
-        {
-          "fieldId": "story",
-          "widgetId": "multipleLine"
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "splash",
-          "widgetId": "assetLinkEditor"
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "story",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "spouses",
           "settings": {
             "bulkEditing": false
           },
-          "widgetId": "entryCardsEditor"
+          "widgetId": "entryCardsEditor",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "attendants",
           "settings": {
             "bulkEditing": false
           },
-          "widgetId": "entryCardsEditor"
-        },
-        {
-          "fieldId": "venue",
-          "widgetId": "entryCardEditor"
+          "widgetId": "entryCardsEditor",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "accommodations",
-          "widgetId": "entryLinkEditor"
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "mainEvent",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "otherEvents",
+          "settings": {
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "registries",
           "settings": {
             "bulkEditing": false
           },
-          "widgetId": "entryLinksEditor"
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "attributions",
           "settings": {
             "bulkEditing": false
           },
-          "widgetId": "entryLinksEditor"
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
         }
       ]
     },
@@ -1301,7 +1434,7 @@
             "linkType": "Space"
           }
         },
-        "version": 16,
+        "version": 20,
         "createdAt": "2018-09-15T20:26:47.989Z",
         "createdBy": {
           "sys": {
@@ -1310,7 +1443,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2018-09-18T17:03:47.690Z",
+        "updatedAt": "2019-03-01T01:57:44.028Z",
         "updatedBy": {
           "sys": {
             "id": "1nSg76FRqSuIeJeXlyODuS",
@@ -1336,39 +1469,48 @@
       "controls": [
         {
           "fieldId": "name",
-          "widgetId": "singleLine"
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "streetAddress",
-          "widgetId": "singleLine"
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "city",
-          "widgetId": "singleLine"
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "state",
-          "widgetId": "singleLine"
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "zipCode",
-          "widgetId": "singleLine"
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "phoneNumber",
-          "widgetId": "singleLine"
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "venueNotes",
-          "widgetId": "markdown"
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "url",
-          "widgetId": "urlEditor"
+          "widgetId": "urlEditor",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "photo",
-          "widgetId": "assetLinkEditor"
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
         }
       ]
     },
@@ -1383,7 +1525,7 @@
             "linkType": "Space"
           }
         },
-        "version": 26,
+        "version": 30,
         "createdAt": "2018-09-16T16:49:41.539Z",
         "createdBy": {
           "sys": {
@@ -1392,7 +1534,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2018-09-28T00:15:47.267Z",
+        "updatedAt": "2018-09-28T00:23:16.097Z",
         "updatedBy": {
           "sys": {
             "id": "1nSg76FRqSuIeJeXlyODuS",
@@ -1445,7 +1587,7 @@
           "widgetId": "entryLinkEditor"
         },
         {
-          "fieldId": "notes",
+          "fieldId": "story",
           "widgetId": "multipleLine"
         }
       ]
@@ -1655,7 +1797,7 @@
             "linkType": "Space"
           }
         },
-        "version": 2,
+        "version": 4,
         "createdAt": "2018-09-18T16:52:34.879Z",
         "createdBy": {
           "sys": {
@@ -1664,7 +1806,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2018-09-18T16:52:35.330Z",
+        "updatedAt": "2019-03-01T03:11:32.445Z",
         "updatedBy": {
           "sys": {
             "id": "1nSg76FRqSuIeJeXlyODuS",
@@ -1690,14 +1832,16 @@
       "controls": [
         {
           "fieldId": "notes",
-          "widgetId": "multipleLine"
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "hotels",
           "settings": {
             "bulkEditing": false
           },
-          "widgetId": "entryLinksEditor"
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
         }
       ]
     },
@@ -1774,7 +1918,7 @@
             "linkType": "Space"
           }
         },
-        "version": 2,
+        "version": 4,
         "createdAt": "2018-09-18T22:34:45.928Z",
         "createdBy": {
           "sys": {
@@ -1783,7 +1927,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2018-09-18T22:34:47.154Z",
+        "updatedAt": "2018-12-25T02:47:04.107Z",
         "updatedBy": {
           "sys": {
             "id": "1nSg76FRqSuIeJeXlyODuS",
@@ -1821,6 +1965,84 @@
             "bulkEditing": false
           },
           "widgetId": "entryLinksEditor"
+        },
+        {
+          "fieldId": "scrapeCrowdRise",
+          "settings": {
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "tpymuk92o1hv",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 10,
+        "createdAt": "2019-03-01T00:43:07.629Z",
+        "createdBy": {
+          "sys": {
+            "id": "1nSg76FRqSuIeJeXlyODuS",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2019-03-01T00:52:01.672Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1nSg76FRqSuIeJeXlyODuS",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "weddingEvent",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "date",
+          "settings": {
+            "ampm": "24",
+            "format": "timeZ"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "location",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
         }
       ]
     }

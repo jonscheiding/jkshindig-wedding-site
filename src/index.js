@@ -1,18 +1,14 @@
 import './polyfills';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ReactGA from 'react-ga';
+import { render, hydrate } from 'react-dom';
 import vhCheck from 'vh-check';
-import { ThemeProvider } from 'styled-components';
 
 import './index.css';
-import theme from './theme.json';
-
 import './prop-types-ex';
-import App from './App';
-
 import { ContentClient } from './content-client';
+import AppThemed from './AppThemed';
 
 if(process.env.REACT_APP_GA_TRACKING_ID) {
   ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
@@ -21,28 +17,24 @@ if(process.env.REACT_APP_GA_TRACKING_ID) {
 
 vhCheck('browser-address-bar');
 
+const contentClient = new ContentClient();
 const rootEl = document.getElementById('root');
 
-const client = new ContentClient();
-let content;
-
-const render = (AppComponent) => {
-  ReactDOM.render(
-    <ThemeProvider theme={theme}>
-      <AppComponent content={content} />
-    </ThemeProvider>,
-    rootEl
-  );
+const renderApp = (AppComponent) => {
+  contentClient.fetchContent().then(c => {
+    if(rootEl.hasChildNodes()) {
+      hydrate(<AppComponent content={c} />, rootEl);
+    } else {
+      render(<AppComponent content={c} />, rootEl);
+    }
+  });
 };
 
-client.fetchContent().then(c => {
-  content = c;
-  render(App);
-});
+renderApp(AppThemed);
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
-    const NextApp = require('./App').default;
-    render(NextApp);
+  module.hot.accept('./AppThemed', () => {
+    const NextAppThemed = require('./AppThemed').default;
+    renderApp(NextAppThemed);
   });
 }
