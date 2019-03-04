@@ -8,6 +8,8 @@ export class ContentClient {
       accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN     
     });
 
+    this.cachedContent = null;
+
     this.contentTypes = {};
 
     this.map = {
@@ -39,12 +41,17 @@ export class ContentClient {
     };
   }
 
-  async fetchContent() {
+  async fetchContent(allowCached = true) {
+    if(allowCached && this.cachedContent !== null) {
+      return Promise.resolve(this.cachedContent);
+    }
+
     this.contentTypes.qa = await this.client.getContentType('qa');
     const content = await this.client.getEntries({ content_type: 'wedding', include: 10 })
       .then(r => r.items[0]);
 
-    return this.mapContent(content);
+    this.cachedContent = this.mapContent(content);
+    return this.cachedContent;
   }
 
   mapContent(entry) {
