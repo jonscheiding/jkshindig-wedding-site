@@ -18,9 +18,6 @@ export class ContentClient {
         if(typeof(o) !== 'object') {
           return o;
         }
-        if(o.sys.type === 'Asset') {
-          return o.fields.file.url;
-        }
 
         const content = {};
         for(const key of Object.keys(o.fields)) {
@@ -64,7 +61,7 @@ export class ContentClient {
     }
 
     if(entry.sys.type === 'Asset') {
-      return entry.fields.file.url;
+      return 'https:' + entry.fields.file.url;
     }
 
     const map = this.map[entry.sys.contentType.sys.id] || this.map.default;
