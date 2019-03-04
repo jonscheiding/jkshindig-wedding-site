@@ -31,10 +31,6 @@ export class ContentClient {
         ...this.map.default(o),
         date: new Date(Date.parse(o.fields.date))
       }),
-      weddingEvent: o => ({
-        ...this.map.default(o),
-        date: new Date(Date.parse(o.fields.date))
-      }),
       qa: o =>
         this.contentTypes.qa.fields
           .filter(f => f.id.startsWith('question'))
