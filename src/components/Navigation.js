@@ -71,17 +71,22 @@ class Navigation extends Component {
         currentClassName='current'>
         {SECTION_NAMES.map(name => (
           <MenuItem key={name} className={cx({next: name === this.state.nextSection})}>
-            <a onClick={() => this.navigateTo(name)}>
+            <a onClick={(e) => this.navigateClick(e, name)} href={`/${name}`}>
               {name}
               <KeyboardArrowRightIcon className='icon' />
             </a>
           </MenuItem>
         ))}
         <MenuItem className={cx('top', { 'next': this.state.nextSection === null })}>
-          <a onClick={this.navigateToTop}><KeyboardArrowUpIcon className='icon' /></a>
+          <a onClick={this.navigateClick} href='/'><KeyboardArrowUpIcon className='icon' /></a>
         </MenuItem>
       </Menu>
     );
+  }
+
+  navigateClick = (e, section) => {
+    this.navigateTo(section);
+    e.preventDefault();
   }
 
   navigateTo = (section) => {

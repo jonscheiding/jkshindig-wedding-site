@@ -22,7 +22,9 @@ const LinkButton = ({children, external, ...props}) => {
 };
 
 LinkButton.propTypes = {
-  external: PropTypes.bool
+  external: PropTypes.bool,
+  children: PropTypes.any,
+  target: PropTypes.string
 };
 
 export default Button;

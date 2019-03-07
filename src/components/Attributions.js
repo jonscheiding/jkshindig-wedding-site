@@ -18,7 +18,7 @@ const Attribution = styled.div`
 const Attributions = ({attributions}) => (
   <Attribution>
     {attributions.map(a => (
-      <a href={a.url} title={a.title} key={a.title} target='_blank'>
+      <a href={a.url} title={a.title} key={a.title} target='_blank' rel='noopener noreferrer'>
         <img src={a.icon} alt={a.title} />
       </a>
     ))}
