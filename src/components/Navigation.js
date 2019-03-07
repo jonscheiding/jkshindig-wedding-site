@@ -56,8 +56,6 @@ class Navigation extends Component {
       nextSection: SECTION_NAMES[0],
       atEnd: false
     };
-
-    this.updateNextSection = this.updateNextSection.bind(this);
   }
 
   render() {
@@ -67,7 +65,7 @@ class Navigation extends Component {
     
     return (
       <Menu items={SECTION_NAMES}
-        onUpdate={this.updateNextSection}
+        onUpdate={this.onUpdate}
         currentClassName='current'>
         {SECTION_NAMES.map(name => (
           <MenuItem key={name} className={cx({next: name === this.state.nextSection})}>
@@ -101,14 +99,29 @@ class Navigation extends Component {
     
     this.updateUrl(section);
     document.getElementById(section).scrollIntoView();
+    this.updateTitle(section);
   }
 
   navigateToTop = () => {
     this.updateUrl(null);
     window.scrollTo(0, 0);
+    this.updateTitle(undefined);
   }
 
-  updateNextSection(e) {
+  onUpdate = (e) => {
+    this.updateTitle(e ? e.id : undefined);
+    this.updateNextSection(e);
+  }
+
+  updateTitle = (section) => {
+    if(section) {
+      document.title = `${section} - ${process.env.REACT_APP_SITE_TITLE}`;
+    } else {
+      document.title = process.env.REACT_APP_SITE_TITLE;
+    }
+  }
+
+  updateNextSection = (e) => {
     const currentSection = e ? e.id : undefined;
     const nextSection = this.determineNextSection(currentSection);
 
