@@ -98,8 +98,12 @@ class Navigation extends Component {
     );
     
     this.updateUrl(section);
-    document.getElementById(section).scrollIntoView();
     this.updateTitle(section);
+
+    var el = document.getElementById(section);
+    if(el) {
+      el.scrollIntoView();
+    }
   }
 
   navigateToTop = () => {
