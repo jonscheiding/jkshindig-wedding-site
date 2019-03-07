@@ -34,15 +34,6 @@ class App extends Component {
       </AppContainer>
     );
   }
-
-  componentDidMount() {
-    if(!this.props.content) {
-      return;
-    }
-
-    const nicknames = this.props.content.spouses.map(s => s.firstName + ' ' + s.lastName);
-    document.title = `${nicknames[0]} and ${nicknames[1]}`;
-  }
 }
 
 App.propTypes = {
