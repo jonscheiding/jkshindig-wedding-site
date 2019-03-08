@@ -1,12 +1,12 @@
 import './polyfills';
+import './index.css';
+import './prop-types-ex';
 
 import React from 'react';
 import ReactGA from 'react-ga';
 import { render, hydrate } from 'react-dom';
 import vhCheck from 'vh-check';
 
-import './index.css';
-import './prop-types-ex';
 import { ContentClient } from './content-client';
 import AppThemed from './AppThemed';
 

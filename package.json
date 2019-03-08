@@ -11,7 +11,7 @@
     "build": "npm-run-all build:css build:js",
     "snapshot": "react-snap",
     "build:snapshot": "npm-run-all build snapshot",
-    "start:prod": "yarn run build:snapshot && serve -s ./build",
+    "start:prod": "serve -s ./build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint:sass": "sass-lint -v -q src/",
