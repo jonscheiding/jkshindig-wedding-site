@@ -23,6 +23,21 @@ p {
   text-align: center;
   text-transform: none;
   color: $highlight-color;
+
+  li:nth-child(odd):after {
+    transform: rotate(180deg);
+  }
+
+  li:after, li:first-child:before { 
+    display: block;
+    content: " ";
+    background-image: url(assets/separator-tiny.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1rem;
+    margin: 0.5rem 0 0.25rem 0;
+  }
 }
 
 i {

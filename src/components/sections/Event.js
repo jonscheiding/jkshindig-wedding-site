@@ -47,7 +47,7 @@ class Event extends Component {
             {this.renderPlaceInformation(location)}
           </Col>
           <Col xs4={4} md={8}>
-            <ReactMarkdown source={description} />
+            <p><ReactMarkdown source={description} /></p>
           </Col>
         </Row>
       </div>
