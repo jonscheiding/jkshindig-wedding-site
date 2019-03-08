@@ -1,5 +1,6 @@
 [context.develop.environment]
   REACT_APP_ENABLED_SECTIONS = "*"
+  REACT_APP_ROBOTS_SETTING = "noindex,nofollow"
 
 [context.production.environment]
   REACT_APP_ENABLED_SECTIONS = "Stories,Event,Gifts"

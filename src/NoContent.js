@@ -19,7 +19,7 @@ export default () => {
   return (
     <Banner>
       <h3>There's nothing here yet!</h3>
-      <h5><p>Go to <u><a href={link} target='_blank'>Contentful</a></u> to get started.</p></h5>
+      <h5><p>Go to <u><a href={link} target='_blank' rel='noopener noreferrer'>Contentful</a></u> to get started.</p></h5>
     </Banner>
   );
 };
