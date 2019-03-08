@@ -39,6 +39,10 @@ b {
   color: $foreground-color;
 }
 
+button {
+  background: none;
+}
+
 @mixin font-size($element, $size) {
   #{$element} { 
     font-size: $size;    

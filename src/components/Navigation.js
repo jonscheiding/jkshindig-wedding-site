@@ -27,6 +27,7 @@ const MenuItem = styled.li`
   padding: 5px;
   text-align: center;
   text-transform: uppercase;
+  cursor: pointer;
 
   display: inline-block;
 
@@ -69,14 +70,14 @@ class Navigation extends Component {
         currentClassName='current'>
         {SECTION_NAMES.map(name => (
           <MenuItem key={name} className={cx({next: name === this.state.nextSection})}>
-            <a onClick={(e) => this.navigateClick(e, name)} href={`/${name}`}>
+            <button onClick={(e) => this.navigateClick(e, name)}>
               {name}
               <KeyboardArrowRightIcon className='icon' />
-            </a>
+            </button>
           </MenuItem>
         ))}
         <MenuItem className={cx('top', { 'next': this.state.nextSection === null })}>
-          <a onClick={this.navigateClick} href='/'><KeyboardArrowUpIcon className='icon' /></a>
+          <button onClick={this.navigateClick}><KeyboardArrowUpIcon className='icon' /></button>
         </MenuItem>
       </Menu>
     );
