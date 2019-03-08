@@ -6,7 +6,7 @@
     "build:css": "node-sass --importer=./sass-importer.js src/index.scss -o src",
     "start:css": "npm-run-all build:css \"build:css --watch --recursive\"",
     "build:js": "react-scripts build",
-    "start:js": "react-scripts start",
+    "start:js": "node scripts/start.js",
     "start": "npm-run-all -p start:css start:js",
     "build": "npm-run-all build:css build:js",
     "snapshot": "react-snap",
