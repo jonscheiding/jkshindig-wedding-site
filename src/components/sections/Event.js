@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { DateTime } from 'luxon';
 import { Row, Col } from 'react-material-responsive-grid';
 
@@ -8,7 +9,21 @@ import FitText from '../FitText';
 import PortraitImage from '../PortraitImage';
 import ProfileIcons from '../ProfileIcons';
 import Separator from '../Separator';
-import { ALL_SIZES } from '../../responsive-styles';
+import { ALL_SIZES, Breakpoint } from '../../responsive-styles';
+
+const OtherEventRow = styled(Row)`
+  margin-top: 1em;
+`;
+
+const BreakLarge = styled.div`
+  display: inline;
+  
+  &::after { content: ' ' }
+
+  ${Breakpoint.lg`
+    display: block;
+  `}
+`;
 
 class Event extends Component {
   render() {
@@ -62,20 +77,36 @@ class Event extends Component {
         <Separator small flip />
         <h3>Other Events</h3>
         <Row center={ALL_SIZES}>
-          {otherEvents.map(e => (
-            <Col xs4={4} sm8={4} md={4} lg={3} key={e.title}>
-              <h6>{dateFormat(e.date, 'dddd, mmm dd, yyyy')}</h6>
-              <h6>{dateFormat(e.date, 'h:MM tt')}</h6>
-              <h5><FitText className='header-height'>{e.title}</FitText></h5>
-              <h5><FitText className='header-height'><i>{e.location.name}</i></FitText></h5>
-              {this.renderPlaceInformation(e.location, true)}
-              <div>
-                <ReactMarkdown source={e.description} />          
-              </div>
+          {otherEvents.map((e, index) => (
+            <Col xs4={4} xs8={4} key={index}>
+              {this.renderOtherEvent(e)}
             </Col>
           ))}
         </Row>
       </div>
+    );
+  }
+
+  renderOtherEvent(event) {
+    return (
+      <OtherEventRow center={ALL_SIZES}>
+        <Col xs4={4}>
+          <h6><FitText className='header-height'>{event.title}</FitText></h6>
+        </Col>
+        <Col xs4={4} lg={6}>
+          <h6>
+            {event.date.toFormat('cccc,')}
+            <BreakLarge />
+            {event.date.toFormat('LLLL dd')}
+          </h6>
+          <h6>{event.date.toFormat('h:mm a')}</h6>
+          <h6><FitText className='header-height'><i>{event.location.name}</i></FitText></h6>
+          {this.renderPlaceInformation(event.location, true)}
+        </Col>
+        <Col xs4={4} lg={6}>
+          <p>{event.description}</p>
+        </Col>
+      </OtherEventRow>
     );
   }
 
