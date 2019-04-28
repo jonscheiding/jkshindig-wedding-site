@@ -7,11 +7,10 @@ import Separator from './Separator';
 import Stories from './sections/Stories';
 import Event from './sections/Event';
 import Gifts from './sections/Gifts';
-import Rsvp from './sections/Rsvp';
 import Photos from './sections/Photos';
 
 const sections = getConfigured(
-  [Photos, Stories, Event, Gifts, Rsvp], 
+  [Photos, Stories, Event, Gifts], 
   process.env.REACT_APP_ENABLED_SECTIONS, 
   s => s.title);
   
