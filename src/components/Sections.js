@@ -8,9 +8,10 @@ import Stories from './sections/Stories';
 import Event from './sections/Event';
 import Gifts from './sections/Gifts';
 import Photos from './sections/Photos';
+import Recipes from './sections/Recipes';
 
 const sections = getConfigured(
-  [Photos, Stories, Event, Gifts], 
+  [Photos, Recipes, Stories, Event, Gifts], 
   process.env.REACT_APP_ENABLED_SECTIONS, 
   s => s.title);
   
