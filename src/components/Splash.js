@@ -53,6 +53,8 @@ class Splash extends Component {
       }
     `;
 
+    console.log(date.diffNow());
+
     return (
       <SplashParallax strength={300}>
         <Background>
@@ -61,7 +63,11 @@ class Splash extends Component {
         <SplashContent>
           <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
           <h2>{date.toFormat('LLLL d, yyyy')}</h2>
-          <h2><i>save the date</i></h2>
+          {
+            date.diffNow('days').days > 0 
+              ? <h2><i>save the date</i></h2>
+              : null
+          }
           <footer>
             <h2>{venue.name}</h2>
             <h3>
