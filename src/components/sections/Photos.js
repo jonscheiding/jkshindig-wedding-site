@@ -3,24 +3,27 @@ import { Row, Col } from 'react-material-responsive-grid';
 
 import BackgroundImage from '../BackgroundImage';
 import Square from '../Square';
-import styled from 'styled-components';
-
-const PaddedRow = styled(Row)`
-  /* margin-top: 1rem;
-  margin-bottom: 1rem; */
-`;
 
 class Photos extends Component {
   render() {
-    const { photoGalleries } = this.props.content;
+    const { photos } = this.props.content;
+    console.log(this.props.content);
+
+    if(!photos) {
+      return null;
+    }
+
     return (
-      <PaddedRow>
-        {photoGalleries.map(p => (
-          <Col xs4={4} lg={4}>
-            {this.renderPhotoGallery(p)}
-          </Col>
-        ))}
-      </PaddedRow>
+      <div>
+        <p>{photos.summary}</p>
+        <Row>
+          {photos.galleries.map(p => (
+            <Col xs4={4} sm4={4} sm8={4} sm8Offset={2} lg={4} lgOffset={0}>
+              {this.renderPhotoGallery(p)}
+            </Col>
+          ))}
+        </Row>
+      </div>
     );
   }
 
@@ -28,7 +31,7 @@ class Photos extends Component {
     console.log(gallery);
     return (
       <div>
-        <a href={gallery.url} target='_blank'>
+        <a href={gallery.url} target='_blank' rel='noopener noreferrer'>
           <h4>{gallery.title}</h4>
           <Square aspect={1.777}>
             <BackgroundImage image={gallery.coverImage} />
