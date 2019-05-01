@@ -35,7 +35,7 @@ class Photos extends Component {
         <Square aspect={1.777}>
           <BackgroundImage image={gallery.coverImage} />
         </Square>
-        <p>
+        <p className='smaller'>
           {gallery.description}
         </p>
         <h5>
