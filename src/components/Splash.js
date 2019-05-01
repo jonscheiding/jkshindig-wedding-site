@@ -53,8 +53,6 @@ class Splash extends Component {
       }
     `;
 
-    console.log(date.diffNow());
-
     return (
       <SplashParallax strength={300}>
         <Background>

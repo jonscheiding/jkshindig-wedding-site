@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
+import ReactMarkdown from 'react-markdown/with-html';
 
 import { CrowdRiseClient } from '../../crowdrise-client';
 
@@ -104,9 +105,8 @@ class Gifts extends Component {
         <Separator small flip={i % 2 === 1} />
         <Row>
           <Col xs4={4} xs8={6} xs8Offset={1} md={6} mdOffset={3}>
-            <p>
-              {isPostWedding ? registry.commentsPostWedding : registry.comments}
-            </p>
+            <ReactMarkdown escapeHtml={false}
+              source={isPostWedding ? registry.commentsPostWedding : registry.comments} />
           </Col>
         </Row>
         <Row center={ALL_SIZES}>
