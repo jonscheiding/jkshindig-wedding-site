@@ -6,12 +6,13 @@ import { getConfigured } from '../util';
 import Separator from './Separator';
 import Stories from './sections/Stories';
 import Event from './sections/Event';
+import Giving from './sections/Giving';
 import Gifts from './sections/Gifts';
 import Photos from './sections/Photos';
 import Recipes from './sections/Recipes';
 
 const sections = getConfigured(
-  [Photos, Recipes, Stories, Event, Gifts], 
+  [Photos, Giving, Recipes, Stories, Event, Gifts], 
   process.env.REACT_APP_ENABLED_SECTIONS, 
   s => s.title);
   
