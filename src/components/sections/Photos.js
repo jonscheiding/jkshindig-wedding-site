@@ -4,6 +4,7 @@ import { Row, Col } from 'react-material-responsive-grid';
 
 import BackgroundImage from '../BackgroundImage';
 import Square from '../Square';
+import ProfileIcons from '../ProfileIcons';
 
 class Photos extends Component {
   render() {
@@ -30,15 +31,16 @@ class Photos extends Component {
   renderPhotoGallery(gallery) {
     return (
       <div>
-        <a href={gallery.url} target='_blank' rel='noopener noreferrer'>
-          <h4>{gallery.title}</h4>
-          <Square aspect={1.777}>
-            <BackgroundImage image={gallery.coverImage} />
-          </Square>
-        </a>
+        <h4>{gallery.title}</h4>
+        <Square aspect={1.777}>
+          <BackgroundImage image={gallery.coverImage} />
+        </Square>
         <p>
           {gallery.description}
         </p>
+        <h5>
+          <ProfileIcons website={gallery.url} />
+        </h5>
       </div>
     );
   }
