@@ -2,8 +2,6 @@ import cheerio from 'cheerio';
 import request from 'request';
 import { EventEmitter } from 'events';
 
-const REFRESH_INTERVAL = 30000;
-
 export class CrowdRiseClient extends EventEmitter {
   constructor(url) {
     super();
@@ -14,6 +12,7 @@ export class CrowdRiseClient extends EventEmitter {
 
   updateCampaignStatus = () => {
     const requestUrl = `https://cors-anywhere.herokuapp.com/${this.url}`;
+    const refreshInterval = process.env.REACT_APP_CROWDRISE_REFRESH_INTERVAL;
 
     request(requestUrl, {json: true}, (error, response, body) => {
       if(error || response.statusCode !== 200) {
@@ -27,7 +26,9 @@ export class CrowdRiseClient extends EventEmitter {
       };
 
       this.emit('refresh', result);
-      this.timeoutId = setTimeout(this.updateCampaignStatus, REFRESH_INTERVAL);
+      if(refreshInterval) {
+        this.timeoutId = setTimeout(this.updateCampaignStatus, refreshInterval);
+      }
     });
   }
 
