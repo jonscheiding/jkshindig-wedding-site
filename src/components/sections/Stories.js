@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
 import styled from 'styled-components';
 
-import { ALL_SIZES } from '../../responsive-styles';
+import { ALL_SIZES, Breakpoint } from '../../responsive-styles';
 import Separator from '../Separator';
 import PersonProfile from '../PersonProfile';
 
@@ -11,15 +11,21 @@ const QA = styled.div`
   margin-bottom: 1em;
 `;
 
+const StoriesWrapper = styled.div`
+  ${Breakpoint.lg`
+    p { font-size: 1.2rem };
+  `}
+`;
+
 class Stories extends Component {
   render() {
     return (
-      <div>
+      <StoriesWrapper>
         {this.renderSpouses()}
         {this.renderStory()}
         <Separator flip />
         {this.renderAttendants()}
-      </div>
+      </StoriesWrapper>
     );
   }
 
