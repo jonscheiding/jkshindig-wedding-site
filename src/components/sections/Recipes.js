@@ -56,14 +56,15 @@ class Recipes extends Component {
   }
 }
 
-const SHAPE_LINK = {
-  text: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired
+const SHAPE_RECIPE = {
+  name: PropTypes.string.isRequired,
+  originalUrl: PropTypes.string.isRequired,
+  comments: PropTypes.string
 };
 
 const SHAPE_RECIPES = {
   summary: PropTypes.string,
-  links: PropTypes.arrayOf(PropTypes.shape(SHAPE_LINK)).isRequired
+  recipes: PropTypes.arrayOf(PropTypes.shape(SHAPE_RECIPE)).isRequired
 };
 
 const SHAPE_CONTENT = {
