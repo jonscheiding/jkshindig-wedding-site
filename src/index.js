@@ -4,7 +4,7 @@ import './prop-types-ex';
 
 import React from 'react';
 import ReactGA from 'react-ga';
-import { render, hydrate } from 'react-dom';
+import { render } from 'react-dom';
 import vhCheck from 'vh-check';
 
 import { ContentClient } from './content-client';
@@ -22,11 +22,7 @@ const rootEl = document.getElementById('root');
 
 const renderApp = (AppComponent) => {
   contentClient.fetchContent().then(c => {
-    if(rootEl.hasChildNodes()) {
-      hydrate(<AppComponent content={c} />, rootEl);
-    } else {
-      render(<AppComponent content={c} />, rootEl);
-    }
+    render(<AppComponent content={c} />, rootEl);
   });
 };
 

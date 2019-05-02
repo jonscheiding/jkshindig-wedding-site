@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import { Parallax, Background } from 'react-parallax';
 import { DateTime } from 'luxon';
 import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
 
 import { Breakpoint } from '../responsive-styles';
 import BackgroundImage from './BackgroundImage';
 import { MENU_HEIGHT } from './Navigation';
+
+import theme from '../theme.json';
 
 class Splash extends Component {
   render() {
@@ -21,6 +24,13 @@ class Splash extends Component {
       ${Breakpoint.sm` min-height: 28rem; `}
       ${Breakpoint.lg` min-height: 32rem; `}
       ${Breakpoint.xl` min-height: 36rem; `}
+    `;
+
+    const Overlay = styled.div`
+      background-color: ${transparentize(0.5, theme['highlight-color'])};
+      color: ${theme['background-color']};
+
+      i { color: ${theme['background-color']}; }
     `;
 
     const SplashParallax = styled(Parallax)`
@@ -38,7 +48,9 @@ class Splash extends Component {
     const SplashContent = styled.div`
       ${viewportSize}
 
-      padding-top: 1rem;
+      header > div {
+        padding-bottom: 0.5rem;
+      }
 
       > .names > i {
         display: block;
@@ -46,14 +58,25 @@ class Splash extends Component {
         ${Breakpoint.md` display: inline; `}
       }
 
-      > footer { 
+      footer { 
         position: absolute;
         bottom: ${ MENU_HEIGHT };
         width: 100%;
       }
     `;
 
-    console.log(date.diffNow());
+    const footer = (
+      <footer>
+        <Overlay>
+          <h2>{venue.name}</h2>
+          <h3>
+            <div><i>{venue.city}, {venue.state}</i></div>
+          </h3>
+        </Overlay>
+      </footer>
+    );
+
+    const isPreWedding = date.diffNow('days').days > 0;
 
     return (
       <SplashParallax strength={300}>
@@ -61,19 +84,18 @@ class Splash extends Component {
           <SplashBackgroundImage image={splash} />
         </Background>
         <SplashContent>
-          <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
-          <h2>{date.toFormat('LLLL d, yyyy')}</h2>
-          {
-            date.diffNow('days').days > 0 
-              ? <h2><i>save the date</i></h2>
-              : null
-          }
-          <footer>
-            <h2>{venue.name}</h2>
-            <h3>
-              <div><i>{venue.city}, {venue.state}</i></div>
-            </h3>
-          </footer>
+          <header>
+            <Overlay>
+              <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
+              <h2>{date.toFormat('LLLL d, yyyy')}</h2>
+              {
+                isPreWedding 
+                  ? <h2><i>save the date</i></h2>
+                  : null
+              }
+            </Overlay>
+          </header>
+          {isPreWedding ? footer : null}
         </SplashContent>
       </SplashParallax>
     );

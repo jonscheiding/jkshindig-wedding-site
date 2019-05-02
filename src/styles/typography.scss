@@ -8,6 +8,10 @@ body {
   color: $foreground-color;
 }
 
+a[target]:hover {
+  text-decoration: underline;
+}
+
 h1, h2, h3, h4, h5, h6 {
   padding: 0.15em;
   text-transform: uppercase;
@@ -23,6 +27,14 @@ p {
   text-align: center;
   text-transform: none;
   color: $highlight-color;
+
+  a, a:active, a:visited, a:hover {
+    color: $foreground-color;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 i {

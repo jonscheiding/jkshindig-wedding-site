@@ -11,7 +11,7 @@ const FitText = styled(Textfit)`
 `;
 
 FitText.propTypes = {
-  children: PropTypes.string
+  children: PropTypes.any
 };
 
 export default FitText;

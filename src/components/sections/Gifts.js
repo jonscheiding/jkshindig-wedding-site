@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-material-responsive-grid';
+import ReactMarkdown from 'react-markdown/with-html';
 
 import { CrowdRiseClient } from '../../crowdrise-client';
 
@@ -11,7 +12,7 @@ import ProfileIcons from '../ProfileIcons';
 import { ALL_SIZES } from '../../responsive-styles';
 import Square from '../Square';
 
-class RegistryLink extends Component {
+export class RegistryLink extends Component {
   constructor(props) {
     super(props);
     this.state = { status: null };
@@ -79,26 +80,33 @@ class Gifts extends Component {
   }
 
   render() {
-    const { registries } = this.props.content;
+    const { registries, mainEvent } = this.props.content;
+
+    const isPostWedding = mainEvent.date.diffNow('days').days < 0;
 
     if(!registries) { return null; }
 
+    let registriesToDisplay = registries;
+    if(isPostWedding) {
+      registriesToDisplay = registriesToDisplay.filter(
+        r => r.displayPostWedding);
+    }
+
     return (
       <div>
-        {registries.map(this.renderRegistry)}
+        {registriesToDisplay.map((r, i) => this.renderRegistry(r, i, isPostWedding))}
       </div>
     );
   }
 
-  renderRegistry(registry, i) {
+  renderRegistry(registry, i, isPostWedding) {
     return (
       <div key={registry.title}>
         <Separator small flip={i % 2 === 1} />
         <Row>
           <Col xs4={4} xs8={6} xs8Offset={1} md={6} mdOffset={3}>
-            <p>
-              {registry.comments}
-            </p>
+            <ReactMarkdown escapeHtml={false}
+              source={isPostWedding ? registry.commentsPostWedding : registry.comments} />
           </Col>
         </Row>
         <Row center={ALL_SIZES}>
