@@ -65,6 +65,19 @@ class Splash extends Component {
       }
     `;
 
+    const footer = (
+      <footer>
+        <Overlay>
+          <h2>{venue.name}</h2>
+          <h3>
+            <div><i>{venue.city}, {venue.state}</i></div>
+          </h3>
+        </Overlay>
+      </footer>
+    );
+
+    const isPreWedding = date.diffNow('days').days > 0;
+
     return (
       <SplashParallax strength={300}>
         <Background>
@@ -76,20 +89,13 @@ class Splash extends Component {
               <h1 className='names'>{names[0]} <i>and</i> {names[1]}</h1>
               <h2>{date.toFormat('LLLL d, yyyy')}</h2>
               {
-                date.diffNow('days').days > 0 
+                isPreWedding 
                   ? <h2><i>save the date</i></h2>
                   : null
               }
             </Overlay>
           </header>
-          <footer>
-            <Overlay>
-              <h2>{venue.name}</h2>
-              <h3>
-                <div><i>{venue.city}, {venue.state}</i></div>
-              </h3>
-            </Overlay>
-          </footer>
+          {isPreWedding ? footer : null}
         </SplashContent>
       </SplashParallax>
     );
