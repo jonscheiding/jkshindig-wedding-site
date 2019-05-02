@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col } from 'react-material-responsive-grid';
 import styled from 'styled-components';
+import { Row, Col } from 'react-material-responsive-grid';
 
-const VerticalCentered = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+import ProfileIcons from '../ProfileIcons';
+import { Breakpoint } from '../../responsive-styles';
+import Separator from '../Separator';
+
+const Narrower = styled.div`
+  width: 100%;
+  margin: auto;
+  
+  ${Breakpoint.sm`
+    width: 70%;
+  `}
+
+  ${Breakpoint.lg`
+    width: 100%;
+  `}
+`;
+
+const MdAndBelow = styled.div`
+  ${Breakpoint.lg`
+    display: none;
+  `}
 `;
 
 class Recipes extends Component {
@@ -22,13 +38,16 @@ class Recipes extends Component {
       <div>
         <p>{recipes.summary}</p>
         <Row>{
-          recipes.links.map((r, i) => (
-            <Col key={i} xs4={2} xs4Offset={1} lg={4} lgOffset={0}>
-              <VerticalCentered>
-                <a href={r.url} target='_blank' rel='noopener noreferrer'>
-                  <h5>{r.text}</h5>
-                </a>
-              </VerticalCentered>
+          recipes.recipes.map((r, i) => (
+            <Col key={i} xs4={4} lg={4} lgOffset={0}>
+              <MdAndBelow>
+                <Separator small flip={i % 2 === 1} />
+              </MdAndBelow>
+              <Narrower>
+                <h5>{r.name}</h5>
+                <h6><ProfileIcons website={r.originalUrl} /></h6>
+                <p className='smaller'>{r.notes}</p>
+              </Narrower>
             </Col>
           ))
         }</Row>
