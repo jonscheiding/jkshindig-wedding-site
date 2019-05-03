@@ -3,7 +3,7 @@
   REACT_APP_ROBOTS_SETTING = "noindex,nofollow"
 
 [context.production.environment]
-  REACT_APP_ENABLED_SECTIONS = "Stories,Event,Gifts"
+  REACT_APP_ENABLED_SECTIONS = "Photos,Stories,Giving,Recipes"
   REACT_APP_CROWDRISE_REFRESH_INTERVAL = "60000"
 
 [[redirects]]
